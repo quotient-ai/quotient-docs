@@ -1,0 +1,12 @@
+"name": "Quotient AI"
+"logo": {
+  "light": "/logo/light.svg",
+  "dark": "/logo/dark.svg",
+  "href": "https://quotientai.co"
+},
+"favicon": "/favicon.png",
+"colors": {
+  "primary": "#B8B21A",
+  "light": "#D8D7CA",
+  "dark": "#7D7D6C",
+},
