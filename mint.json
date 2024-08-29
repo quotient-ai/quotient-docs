@@ -1,4 +1,5 @@
-"name": "Quotient AI"
+{
+"name": "Quotient AI",
 "logo": {
   "light": "/logo/light.svg",
   "dark": "/logo/dark.svg",
@@ -8,5 +9,6 @@
 "colors": {
   "primary": "#B8B21A",
   "light": "#D8D7CA",
-  "dark": "#7D7D6C",
-},
+  "dark": "#7D7D6C"
+}
+}
