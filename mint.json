@@ -53,8 +53,14 @@
       "group": "Let's get started",
       "pages": [
         "introduction",
+        {
+        "group": "PromptLab",
+        "icon": "flask",
+        "pages": [
         "promptlab/promptlab",
-        "promptlab/iq",
+        "promptlab/iq"
+        ]
+        },
         "sdk",
         "cloud"
       ]
