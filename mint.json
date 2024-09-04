@@ -42,6 +42,7 @@
     {
       "group": "Let's get started",
       "pages": [
+        "introduction",
         "promptlab",
         "sdk",
         "cloud"
