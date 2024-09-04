@@ -85,7 +85,8 @@
           ]
           },
         "devs/changelog"
-    }
+      ]
+    },
     {
       "group": "SDK Reference",
       "pages": [
