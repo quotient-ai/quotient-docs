@@ -72,9 +72,12 @@
         "sdk-reference/prompts",
         "sdk-reference/datasets",
         "sdk-reference/evals",
-        "sdk-reference/cli",
-        "sdk-reference/sdk"
-
+        "sdk-reference/cli"      ]
+    },
+    {
+      "group": "Links",
+      "pages": [
+        "sdk-reference/links/sdk"
       ]
     }
   ],
