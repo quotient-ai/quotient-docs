@@ -53,7 +53,8 @@
       "group": "Let's get started",
       "pages": [
         "introduction",
-        "promptlab",
+        "promptlab/promptlab",
+        "promptlab/iq",
         "sdk",
         "cloud"
       ]
@@ -72,7 +73,8 @@
         "sdk-reference/prompts",
         "sdk-reference/datasets",
         "sdk-reference/evals",
-        "sdk-reference/cli"      ]
+        "sdk-reference/cli"     
+      ]
     },
     {
       "group": "Links",
