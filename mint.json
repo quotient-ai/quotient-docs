@@ -38,6 +38,16 @@
       "url": "https://quotientai.co/blog-index"
     }
   ],
+  "tabs": [
+    {
+      "name": "SDK Reference",
+      "url": "sdk-reference"
+    },
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
   "navigation": [
     {
       "group": "Let's get started",
