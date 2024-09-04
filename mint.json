@@ -9,12 +9,16 @@
 "favicon": "/favicon.png",
 "colors": {
   "primary": "#B8B21A",
-  "light": "#D8D7CA",
-  "dark": "#7D7D6C",
-    "anchors": {
+  "light": "#CEC825",
+  "dark": "#F7693C",
+  "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
-    }
+    },
+  "background": {
+      "light": "#F0EFE3",
+      "dark": "#262626"
+  }
   },
   "topbarLinks": [
     {
