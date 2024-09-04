@@ -55,7 +55,7 @@
         "introduction",
         {
         "group": "PromptLab",
-        "icon": "flask"
+        "icon": "flask",
         "pages": [
         "promptlab/promptlab",
         "promptlab/iq"
