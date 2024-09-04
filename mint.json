@@ -81,6 +81,7 @@
           "group": "Releases",
           "pages": [
           "devs/releases/api/v1",
+          "devs/releases/sdk/v1",
           "devs/releases/promptlab/v1"
           ]
           },
