@@ -41,8 +41,6 @@
   "navigation": [
     {
       "group": "Let's get started",
-      "icon": "fa-rocket",
-      "iconType": "light",
       "pages": [
         "promptlab",
         "sdk",
