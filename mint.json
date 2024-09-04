@@ -40,12 +40,13 @@
   ],
   "tabs": [
     {
-      "name": "SDK Reference",
+      "name": "SDK reference",
       "url": "sdk-reference"
     },
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "API reference",
+      "url": "api-reference",
+      "openapi": "https://quotient-playground-api-v1.54dtgtgum0nka.us-east-1.cs.amazonlightsail.com/openapi.json"
     }
   ],
   "navigation": [
