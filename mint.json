@@ -40,22 +40,20 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Let's get started",
+      "icon": "rocket",
       "pages": [
-        "introduction",
-        "quickstart",
-        "development"
+        "promptlab",
+        "sdk",
+        "cloud"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Artifacts",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "artifacts/models",
+        "artifacts/prompts",
+        "artifacts/datasets"
       ]
     }
   ],
