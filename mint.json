@@ -75,6 +75,18 @@
       ]
     },
     {
+      "group": "Developer resources",
+      "pages": [
+        {
+          "group": "Releases",
+          "pages": [
+          "devs/releases/api/v1",
+          "devs/releases/promptlab/v1"
+          ]
+          },
+        "devs/changelog"
+    }
+    {
       "group": "SDK Reference",
       "pages": [
         "sdk-reference/prompts",
