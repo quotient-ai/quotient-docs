@@ -68,6 +68,7 @@
     },
     {
       "group": "Artifacts",
+      "icon": "treasure-chest",
       "pages": [
         "artifacts/models",
         "artifacts/prompts",
@@ -75,12 +76,22 @@
       ]
     },
     {
+      "group": "Cookbooks",
+      "icon": "cauldron",
+      "pages": [
+        "cookbooks/docs_qa",
+        "cookbooks/policy_compliance"
+      ]
+    },
+    {
       "group": "Developer resources",
+      "icon": "code",
       "pages": [
         {
           "group": "Releases",
           "pages": [
           "devs/releases/api/v1",
+          "devs/releases/sdk/v1",
           "devs/releases/promptlab/v1"
           ]
           },
