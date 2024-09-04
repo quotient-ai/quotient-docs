@@ -65,6 +65,15 @@
         "artifacts/prompts",
         "artifacts/datasets"
       ]
+    },
+    {
+      "group": "SDK Reference",
+      "pages": [
+        "sdk-reference/prompts",
+        "sdk-reference/datasets",
+        "sdk-reference/evals",
+        "sdk-reference/cli"
+      ]
     }
   ],
   "footerSocials": {
