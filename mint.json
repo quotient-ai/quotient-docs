@@ -75,7 +75,8 @@
       "pages": [
         "artifacts/models",
         "artifacts/prompts",
-        "artifacts/datasets"
+        "artifacts/datasets",
+        "artifacts/metrics"
       ],
       "icon": "treasure-chest"
     },
