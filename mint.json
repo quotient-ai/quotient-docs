@@ -60,6 +60,7 @@
         "introduction",
         {
         "group": "PromptLab",
+        "icon": "flask",
         "pages": [
         "promptlab/promptlab",
         "promptlab/iq"
@@ -67,29 +68,29 @@
         },
         "sdk",
         "cloud"
-      ],
-      "icon": "rocket"
+      ]
     },
     {
       "group": "Artifacts",
+      "icon": "treasure-chest",
       "pages": [
         "artifacts/models",
         "artifacts/prompts",
         "artifacts/datasets",
         "artifacts/metrics"
-      ],
-      "icon": "treasure-chest"
+      ]
     },
     {
       "group": "Cookbooks",
+      "icon": "cauldron",
       "pages": [
         "cookbooks/docs_qa",
         "cookbooks/policy_compliance"
-      ],
-      "icon": "cauldron"
+      ]
     },
     {
       "group": "Developer resources",
+      "icon": "code",
       "pages": [
         {
           "group": "Releases",
@@ -100,8 +101,7 @@
           ]
           },
         "devs/changelog"
-      ],
-    "icon": "code"
+      ]
     },
     {
       "group": "SDK Reference",
