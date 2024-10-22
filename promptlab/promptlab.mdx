@@ -3,3 +3,92 @@ title: 'Human evals via PromptLab'
 description: "Start prototyping and testing with Quotient AI's PromptLab"
 icon: "thumbs-up"
 ---
+
+# 🎯 Human Evals via PromptLab
+
+Welcome to **PromptLab**, your interactive playground for prototyping and testing prompts. With PromptLab, you can experiment with different models, fine-tune your prompts, and evaluate how various configurations affect your AI’s output.
+
+In this guide, you’ll learn how to set up, test, and improve your prompts using **PromptLab**.
+
+![PromptLab UI](../assets/prompt-lab/prompt-lab-landing-page.png)
+
+## 📝 Getting Started
+
+The first step is accessing the **PromptLab** interface. Follow these steps to begin prototyping your prompts:
+
+### 1. **Choose Your Model**
+   - In the left panel labeled **Provider and Model**, select the AI provider and the model you want to work with.
+   - For example, you can choose from providers like **OpenAI**, **Anthropic**, or others. In this case, we’ve selected **GPT-4** from OpenAI.
+
+### 2. **Adjust Model Parameters**
+   - **Temperature**: Adjust this slider to control the randomness of the model’s responses. A higher value (e.g., 0.8) results in more random outputs, while a lower value (e.g., 0.1) produces more deterministic results.
+   - **Maximum Length**: Set the maximum number of tokens the model can generate.
+   - **Top P**: Controls the cumulative probability for token sampling. Higher values include more token possibilities in the output.
+
+### 3. **Define Your Prompts**
+   - **System Prompt**: Provide instructions to guide the model’s behavior. This prompt shapes the assistant’s tone and approach. Example:
+     ```txt
+     You are an AI customer service assistant.
+     ```
+   - **User Prompt**: Enter the main user prompt that the model will respond to. For instance:
+     ```txt
+     Here are the details about a customer’s order: {context}. Using only the information provided, respond to this inquiry about their order: {input}.
+     Be concise and accurate. Avoid inventing information not present in the context.
+     ```
+
+### 4. **Input Variables**
+   - The panel on the right is where you define **Prompt Variables**.
+   - You may use `{input}` and `{context}` as variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
+   - **Note**: If you choose to provide `{context}` in the prompt template, you will have to pass in some context. 
+
+## 🚀 Running Your Prompt
+
+Once you’ve set up your prompt, you’re ready to run it:
+
+1. Click the **Run** button located at the top right of the interface.
+2. Watch how the model processes your input and returns an output based on the system and user prompts you’ve configured.
+
+You can switch between **Manual** and **Dataset** mode to decide how you want to feed inputs into the system.
+
+---
+
+## 🔄 Iterating and Improving
+
+To get the best performance out of PromptLab, experiment with different configurations and prompt setups. Here are a few strategies to refine your prompts:
+
+### 1. **Test with Different Temperatures**
+   - Adjust the **Temperature** setting to explore how randomness impacts the generated responses. Lower values will produce more factual and concise outputs, while higher values generate more creative and varied responses.
+
+### 2. **Use Context and Variables**
+   - Try using the **context** and **input** variables creatively to test how well the model incorporates dynamic content into responses.
+   - Example input: “What’s the status of my order?”
+
+### 3. **Save Runs to Dataset**
+   - Toggle the **Save runs to dataset** switch if you want to track and store all your test runs for future evaluation or comparison.
+
+---
+
+## 🧠 Advanced Features
+
+PromptLab offers more advanced features to help you refine your AI models:
+
+### **Model Switching**
+   Quickly switch between different models and providers to see how each handles the same prompt differently. This helps you choose the most suitable model for your use case.
+
+### **Real-Time Prompt Tuning**
+   As you modify your prompt, **PromptLab** instantly adjusts and previews the changes, giving you real-time feedback on the effectiveness of your prompt edits.
+
+---
+
+## 💡 Best Practices
+
+- **Be Specific**: Ensure your prompts are clear and well-defined to avoid ambiguity in the AI’s responses.
+- **Iterate**: Test multiple configurations to determine the most effective prompt setup for your model.
+
+---
+
+## ❓ Need Help?
+
+If you need additional assistance or have any feature requests, feel free to reach out to us at [support@quotientai.co](mailto:contact@quotientai.co).
+
+Happy Prompting! 🎉
