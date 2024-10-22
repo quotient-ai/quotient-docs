@@ -17,29 +17,58 @@ In this guide, you’ll learn how to set up, test, and improve your prompts usin
 The first step is accessing the **PromptLab** interface. Follow these steps to begin prototyping your prompts:
 
 ### 1. **Choose Your Model**
-   - In the left panel labeled **Provider and Model**, select the AI provider and the model you want to work with.
-   - For example, you can choose from providers like **OpenAI**, **Anthropic**, or others. In this case, we’ve selected **GPT-4** from OpenAI.
+
+- In the left panel labeled **Provider and Model**, select the AI provider and the model you want to work with.
+- For example, you can choose from providers like **OpenAI**, **Anthropic**, or others.
+
+![Choose Provider](../assets/prompt-lab/choose-inference-provider.png)
+  
+After selecting the provider, choose the specific model you want to use from the available options.
+
+![Choose Model from Provider](../assets/prompt-lab/choose-model-from-provider.png)
 
 ### 2. **Adjust Model Parameters**
-   - **Temperature**: Adjust this slider to control the randomness of the model’s responses. A higher value (e.g., 0.8) results in more random outputs, while a lower value (e.g., 0.1) produces more deterministic results.
-   - **Maximum Length**: Set the maximum number of tokens the model can generate.
-   - **Top P**: Controls the cumulative probability for token sampling. Higher values include more token possibilities in the output.
+
+- **Temperature**: Adjust this slider to control the randomness of the model’s responses. A higher value (e.g., 0.8) results in more random outputs, while a lower value (e.g., 0.1) produces more deterministic results.
+- **Maximum Length**: Set the maximum number of tokens the model can generate.
+- **Top P**: Controls the cumulative probability for token sampling. Higher values include more token possibilities in the output.
+
+![Adjust Model Parameters](../assets/prompt-lab/adjust-model-parameters.png)
 
 ### 3. **Define Your Prompts**
-   - **System Prompt**: Provide instructions to guide the model’s behavior. This prompt shapes the assistant’s tone and approach. Example:
-     ```txt
-     You are an AI customer service assistant.
-     ```
-   - **User Prompt**: Enter the main user prompt that the model will respond to. For instance:
-     ```txt
-     Here are the details about a customer’s order: {context}. Using only the information provided, respond to this inquiry about their order: {input}.
-     Be concise and accurate. Avoid inventing information not present in the context.
-     ```
+
+- **System Prompt**: Provide instructions to guide the model’s behavior. This prompt shapes the assistant’s tone and approach.
+
+    Example:
+    ```txt
+    You are an AI customer service assistant.
+    ```
+
+- **User Prompt**: Enter the main user prompt that the model will respond to. For instance:
+    ```txt
+    Here are the details about a customer’s order: {context}. Using only the information provided, respond to this inquiry about their order: {input}.
+    Be concise and accurate. Avoid inventing information not present in the context.
+    ```
+
+![Define Prompts](../assets/prompt-lab/define-system-and-user-prompt.png)
 
 ### 4. **Input Variables**
-   - The panel on the right is where you define **Prompt Variables**.
-   - You may use `{input}` and `{context}` as variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
-   - **Note**: If you choose to provide `{context}` in the prompt template, you will have to pass in some context. 
+
+- The panel on the right is where you define **Prompt Variables**.
+- You may use `{input}` and `{context}` as variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
+
+![Define Prompt Variables](../assets/prompt-lab/define-prompt-variables.png)
+
+#### Example Input and Context:
+
+For example, you can provide the following input and context:
+
+- **Input**: "What is the status of my order?"
+- **Context**: "The order shipped 2 days ago."
+
+![Example Input and Context](../assets/prompt-lab/example-context.png)
+
+---
 
 ## 🚀 Running Your Prompt
 
@@ -49,6 +78,19 @@ Once you’ve set up your prompt, you’re ready to run it:
 2. Watch how the model processes your input and returns an output based on the system and user prompts you’ve configured.
 
 You can switch between **Manual** and **Dataset** mode to decide how you want to feed inputs into the system.
+
+
+If you choose to provide inputs manually, you will have to enter new inputs during each run. 
+
+![Manual Inputs](../assets/prompt-lab/manual-inputs.png)
+
+If you decide to use a dataset to provide inputs, you can easily switch between entries in the dataset across runs.
+
+![Dataset Inputs](../assets/prompt-lab/inputs-from-dataset.png)
+
+Once you have completed a few runs, you may also save these to a new dataset to use in future iterations. 
+
+![Save Runs to Dataset](../assets/prompt-lab/save-runs-to-dataset.png)
 
 ---
 
@@ -62,6 +104,7 @@ To get the best performance out of PromptLab, experiment with different configur
 ### 2. **Use Context and Variables**
    - Try using the **context** and **input** variables creatively to test how well the model incorporates dynamic content into responses.
    - Example input: “What’s the status of my order?”
+   - Example context: "The order shipped 2 days ago."
 
 ### 3. **Save Runs to Dataset**
    - Toggle the **Save runs to dataset** switch if you want to track and store all your test runs for future evaluation or comparison.
@@ -76,7 +119,7 @@ PromptLab offers more advanced features to help you refine your AI models:
    Quickly switch between different models and providers to see how each handles the same prompt differently. This helps you choose the most suitable model for your use case.
 
 ### **Real-Time Prompt Tuning**
-   As you modify your prompt, **PromptLab** instantly adjusts and previews the changes, giving you real-time feedback on the effectiveness of your prompt edits.
+   As you provide feedback for responses that fell short of your expectations, PromptLab uses **IQ** to instantly adjust and preview the changes that incorporate this feedback. You can read more about IQ [here](iq.mdx).
 
 ---
 
