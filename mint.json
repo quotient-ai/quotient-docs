@@ -42,17 +42,6 @@
       "url": "https://quotientai.co/blog-index"
     }
   ],
-  "tabs": [
-    {
-      "name": "SDK reference",
-      "url": "sdk-reference"
-    },
-    {
-      "name": "API reference",
-      "url": "api-reference",
-      "openapi": "https://quotient-playground-api-v1.54dtgtgum0nka.us-east-1.cs.amazonlightsail.com/openapi.json"
-    }
-  ],
   "navigation": [
     {
       "group": "Get Started",
@@ -70,54 +59,6 @@
         "cloud"
       ]
     },
-    {
-      "group": "Artifacts",
-      "icon": "treasure-chest",
-      "pages": [
-        "artifacts/models",
-        "artifacts/prompts",
-        "artifacts/datasets",
-        "artifacts/metrics"
-      ]
-    },
-    {
-      "group": "Cookbooks",
-      "icon": "cauldron",
-      "pages": [
-        "cookbooks/docs_qa",
-        "cookbooks/policy_compliance"
-      ]
-    },
-    {
-      "group": "Developer resources",
-      "icon": "code",
-      "pages": [
-        {
-          "group": "Releases",
-          "pages": [
-          "devs/releases/api/v1",
-          "devs/releases/sdk/v1",
-          "devs/releases/promptlab/v1"
-          ]
-          },
-        "devs/changelog"
-      ]
-    },
-    {
-      "group": "SDK Reference",
-      "pages": [
-        "sdk-reference/prompts",
-        "sdk-reference/datasets",
-        "sdk-reference/evals",
-        "sdk-reference/cli"     
-      ]
-    },
-    {
-      "group": "Links",
-      "pages": [
-        "sdk-reference/links/sdk"
-      ]
-    }
   ],
   "footerSocials": {
     "x": "https://x.com/quotientai",
