@@ -54,11 +54,9 @@
         "promptlab/promptlab",
         "promptlab/iq"
         ]
-        },
-        "sdk",
-        "cloud"
+        }
       ]
-    },
+    }
   ],
   "footerSocials": {
     "x": "https://x.com/quotientai",
