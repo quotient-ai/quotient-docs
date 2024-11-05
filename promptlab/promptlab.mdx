@@ -1,41 +1,35 @@
 ---
-title: 'Human evals via PromptLab'
+title: 'Bootstrap dev and eval via PromptLab'
 description: "Start prototyping and testing with Quotient AI's PromptLab"
 icon: "thumbs-up"
 ---
 
-# 🎯 Human Evals via PromptLab
+# 🎯 Bootstrap dev and eval via PromptLab
 
-Welcome to **PromptLab**, your interactive playground for prototyping and testing prompts. With PromptLab, you can experiment with different models, fine-tune your prompts, and evaluate how various configurations affect your AI’s output.
-
-In this guide, you’ll learn how to set up, test, and improve your prompts using **PromptLab**.
+Welcome to PromptLab, your playground for prototyping and testing prompts. Here's how to start building with AI models:
 
 ![PromptLab UI](../assets/prompt-lab/prompt-lab-landing-page.png)
 
-## 📝 Getting Started
+## 📝 Get started
 
-The first step is accessing the **PromptLab** interface. Follow these steps to begin prototyping your prompts:
+**PromptLab** is available within [Quotient's platform](app.quotientai.co).
 
-### 1. **Choose Your Model**
-
-- In the left panel labeled **Provider and Model**, select the AI provider and the model you want to work with.
-- For example, you can choose from providers like **OpenAI**, **Anthropic**, or others.
+### 1. **Choose your model**
+Select your LLM provider (like OpenAI or Anthropic) and specific model in the left panel labeled **Provider and Model**.
 
 ![Choose Provider](../assets/prompt-lab/choose-inference-provider.png)
-  
-After selecting the provider, choose the specific model you want to use from the available options.
 
 ![Choose Model from Provider](../assets/prompt-lab/choose-model-from-provider.png)
 
-### 2. **Adjust Model Parameters**
-
+### 2. **Adjust model parameters**
+Adjust temperature, max length, and top P to control output behavior:
 - **Temperature**: Adjust this slider to control the randomness of the model’s responses. A higher value (e.g., 0.8) results in more random outputs, while a lower value (e.g., 0.1) produces more deterministic results.
 - **Maximum Length**: Set the maximum number of tokens the model can generate.
 - **Top P**: Controls the cumulative probability for token sampling. Higher values include more token possibilities in the output.
 
 ![Adjust Model Parameters](../assets/prompt-lab/adjust-model-parameters.png)
 
-### 3. **Define Your Prompts**
+### 3. **Define your prompts**
 
 - **System Prompt**: Provide instructions to guide the model’s behavior. This prompt shapes the assistant’s tone and approach.
 
@@ -46,20 +40,20 @@ After selecting the provider, choose the specific model you want to use from the
 
 - **User Prompt**: Enter the main user prompt that the model will respond to. For instance:
     ```txt
-    Here are the details about a customer’s order: {context}. Using only the information provided, respond to this inquiry about their order: {input}.
+    Here are the details about a customer’s order: {{context}}. Using only the information provided, respond to this inquiry about their order: {{input}}.
     Be concise and accurate. Avoid inventing information not present in the context.
     ```
 
 ![Define Prompts](../assets/prompt-lab/define-system-and-user-prompt.png)
 
-### 4. **Input Variables**
+### 4. **Input variables**
 
 - The panel on the right is where you define **Prompt Variables**.
-- You may use `{input}` and `{context}` as variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
+- You may use `{{input}}` and `{{context}}` as variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
 
 ![Define Prompt Variables](../assets/prompt-lab/define-prompt-variables.png)
 
-#### Example Input and Context:
+#### Example input and context:
 
 For example, you can provide the following input and context:
 
@@ -70,7 +64,7 @@ For example, you can provide the following input and context:
 
 ---
 
-## 🚀 Running Your Prompt
+## 🚀 Run your prompt
 
 Once you’ve set up your prompt, you’re ready to run it:
 
@@ -94,33 +88,33 @@ Once you have completed a few runs, you may also save these to a new dataset to 
 
 ---
 
-## 🔄 Iterating and Improving
+## 🔄 Iterate and improve
 
 To get the best performance out of PromptLab, experiment with different configurations and prompt setups. Here are a few strategies to refine your prompts:
 
-### 1. **Test with Different Temperatures**
+### 1. **Test with different temperatures**
    - Adjust the **Temperature** setting to explore how randomness impacts the generated responses. Lower values will produce more factual and concise outputs, while higher values generate more creative and varied responses.
 
-### 2. **Save Runs to Dataset**
+### 2. **Save runs to dataset**
    - Toggle the **Save runs to dataset** button if you want to track and store all your test runs for future evaluation or comparison.
 
 ---
 
-## 🧠 Advanced Features
+## 🧠 Advanced features
 
 PromptLab offers IQ, which is an AI assistant to help you refine your prompts. IQ offers real-time prompt optimization by automatically adjusting prompts based on feedback, helping you continuously improve your AI's responses. As you provide feedback, IQ intelligently suggests changes, allowing you to accept or reject them while maintaining control over your prompt. This feedback loop ensures that your prompts evolve and improve with each iteration, leading to better, more accurate outputs. For more details on Quotient IQ, check out the [IQ documentation](./iq.mdx).
 
 ---
 
-## 💡 Best Practices
+## 💡 Best practices
 
-- **Be Specific**: Ensure your prompts are clear and well-defined to avoid ambiguity in the AI’s responses.
+- **Be specific**: Ensure your prompts are clear and well-defined to avoid ambiguity in the AI’s responses.
 - **Iterate**: Test multiple configurations to determine the most effective prompt setup for your model.
 
 ---
 
-## ❓ Need Help?
+## ❓ Need help?
 
-If you need additional assistance or have any feature requests, please reach out to our founders at [contact@quotientai.co](mailto:contact@quotientai.co).
+If you need additional assistance or have any feature requests, please reach out to our founders at **[contact@quotientai.co](mailto:contact@quotientai.co)**.
 
-Happy Prompting! 🎉
+Happy prompt engineering! 🎉

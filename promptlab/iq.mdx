@@ -1,14 +1,16 @@
 ---
-title: "Quotient IQ - Your AI engineer copilot"
+title: "IQ - Your AI engineer copilot"
 description: "Learn how to use Quotient IQ for real-time, feedback-aligned prompt optimization."
 icon: "sparkles"
 ---
 
-# Quotient IQ: Intelligent Prompt Optimization
+# Intelligent prompt optimization with IQ
 
-Welcome to **Quotient IQ**, your intelligent copilot for prompt creation and optimization. With IQ, you can easily create effective prompts and continuously improve them through an iterative feedback loop powered by AI. This documentation will guide you through the complete process of using IQ, from crafting your initial prompt to saving an optimized final version.
+Welcome to **IQ**, an AI development copilot for writing, analyzing, and improving prompts through interactive sessions. 
 
-## 📋 Workflow Overview
+This documentation will guide you through the complete process of using IQ, from crafting your initial prompt to saving an optimized version.
+
+## 📋 Workflow overview
 
 Here’s a step-by-step guide on how to use IQ to improve your prompts:
 
@@ -21,7 +23,7 @@ Here’s a step-by-step guide on how to use IQ to improve your prompts:
 7. **Run the new prompt and observe improvements**
 8. **Save the optimized prompt**
 
-## 📝 Step 1: Create the Initial User Prompt
+## 📝 Step 1: Create the initial user prompt
 
 The first step in using IQ is to create an initial **user prompt**. This prompt serves as a template that defines the instructions given to the AI. You can include placeholder variables that will later be replaced by actual input data.
 
@@ -31,20 +33,20 @@ For example:
 
 ```plaintext
 You are an AI assistant trained to help sales agents respond effectively to customer objections. Your role is to generate clear, persuasive, and empathetic responses that address customer concerns while highlighting the value of the product or service.
-[Customer Objection]: {input}
+[Customer Objection]: {{input}}
 ``` 
 
 ---
 
-## 🔄 Step 2: Fill in the Prompt Variables
+## 🔄 Step 2: Fill in test prompt variables
 
-Next, fill in the prompt variables. Variables allow you to insert dynamic content into your prompts, making it more flexible and reusable. This is especially useful when working with large datasets or varied inputs.
+Next, fill in test prompt variables. Variables allow you to insert dynamic content into your prompts, making it more flexible and reusable. This is especially useful when working with large datasets or varied inputs.
 
 ### Example:
-In this case, `{input}` is the variable where you’ll enter a customer objection.
+In this case, `{{input}}` is the variable where you’ll enter a customer objection.
 
 ```plaintext
-{input}: "The product is way too expensive!"
+{{input}}: "The product is way too expensive!"
 ```
 
 Run the prompt with the filled-in variables by clicking `Run`.
@@ -53,7 +55,7 @@ Run the prompt with the filled-in variables by clicking `Run`.
 
 ---
 
-## ✍️ Step 3: Run the Generation and Review the Completion
+## ✍️ Step 3: Run the generation and review the completion
 
 Once you run the prompt, the model generates a **completion** based on the provided input. Review the completion to determine whether it aligns with your expectations.
 
@@ -70,10 +72,10 @@ IQ will take this feedback into account and suggest improvements to the prompt.
 **Note**:
 
 - IQ only considers negative feedback on the response. If the response is satisfactory, that's great! However, there won't be an option to provide additional feedback in such cases.
-- From the moment you provide feedback, the response is automatically labeled as "Bad". 
+- From the moment you provide feedback, the response is automatically recorded as "Bad" in the `Run Log` and any linked datasets.
 ---
 
-## 💡 Step 4: IQ Suggests Prompt Improvements
+## 💡 Step 4: IQ suggests prompt improvements
 
 Based on the feedback, IQ will automatically recommend changes to the prompt. These changes are designed to optimize the prompt and improve the quality of the AI-generated responses.
 
@@ -83,7 +85,7 @@ The suggested changes might include improving clarity, focusing more on addressi
 
 ---
 
-## ✅ Step 5: Accept or Reject the Suggested Changes
+## ✅ Step 5: Accept or reject the suggested changes
 
 After reviewing the suggested improvements, you have two options:
 
@@ -94,7 +96,7 @@ This step allows you to maintain control over your prompt while benefiting from 
 
 ---
 
-## 🚀 Step 6: Run the Updated Prompt
+## 🚀 Step 6: Run the updated prompt
 
 Once you’ve accepted the changes, run the updated prompt again to observe how the AI's responses have improved. IQ ensures a continuous cycle of improvement by iterating on feedback.
 
@@ -102,7 +104,7 @@ Keep testing, refining, and adjusting your prompts to reach the best possible pe
 
 ---
 
-## 💾 Step 7: Save the Optimized Prompt
+## 💾 Step 7: Save the optimized prompt
 
 Once you're satisfied with the changes, save your optimized prompt. You can do this by clicking **Save new version**. This version is now stored for future use, ensuring that you have a well-optimized prompt ready for your task.
 
@@ -110,7 +112,7 @@ Once you're satisfied with the changes, save your optimized prompt. You can do t
 
 ---
 
-## 🔍 Best Practices for Using IQ
+## 🔍 IQ best practices
 
 Here are some best practices to follow when using IQ:
 
@@ -121,6 +123,3 @@ Here are some best practices to follow when using IQ:
 ---
 
 For further assistance, feel free to reach out to our founders at [contact@quotientai.co](mailto:contact@quotientai.co) or check out more detailed documentation on [PromptLab](../promptlab/promptlab.mdx).
-
-
-
