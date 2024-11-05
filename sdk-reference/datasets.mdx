@@ -42,7 +42,7 @@ for dataset in datasets:
 To get the details of a specific dataset by its ID along with its rows, use the `get()` method.
 
 ```python
-dataset_id = quotient.datasets.list()[0]
+dataset_id = quotient.datasets.list()[0].id
 dataset = quotient.datasets.get(dataset_id)
 
 print(dataset)

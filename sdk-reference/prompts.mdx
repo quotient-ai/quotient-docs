@@ -54,10 +54,10 @@ for prompt in prompts:
 If you need to retrieve details of a specific prompt by its ID (and optional version), use the `get()` method. 
 
 ```python
-prompt_id = "abc123"
+prompt_id = quotient.prompts.list()[0].id
 prompt = quotient.prompts.get(prompt_id)
 
-print(prompt.to_messages())
+print(prompt)
 ```
 
 This will return the prompt with the specified ID and its associated messages, which you can use to send to an LLM.
