@@ -1,0 +1,83 @@
+# Operating System files
+########################
+.DS_Store
+Thumbs.db
+
+# Log files
+###########
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+###################
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependency directories
+########################
+node_modules/
+bower_components/
+.pnp/
+.pnp.js
+__pycache__/
+target/
+build/
+.cache/
+
+# Python
+########
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.eggs/
+*.coverage
+.coverage.*
+.cache
+*.pyre/
+mypy_cache/
+__pycache__/
+*.pyo
+.pytest_cache/
+
+# Java, Kotlin
+##############
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+out/
+
+# VSCode
+########
+.vscode/
+.vscode/*
+
+# JetBrains (IntelliJ, PyCharm, WebStorm)
+########################################
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS Finder and System Files
+###############################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS resource forks automatically removed by Finder
+##############################
+._*
+
+# Windows thumbnail cache
+#####
+
