@@ -1,24 +1,24 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Quotient AI",
-"logo": {
-  "light": "/logo/light.svg",
-  "dark": "/logo/dark.svg",
-  "href": "https://quotientai.co"
-},
-"favicon": "/favicon.png",
-"colors": {
-  "primary": "#B8B21A",
-  "light": "#CEC825",
-  "dark": "#262626",
-  "anchors": {
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://quotientai.co"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#B8B21A",
+    "light": "#CEC825",
+    "dark": "#262626",
+    "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
     },
-  "background": {
+    "background": {
       "light": "#F0EFE3",
       "dark": "#262626"
-  }
+    }
   },
   "topbarLinks": [
     {
@@ -42,19 +42,44 @@
       "url": "https://quotientai.co/blog-index"
     }
   ],
+  "tabs": [
+    {
+      "name": "SDK reference",
+      "url": "sdk-reference"
+    }
+  ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Get started",
       "pages": [
         "introduction",
         {
-        "group": "PromptLab",
-        "icon": "flask",
-        "pages": [
-        "promptlab/promptlab",
-        "promptlab/iq"
-        ]
+          "group": "PromptLab",
+          "icon": "flask",
+          "pages": [
+            "promptlab/promptlab",
+            "promptlab/iq"
+          ]
         }
+      ]
+    },
+    {
+      "group": "SDK Reference",
+      "pages": [
+        "sdk-reference/get-started",
+        {
+          "group": "Guides",
+          "pages": [
+            "sdk-reference/prompts",
+            "sdk-reference/datasets"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Links",
+      "pages": [
+        "sdk-reference/links/sdk"
       ]
     }
   ],
