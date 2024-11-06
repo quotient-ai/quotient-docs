@@ -67,10 +67,9 @@ This will return the prompt with the specified ID and its associated messages, w
 You can update a prompt's name, system prompt, or user prompt with the `update()` method. Here’s an example of updating a prompt’s user message:
 
 ```python
-updated_prompt = quotient.prompts.update(
-    prompt=prompt,
-    user_prompt="What can I help you with today?"
-)
+prompt.user_prompt = "my new user prompt"
+updated_prompt = quotient.prompts.update(prompt=prompt)
+
 print(updated_prompt)
 ```
 
