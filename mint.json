@@ -44,7 +44,7 @@
   ],
   "tabs": [
     {
-      "name": "SDK reference",
+      "name": "SDK Reference",
       "url": "sdk-reference"
     }
   ],
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "group": "SDK Reference",
+      "group": "Python SDK",
       "pages": [
         "sdk-reference/get-started",
         {
