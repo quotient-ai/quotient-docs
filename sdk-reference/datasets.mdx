@@ -1,3 +1,86 @@
 ---
-title: 'Working with datasets'
+title: 'Datasets'
 ---
+
+On Quotient, datasets are collections of structured data that enable you to store, manage, and organize rows of information for evaluation or reference within QuotientAI. Each dataset consists of rows, where each row includes fields for input, context, expected output, and optional metadata for annotations.
+
+## Creating a New Dataset
+
+To create a new dataset, use the `create()` method. You can specify a name, an optional description, and optional list of rows.
+
+```python
+new_dataset = quotient.datasets.create(
+    name="Sample Dataset",
+    description="My first dataset",
+    rows=[
+        {"input": "Sample input", "expected": "Sample output"},
+        {"input": "Another input", "expected": "Another output"}
+    ]
+)
+
+print(new_dataset)
+```
+
+## Listing Datasets
+
+To list all available datasets, use the `list()` method. This method returns a collection of `Dataset` objects, each containing details like `id`, `name`, `description`, and timestamps.
+
+```python
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+datasets = quotient.datasets.list()
+
+for dataset in datasets:
+    print(dataset)
+```
+
+
+## Retrieving a Specific Dataset
+
+To get the details of a specific dataset by its ID along with its rows, use the `get()` method.
+
+```python
+dataset_id = quotient.datasets.list()[0].id
+dataset = quotient.datasets.get(dataset_id)
+
+print(dataset)
+```
+
+## Updating an Existing Dataset
+
+To update a dataset, use the `update()` method. This can modify the dataset's metadata.
+
+```python
+updated_dataset = quotient.datasets.update(
+    dataset=new_dataset,
+    name="my new dataset name",
+    description="a different description",
+)
+
+print(updated_dataset)
+```
+
+## Appending Rows to an Existing Dataset
+
+To add rows to an existing dataset, use the `append()` method. This allows you to extend the dataset by adding new rows.
+
+```python
+extended_dataset = quotient.datasets.append(
+    dataset=new_dataset,
+    rows=[{"input": "New input", "expected": "New output"}]
+)
+
+print(extended_dataset)
+```
+
+## Deleting a Dataset
+
+To delete a dataset, use the `delete()` method. Pass in the `Dataset` object you intend to delete.
+
+```python
+quotient.datasets.delete(new_dataset)
+
+print("dataset deleted successfully!")
+```

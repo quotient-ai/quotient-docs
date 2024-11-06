@@ -1,3 +1,85 @@
 ---
-title: 'Working with prompts'
+title: 'Prompts'
 ---
+
+Prompt engineering is the process of designing and refining inputs for large language models (LLMs) to guide them toward producing the desired output. A well-crafted prompt can shape the response's tone, structure, and content. In the context of QuotientAI, prompt engineering is central to creating and managing precise interactions with LLMs to solve specific problems or answer questions effectively.
+
+At its core, prompt engineering involves:
+
+- **System Prompts**: Providing instructions or context that guides the model’s behavior.
+- **User Prompts**: Defining the specific question or input from the user that the model will address.
+
+By using QuotientAI’s SDK, you can interact with prompts directly in your application, enabling the creation, retrieval, updating, and deletion of prompts programmatically.
+
+## Creating Prompts
+
+The Quotient Python SDK allows you to manage and interact with prompts through a simple interface.
+
+To create a new prompt, use the `create()` method. This method allows you to specify a name, a system prompt for general model guidance, and a user prompt as the primary input.
+
+```python
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+new_prompt = quotient.prompts.create(
+    name="Customer Support Inquiry",
+    system_prompt="You are a helpful assistant.",
+    user_prompt="How can I assist you today?"
+)
+
+print(new_prompt)
+```
+
+<Note>The returned `Prompt` object also has a `messages` property that you can use as input to model provider libraries like OpenAI.</Note>
+
+
+## Listing Prompts
+
+To list all available prompts, use the `list()` method. Each prompt contains details like `id`, `name`, `system_prompt`, and `user_prompt`.
+
+```python
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+prompts = quotient.prompts.list()
+
+for prompt in prompts:
+    print(prompt)
+```
+
+## Retrieving a Specific Prompt
+
+If you need to retrieve details of a specific prompt by its ID (and optional version), use the `get()` method. 
+
+```python
+prompt_id = quotient.prompts.list()[0].id
+prompt = quotient.prompts.get(prompt_id)
+
+print(prompt)
+```
+
+This will return the prompt with the specified ID and its associated messages, which you can use to send to an LLM.
+
+## Updating an Existing Prompt
+
+You can update a prompt's name, system prompt, or user prompt with the `update()` method. Here’s an example of updating a prompt’s user message:
+
+```python
+updated_prompt = quotient.prompts.update(
+    prompt=prompt,
+    user_prompt="What can I help you with today?"
+)
+print(updated_prompt)
+```
+
+## Deleting a Prompt
+
+To delete a prompt, call the `delete()` method. Ensure that you pass the `Prompt` object you intend to delete.
+
+```python
+quotient.prompts.delete(new_prompt)
+
+print("prompt deleted successfully!")
+```
