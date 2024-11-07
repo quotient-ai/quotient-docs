@@ -20,19 +20,21 @@ To create a new prompt, use the `create()` method. This method allows you to spe
 ```python
 from quotientai import QuotientAI
 
+# Initialize the QuotientAI SDK client
 quotient = QuotientAI()
 
+# Create a new prompt with a system message and user message
 new_prompt = quotient.prompts.create(
     name="Customer Support Inquiry",
     system_prompt="You are a helpful assistant.",
     user_prompt="How can I assist you today?"
 )
 
+# Print the created prompt object to verify its details
 print(new_prompt)
 ```
 
 <Note>The returned `Prompt` object also has a `messages` property that you can use as input to model provider libraries like OpenAI.</Note>
-
 
 ## Listing Prompts
 
@@ -41,24 +43,37 @@ To list all available prompts, use the `list()` method. Each prompt contains det
 ```python
 from quotientai import QuotientAI
 
+# Initialize the QuotientAI SDK client
 quotient = QuotientAI()
 
+# Retrieve a list of all prompts
 prompts = quotient.prompts.list()
 
+# Iterate through the list and print each prompt
 for prompt in prompts:
     print(prompt)
 ```
 
+[Watch the List Prompts in Quotient SDK 📋 on YouTube](https://youtu.be/iDSdJ-a7ouc)
+
 ## Retrieving a Specific Prompt
 
-If you need to retrieve details of a specific prompt by its ID (and optional version), use the `get()` method. 
+If you need to retrieve details of a specific prompt by its ID (and optional version), use the `get()` method.
 
 ```python
+# Retrieve the ID of the first prompt in the list for demonstration
 prompt_id = quotient.prompts.list()[0].id
+# This can be any prompt ID e.g., 
+prompt_id = "prompt-id"
+
+# Get the prompt by its ID
 prompt = quotient.prompts.get(prompt_id)
 
+# Print the prompt details
 print(prompt)
 ```
+
+[Watch the Retrieve a Specific Prompt 🎯 on YouTube](https://youtu.be/aBY9hBDCuEw)
 
 This will return the prompt with the specified ID and its associated messages, which you can use to send to an LLM.
 
@@ -67,19 +82,35 @@ This will return the prompt with the specified ID and its associated messages, w
 You can update a prompt's name, system prompt, or user prompt with the `update()` method. Here’s an example of updating a prompt’s user message:
 
 ```python
+# Update the user message of an existing prompt
 updated_prompt = quotient.prompts.update(
     prompt=prompt,
-    user_prompt="What can I help you with today?"
+    user_prompt="Appropriately answer customer questions: {{input}}."
 )
+
+# Print the updated prompt details
 print(updated_prompt)
 ```
+
+You can also simply run:
+
+```python
+updated_user_prompt = "Appropriately answer customer questions: {{input}}. Be concise in your answers."
+prompt.user_prompt = updated_user_prompt
+```
+
+[Watch the Update User Prompts 🤖 on YouTube](https://youtu.be/aWGyqV02sBc)
 
 ## Deleting a Prompt
 
 To delete a prompt, call the `delete()` method. Ensure that you pass the `Prompt` object you intend to delete.
 
 ```python
-quotient.prompts.delete(new_prompt)
+# Delete the specified prompt
+quotient.prompts.delete(prompt)
 
-print("prompt deleted successfully!")
+# Confirm the deletion
+print("Prompt deleted successfully!")
 ```
+
+[Watch the Delete Prompts in Quotient SDK 👋 on YouTube](https://youtu.be/FIBMZevWrDo)
