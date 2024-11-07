@@ -7,7 +7,7 @@ Prompt engineering is the practice of designing inputs to guide large language m
 - **System Prompt:** Provides background context or instructions to influence the model’s overall behavior.
 - **User Prompt:** The specific question or input meant for the model to address in its response.
 
-Using the QuotientAI SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
+Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
 
 ---
 
@@ -44,7 +44,25 @@ prompt = quotient.prompts.get(prompt_id)
 print(prompt)
 ```
 
-<Tip> The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI) </Tip>
+<Tip>
+The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g. OpenAI) 
+
+```
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+prompt = quotient.prompts.get(prompt_id)
+
+import openai
+
+oai = OpenAI()
+
+response = oai.chat.completions.create(
+    messages=prompt.messages,
+    model="gpt-4o-mini",
+)
+</Tip>
 
 ---
 
@@ -63,7 +81,7 @@ for prompt in prompts:
 
 ## Versioning Prompts
 
-Each prompt starts at version 0 upon creation. QuotientAI manages prompt versions, linking them by prompt name and unique ID. 
+Each prompt starts at version 0 upon creation. Quotient manages prompt versions, linking them by prompt name and unique ID. 
 
 ### Creating a New Prompt Version
 
@@ -87,3 +105,6 @@ quotient.prompts.delete(new_prompt)
 
 print("Prompt deleted successfully!")
 ```
+
+<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co). You can also </Note>
+
