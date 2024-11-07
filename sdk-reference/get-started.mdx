@@ -4,6 +4,7 @@ title: 'Get Started'
 
 <Steps>
   <Step title="Install the Quotient Python SDK">
+
     ```code
     pip install quotientai
     ```
@@ -11,7 +12,7 @@ title: 'Get Started'
   <Step title="Create an API Key">
     Next, create an API key to authenticate yourself. You can create an API key in your [settings](https://app.quotientai.co).
 
-    [Watch the API Key Creation Video on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+    [Watch the API Key Creation Video on YouTube](https://youtu.be/F5tMAsckl_c)
 
   </Step>
   <Step title="Create a Script">
@@ -21,8 +22,10 @@ title: 'Get Started'
       ```python prompting.py
       from quotientai import QuotientAI
 
+      # Initialize client
       quotient = QuotientAI()
 
+      # Create a prompt object
       prompt = quotient.prompts.create(
         name="my-first-prompt",
         system_prompt="You are a helpful assistant.",
@@ -45,10 +48,13 @@ title: 'Get Started'
     Hit `Run` and see what happens!
 
     ![PromptLab UI Screenshot](../images/promptlab-ui.png)
+    [Watch the demo video on Youtube](https://youtu.be/LLjlatYsaM8)
   </Step>
   <Step title="Iterate with IQ">
     Tell IQ what you think can be better about the model output and start prototyping on your next project.
 
     ![IQ image](../images/iq-iterate.png)
+    [Watch the IQ video on Youtube](https://youtu.be/X668xN83Z4A)
+
   </Step>
 </Steps>
