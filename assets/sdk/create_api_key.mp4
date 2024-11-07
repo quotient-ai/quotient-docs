@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Loom | Free Screen &amp; Video Recording Software | Loom</title>
+
+
+<meta name="slack-app-id" content="A9G1TH4S2">
+
+<!-- SEO -->
+<meta name="application-name" content="Loom" />
+  <meta name="description" content="Use Loom to record quick videos of your screen and cam. Explain anything clearly and easily – and skip the meeting. An essential tool for hybrid workplaces." />
+
+  <!-- open graph and twitter tags -->
+    <meta property="og:site_name" content="Loom">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.loom.com">
+  <meta property="og:title" content="Loom | Free Screen &amp; Video Recording Software">
+      <meta property="og:description" content="Use Loom to record quick videos of your screen and cam. Explain anything clearly and easily – and skip the meeting. An essential tool for hybrid workplaces." />
+    <meta property="og:image" content="https://cdn.loom.com/assets/img/og/loom-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta name="twitter:card" content="summary_large_image" />
+
+
+
+
+<!-- Web App Icons -->
+<meta name="application-name" content="Loom">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Loom">
+<meta name="msapplication-TileColor" content="#b91d47">
+<meta name="msapplication-TileImage" content="https://cdn.loom.com/assets/favicons-loom/mstile-150x150.png">
+
+<link rel="icon" href="https://cdn.loom.com/assets/favicons-loom/favicon.ico" sizes="any">
+<link rel="icon" href="https://cdn.loom.com/assets/favicons-loom/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.loom.com/assets/favicons-loom/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://cdn.loom.com/assets/favicons-loom/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.loom.com/assets/favicons-loom/apple-touch-icon-180x180.png">
+<link rel="mask-icon" color="#625df5" href="https://cdn.loom.com/assets/favicons-loom/safari-pinned-tab.svg">
+
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/4524-d74f0245ad1ca258a57a.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/5172-3e65a0b64cab3e15ef67.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/9864-e2c8e19bd0939d88fa6c.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/9952-9124f6979016e6f7e2a0.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/7289-9aab286c14ef74c1e2ee.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/8284-988f5b46a3112d79bf28.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/9844-a53e490f87cc2755e383.css" />
+
+  <link rel="stylesheet" href="https://cdn.loom.com/assets/css/4518-d28c0fdafd8d8f896c8e.css" />
+
+
+<script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp">
+  window._LOOM_ = "%7O%22OVYYVAT_ERPNCGPUN_FVGR_XRL%22%3N%226Yq-a7bHNNNNNWKXybyTXC7sCMus-WzaKnlg9CA5%22%2P%22PUEBZR_RKGRAFVBA_VQ%22%3N%22yvrpoqqzxvvvuarqbozyzvyyubqwxqzo%22%2P%22PYVRAG_YBT_YRIRYF%22%3N%22sngny%2Preebe%2Pjnea%2Pvasb%22%2P%22PYBHQSEBAG_HEV%22%3N%22pqa.ybbz.pbz%22%2P%22NIFREIRE_PYBHQSEBAG_HEV%22%3N%22yhan.ybbz.pbz%22%2P%22RYRIVB_NPPBHAG_VQ%22%3N%225p7qp041087r9%22%2P%22TBBTYR_NCV_PYVRAG_VQ%22%3N%22443240113960-6zw529e3e24tcc4p9h57a9aqet01v911.nccf.tbbtyrhfrepbagrag.pbz%22%2P%22YBBZ_QRFXGBC_CEBGBPBY%22%3N%22ybbzQrfxgbc%3N%2S%2S%22%2P%22ZHK_RAI_XRL%22%3N%229ntt7cyq771c850zs45zfatc3%22%2P%22CHFU_FREIRE_CHOYVP_XRL%22%3N%22OSMAlOrBig4yrVK8OhRu7u2-7lFWCL2bSfWdV5HyfTxa57ZKc924pqoufgdF69Uz-IYo1wXEEm4LnRu7qTeFKFZ%22%2P%22FGEVCR_CHOYVP_XRL%22%3N%22cx_yvir_ZT87GpsZRyPHEEBsexfSFZ8k%22%2P%22QNGNQBT_EHZ_NCCYVPNGVBA_VQ%22%3N%227ns92855-r997-4q9o-nn41-839r1p64r6s3%22%2P%22QNGNQBT_EHZ_PYVRAG_GBXRA%22%3N%22choo1955571qp736r541o72313p6942242s%22%2P%22QNGNQBT_EHZ_RANOYR%22%3N%22gehr%22%2P%22QNGNQBT_EHZ_FREIVPR%22%3N%22ybbz-cebq%22%2P%22QNGNQBT_EHZ_FRFFVBA_FNZCYR_ENGR%22%3N%2215%22%2P%22QNGNQBT_EHZ_FRFFVBA_ERCYNL_FNZCYR_ENGR%22%3N%2215%22%2P%22QNGNQBT_YBT_PYVRAG_GBXRA%22%3N%22cho6n5r653719oonqp7o8q28o628o09oq41%22%2P%22QNGNQBT_YBT_RANOYR%22%3N%22gehr%22%2P%22QNGNQBT_YBT_FNZCYR_ENGR%22%3N%2210%22%2P%22QNGNQBT_YBT_FREIVPR%22%3N%22jroncc%22%2P%22YBBZ_FQX_NCV_XRL%22%3N%22677no500-qo70-4087-91ns-6rsqo06sss68%22%2P%22PNAAL_VB_NCC_VQ%22%3N%2258n6799q8q61o9968qnq922n%22%2P%22PBURER_PYVRAG_XRL%22%3N%22J-YswQFDvvMv-ud7T761GKB1%22%2P%22CNPXNTRF_PYBHQSEBAG_HEV%22%3N%22cnpxntrf.ybbz.pbz%22%2P%22FRAGEL_ERCYNLF_BA_REEBE_FNZCYR_ENGR%22%3N%220.001%22%2P%22SO_NCC_VQ%22%3N%221591221991190878%22%2P%22NQZVA_UHO_HEV%22%3N%22nqzva.ngynffvna.pbz%22%2P%22NABA_PBBXVR_QBZNVA%22%3N%22ybbz.pbz%22%2P%22NGYNFFVNA_PYBHQ_BCRENGVBANY_HEV%22%3N%22uggcf%3N%2S%2Spybhq-bcrengvbany.cebq.ngy-cnnf.arg%2Spybhq-cebivfvbare%2Sgranag-qnfuobneq%22%2P%22NGYNFFVNA_TBIREANGBE_HEV%22%3N%22uggcf%3N%2S%2Stbireangbe-hv.cebq-rnfg.sebagraq.choyvp.ngy-cnnf.arg%22%2P%22NGYNFFVNA_BVQP_VAVGVNGVBA_EBHGR%22%3N%22uggcf%3N%2S%2Svq.ngynffvna.pbz%22%2P%22NGYNFFVNA_CEBSVYR_ZNANTRZRAG_HEV%22%3N%22uggcf%3N%2S%2Svq.ngynffvna.pbz%2Sznantr-cebsvyr%2Scebsvyr-naq-ivfvovyvgl%22%2P%22NGYNFFVNA_FABBCE_HEV%22%3N%22uggcf%3N%2S%2Sfabbce.cebq.ngy-cnnf.arg%2Spf%22%2P%22YBBZ_ONER_HEV%22%3N%22ybbz.pbz%22%2P%22YBBZ_ERPBEQ_JF_HEV%22%3N%22erpbeq.ybbz.pbz%22%2P%22YBBZ_FFE_HFRE_FUNQBJ_GRFG_RANOYR%22%3N%22gehr%22%2P%22YBBZ_FFE_HFRE_FUNQBJ_GRFG_VTABER_CNGUF%22%3N%22%5O%5Q%22%2P%22YBBZ_HEV%22%3N%22jjj.ybbz.pbz%22%2P%22YBBZ_IREFVBA%22%3N%223rq657r%22%2P%22YBBZ_IREFVBA_AHZREVP%22%3N52847%2P%22ABQR_RAI%22%3N%22cebqhpgvba%22%7Q";
+
+
+  window.workspaceSize = 6
+
+
+  window.__APOLLO_STATE__ = {"Avatar:{\"thumb\":\"avatars/31907204_0b0a9b3fd2654583b5330255118a90e7_192.jpg\"}":{"__typename":"Avatar","large":"avatars/31907204_0b0a9b3fd2654583b5330255118a90e7_1024.jpg","name":"0b0a9b3fd2654583b5330255118a90e7","thumb":"avatars/31907204_0b0a9b3fd2654583b5330255118a90e7_192.jpg"},"Organization:26193223":{"__typename":"Organization","id":"26193223","is_pure_trial":false,"name":"Quotientai","type":"business"},"OrganizationMember:35864123":{"__typename":"OrganizationMember","id":"35864123","member_role":"creator","member_status":"active","organization":{"__ref":"Organization:26193223"}},"OAuth:U07AB7HGU9L":{"__typename":"OAuth","id":"U07AB7HGU9L","createdAt":"2024-08-13T15:47:02.484Z","email":"james@quotientai.co","external_avatar":"https://avatars.slack-edge.com/2024-07-03/7369729524259_01c738f1d4359ef542e2_1024.png","medium":"slack","team_domain":"quotientai","team_id":"T05R0LN5N2F","team_name":"Quotient AI","updatedAt":"2024-08-13T15:47:02.484Z"},"RegularUser:31907204":{"__typename":"RegularUser","id":"31907204","aa_date_linked":null,"aa_date_mastered":null,"aa_id":null,"aa_is_mastered":false,"email":"james@quotientai.co","first_name":"James","last_name":"Liounis","account_type":"team","aiAccess":{"__typename":"AiAccess","autoTitles":true,"autoSummaries":true,"autoChapters":true,"autoTasks":true},"availableFtux":[{"__typename":"AvailableFtux","name":"global_limit_banner","priority":0},{"__typename":"AvailableFtux","name":"member_video_limit_banner","priority":0},{"__typename":"AvailableFtux","name":"workspace_content_limit_banner","priority":0},{"__typename":"AvailableFtux","name":"recorder_download_banner","priority":1},{"__typename":"AvailableFtux","name":"creator_lite_member_limit_banner","priority":0},{"__typename":"AvailableFtux","name":"approaching_limit_banner","priority":1},{"__typename":"AvailableFtux","name":"mobile_download_banner","priority":1},{"__typename":"AvailableFtux","name":"member_video_threshold_banner","priority":1},{"__typename":"AvailableFtux","name":"data_retention_banner","priority":1},{"__typename":"AvailableFtux","name":"update_payment_method","priority":0},{"__typename":"AvailableFtux","name":"global_admin_dunning_banner","priority":0},{"__typename":"AvailableFtux","name":"global_admin_payment_authentication_banner","priority":0},{"__typename":"AvailableFtux","name":"global_remediation_banner","priority":0},{"__typename":"AvailableFtux","name":"loom_ai_trial_ended_ftux","priority":0},{"__typename":"AvailableFtux","name":"trim_by_transcript_ftux","priority":0},{"__typename":"AvailableFtux","name":"pnp_update_sept_2023","priority":0},{"__typename":"AvailableFtux","name":"pnp_update_nov_2023","priority":0},{"__typename":"AvailableFtux","name":"incentives_page_side_nav_ftux","priority":2},{"__typename":"AvailableFtux","name":"audio_variables_edit_page_welcome_ftux","priority":0},{"__typename":"AvailableFtux","name":"audio_variables_edit_page_replacement_table_ftux","priority":0},{"__typename":"AvailableFtux","name":"calendar_connect_banner","priority":0}],"avatars":[{"__ref":"Avatar:{\"thumb\":\"avatars/31907204_0b0a9b3fd2654583b5330255118a90e7_192.jpg\"}"}],"basic_video_limit":25,"capabilities":{},"checklist":{"__typename":"ChecklistItems","add_teammate":null,"complete_onboarding":true,"create_account":null,"customize_video_name":null,"download_recorder":null,"email_verified":null,"filled_account_settings":null,"first_cam_recording":null,"first_video_recording":true,"first_video_upload":null,"first_video_viewed":true,"followed_us_on_twitter":null,"has_reached_recording_limit":null,"has_viewed_screenshots":null,"liked_us_on_facebook":null,"push_notification_enabled":null,"share_video":true,"shared_first_video_on_facebook":null,"tweeted_first_video":null,"has_viewed_videos":true},"company_name":null,"companyPosition":null,"createdAt":"2024-08-13T15:47:02.230Z","default_workspace_id":"26193223","deletion_pending":null,"elevio_hash":"9d2e88deb99d18b28ef25e726a143931be4aebcb296e1302b3a721b822fd8415","hasActivatedMobile":false,"has_activated_chrome_extension":false,"has_activated_desktop_app":true,"hasWebPushSubcription":false,"help_options":null,"integration_settings":{"integrate_jira":{"expand":true,"enabled":true},"integrate_gmail":{"expand":true,"enabled":true},"integrate_github":{"expand":true,"enabled":true},"integrate_gitlab":{"expand":true,"enabled":true},"integrate_dropbox":{"expand":true,"enabled":true},"integrate_intercom":{"expand":true,"enabled":true},"integrate_invision":{"expand":true,"enabled":true},"integrate_confluence":{"expand":true,"enabled":true},"integrate_salesforce":{"expand":true,"enabled":true},"integrate_google_docs":{"expand":true,"enabled":true},"integrate_hacker_news":{"expand":true,"enabled":true},"integrate_producthunt":{"expand":true,"enabled":true},"integrate_salesforce_iq":{"expand":true,"enabled":true}},"isEducationVerified":false,"isFirstRecording":false,"isSdkSharedUser":false,"memberships({\"currentOnly\":true})":[{"__ref":"OrganizationMember:35864123"}],"notification_settings":{"video_read":true,"share_video":true,"push_video_read":false,"push_share_video":true,"push_reshare_video":true,"push_video_comments":false,"push_weekly_digests":false,"all_comments_enabled":true,"push_comment_replies":false,"push_video_reactions":false,"push_video_privacy_changed":true},"oauths":[{"__ref":"OAuth:U07AB7HGU9L"}],"onboarding":{},"passwordIsSet":false,"persona":{"persona_v1":{"role":"Engineering","company":null,"complete":true,"use_cases":[],"company_size":null,"use_case_plan":"work","education_type":null,"other_use_case":null,"company_industry":null,"company_size_exact":null,"use_case_plan_persona":"For work"}},"recorder_settings":{},"role":"client","scopes":["ACCOUNT_NOTIFICATIONS","CONTENT_UPLOAD_ACTION_READ","CONTENT_UPLOAD_ACTION_WRITE","CUSTOM_BRANDING_ACCESS","ENGAGEMENT_INSIGHTS_ACCESS","HELP_BUBBLE_CONTACT_SUPPORT","INVITE_CREATOR_LITE_ACTION","PERSONAL_ARCHIVE_READ","PERSONAL_ARCHIVE_WRITE","PERSONAL_LIBRARY_READ","PERSONAL_LIBRARY_WRITE","RECORDER_BROWSER_EXTENSION_ACCESS","TEAM_ARCHIVE_READ","TEAM_ARCHIVE_WRITE","TEAM_LIBRARY_READ","TEAM_LIBRARY_WRITE","VIDEO_CTA_ACCESS","VIDEO_TRIM_ACCESS","VIDEO_EDIT_BY_TRANSCRIPT_ACCESS","VIDEO_EDIT_OPTIONS_ACCESS","VIDEO_ENHANCED_RECORDER_ACCESS","VIDEO_PASSWORD_PROTECT_ACTION","VIDEO_PUBLISH_ACCESS","VIDEO_COMMUNITY_PUBLISH_ACCESS","VIDEO_RECORD_ACCESS","VIDEO_DOWNLOAD_ACCESS","VIDEO_SETTINGS_ACCESS","VIDEO_SHARE_PRIVATE_ACTION","VIDEO_THUMBNAIL_ACCESS","VIDEO_TOOLS_ACCESS","IMAGE_CAPTURE_ACCESS","IMAGE_ENHANCED_CAPTURE_ACCESS","IMAGE_TOOLS_ACCESS","IMAGE_SHARE_PRIVATE_ACTION","IMAGE_SHARE_WITH_TEAM_ACTION","IMAGE_PASSWORD_PROTECT_ACTION","IMAGE_SETTINGS_ACCESS","IMAGE_CTA_ACCESS","IMAGE_EDIT_OPTIONS_ACCESS","SEARCH_ACCESS","TRANSCRIPT_SEARCH_ACCESS","WORKSPACE_PRIVACY_ACCESS","TRANSCRIPTION_ACCESS","FAVORITES","WATCH_LATER","AUTHENTICATED_USER_ACCESS","SUGGESTED_WORKSPACE_SIDEBAR","SUGGESTED_WORKSPACE_BANNER","SUGGESTED_WORKSPACE_WORKSPACE_SWITCHER","WORKSPACE_CONTACT_IMPORT_INTEGRATION_READ","CREATE_SPACE","VIEW_CREATE_SPACE","VIEW_SPACES_ONBOARDING_TOUR","BLUR_ACCESS","AI_AUTO_TITLE_ACCESS","AI_AUTO_SUMMARIES_ACCESS","AI_AUTO_CHAPTERING_ACCESS","AI_AUTO_TASKS_ACCESS","AI_FILLER_WORD_REMOVAL","AI_SEMANTIC_SEARCH","AI_QUESTIONS","AI_NUDGES","AUTO_CTA","DEFAULT_CTA_ACCESS","LIVE_REWIND_ACCESS","WORKSPACE_PRIVACY_RESTRICTIONS_PAYWALL","AI_VARIABLES","INVITE_CREATOR_ACTION"],"status":"verified","terms_accepted":true,"terms_accepted_created_at":"2024-08-13T15:47:02.230Z","triggers":[{"__typename":"CompletableTrigger","complete":false,"name":"desktop_stop_rec_tooltip","show":false},{"__typename":"CompletableTrigger","complete":false,"name":"education_user_upgraded_modal","show":true},{"__typename":"CompletableTrigger","complete":false,"name":"email_verified","show":false},{"__typename":"CompletableTrigger","complete":false,"name":"gmail_integration_share_page_upsell","show":true},{"__typename":"CompletableTrigger","complete":false,"name":"request_push_permissions","show":true},{"__typename":"CompletableTrigger","complete":false,"name":"show_avatar_tooltip","show":true},{"__typename":"CompletableTrigger","complete":false,"name":"show_data_retention_warning","show":true},{"__typename":"CompletableTrigger","complete":true,"name":"show_download_video_info_modal","show":false},{"__typename":"CompletableTrigger","complete":true,"name":"show_get_started_checklist","show":false},{"__typename":"CompletableTrigger","complete":true,"name":"show_milestone_post_recording_celebration","show":false},{"__typename":"CompletableTrigger","complete":false,"name":"show_mobile_banner_prompt","show":false},{"__typename":"CompletableTrigger","complete":false,"name":"website_show_new_get_started_checklist_banner","show":false}],"videoSettings":{"__typename":"UserVideoSettings","auto_filler_word_removal":null,"auto_silence_removal":null,"show_transcript_to_viewer":null,"show_analytics_to_viewer":null,"suggested_playback_rate":null,"download_enabled":null,"record_reply_enabled":null,"viewers_can_weave_default":null,"comments_enabled":null,"comments_email_enabled":null,"use_emojis":true,"use_gif":true,"auto_cta":null,"auto_title":null,"auto_eovn":null,"auto_summary":null,"auto_chapters":null,"auto_tasks":null,"loom_branded_player":null,"noise_suppression":null,"email_gate_video_type":null}},"ROOT_QUERY":{"__typename":"Query","getCurrentUser":{"__typename":"GetCurrentUserPayload","user":{"__ref":"RegularUser:31907204"}}}};
+
+</script>
+
+
+  </head>
+
+  <body>
+    <main id="container"></main>
+
+    <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp"
+  
+      type="text/javascript"
+  >
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://evs.sgmt.loom.com/yhPeelcEJD/eejxbDiFfK.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.1";
+  analytics.load("rggRFsCK29LOKVGyTLpt9xoXVhNNXaP6", { "integrations": {"Elevio":true,"Google Analytics":true,"FullStory":false} });
+
+  
+  }}();
+</script>
+
+    
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/0runtime-58d35292044fc2549632.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/react-vendor-14a24117a695fea7c5ec.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/989-6008efb857e90d0b4e18.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/8040-fab4d61050584a5f0624.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/780-a185b2eac58359303651.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/5036-a5c4f3fa43f06b517da9.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/8256-322e2a37f4d4321008ca.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/1358-2e26873fdef8fab58d53.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/1754-8568ebc67abee46a30b9.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/9313-7f7f1fa79cc3ca795a8b.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/4524-0f7163960d2b2ccf04f2.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/1267-529af3ad9345c7e6788f.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/9225-419b4b06521251b1e074.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/490-7b913eece214fb4e802f.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/1965-bac684b5e612f1d91c33.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/5045-3d27618f2ce94d6e09ec.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/5061-3d9595241d18cf2faea6.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/14-0c94eacbcf87a75d5ddf.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/4013-444e83f50eb8075470c2.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/5172-9816d8d4cb23e15900ec.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/3857-a79594f8acc6dd2d67f7.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/9864-a308aa649c1a71fbe576.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/2126-dfdde3e94a11e17ed3b7.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/1718-1413fe6d8d9823c754a9.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/9952-b27e46226ed0a2e39260.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/5359-e813494bcaf038314428.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/7289-847a905a745b7dcd2e79.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/3799-ad25cdce364915b30df5.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/8284-ca588b83f80a7403b141.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/9844-7bd4e2db90a58a7270c6.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/4518-93dc47c962060e427ad5.js"></script>
+  
+  <script nonce="i165aavN/bnW7D9iGxtjJh59G7s7xDeOG9X6kVn5dBvYuLBp" src="https://cdn.loom.com/assets/js/destination-e46da04913454d977352.js"></script>
+  
+  </body>
+</html>
