@@ -48,15 +48,13 @@ print(prompt)
 The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g. OpenAI) 
 
 ```python
+from openai import OpenAI
 from quotientai import QuotientAI
 
+oai = OpenAI()
 quotient = QuotientAI()
 
 prompt = quotient.prompts.get(prompt_id)
-
-import openai
-
-oai = OpenAI()
 
 response = oai.chat.completions.create(
     messages=prompt.messages,
