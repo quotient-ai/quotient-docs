@@ -47,7 +47,7 @@ print(prompt)
 <Tip>
 The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g. OpenAI) 
 
-```
+```python
 from quotientai import QuotientAI
 
 quotient = QuotientAI()
@@ -62,6 +62,7 @@ response = oai.chat.completions.create(
     messages=prompt.messages,
     model="gpt-4o-mini",
 )
+```
 </Tip>
 
 ---
