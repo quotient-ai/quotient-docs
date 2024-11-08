@@ -32,7 +32,7 @@ new_prompt = quotient.prompts.create(
 print(new_prompt)
 \```
 
-<Note>Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
+> **Note**: Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.
 
 ---
 
@@ -47,8 +47,7 @@ prompt = quotient.prompts.get(prompt_id)
 print(prompt)
 \```
 
-<Tip>
-The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).
+> **Tip**: The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).
 
 \```python
 from openai import OpenAI
@@ -64,7 +63,6 @@ response = oai.chat.completions.create(
     model="gpt-4o-mini",
 )
 \```
-</Tip>
 
 ---
 
@@ -126,4 +124,4 @@ print("Prompt deleted successfully!")
 
 [Watch the Delete Prompts in Quotient SDK 👋 on YouTube](https://youtu.be/FIBMZevWrDo)
 
-<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co). </Note>
+> **Note**: Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co).
