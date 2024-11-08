@@ -29,7 +29,7 @@ new_prompt = quotient.prompts.create(
 print(new_prompt)
 ```
 
-<Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error. </Note>
+<Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
 
 ---
 
@@ -44,8 +44,7 @@ prompt = quotient.prompts.get(prompt_id)
 print(prompt)
 ```
 
-<Tip>
-The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g. OpenAI) 
+<Tip> The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).</Tip>
 
 ```python
 from openai import OpenAI
@@ -61,7 +60,6 @@ response = oai.chat.completions.create(
     model="gpt-4o-mini",
 )
 ```
-</Tip>
 
 ---
 
@@ -76,22 +74,34 @@ for prompt in prompts:
     print(prompt)
 ```
 
+<Tip>[Watch `List Prompts in Quotient SDK` on YouTube](https://youtu.be/iDSdJ-a7ouc)</Tip>
 ---
 
 ## Versioning Prompts
 
-Each prompt starts at version 0 upon creation. Quotient manages prompt versions, linking them by prompt name and unique ID. 
+Each prompt starts at version 0 upon creation. Quotient manages prompt versions, linking them by prompt name and unique ID.
 
 ### Creating a New Prompt Version
 
 To update a prompt’s details, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
 
 ```python
-prompt.user_prompt = "How can I assist you further?"
-updated_prompt = quotient.prompts.update(prompt=prompt)
+updated_prompt = quotient.prompts.update(
+    prompt=prompt,
+    user_prompt="Appropriately answer customer questions."
+)
 
 print(updated_prompt)
 ```
+
+You can also simply run:
+
+```python
+updated_user_prompt = "Appropriately answer customer questions. Be concise in your answers."
+prompt.user_prompt = updated_user_prompt
+```
+
+<Tip>[Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/aWGyqV02sBc)</Tip>
 
 ---
 
@@ -100,10 +110,12 @@ print(updated_prompt)
 Deleting a prompt removes all its associated versions. Use the `delete()` method with the `Prompt` object you wish to remove.
 
 ```python
-quotient.prompts.delete(new_prompt)
+quotient.prompts.delete(prompt)
 
+# Confirm the deletion
 print("Prompt deleted successfully!")
 ```
 
-<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co). You can also </Note>
+<Tip>[Watch `Delete Prompts in Quotient SDK 👋` on YouTube](https://youtu.be/FIBMZevWrDo)</Tip>
 
+<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co).</Note>
