@@ -15,24 +15,21 @@ Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updati
 
 To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
 
-\```python
+```python
 from quotientai import QuotientAI
 
-# Initialize the QuotientAI SDK client
 quotient = QuotientAI()
 
-# Create a new prompt with a system message and user message
 new_prompt = quotient.prompts.create(
     name="Customer Support Inquiry",
     system_prompt="You are a helpful assistant.",
     user_prompt="How can I assist you today?"
 )
 
-# Print the created prompt object to verify its details
 print(new_prompt)
-\```
+```
 
-> **Note**: Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.
+<Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
 
 ---
 
@@ -40,16 +37,16 @@ print(new_prompt)
 
 To retrieve a prompt by its ID (and optionally by version), use the `get()` method.
 
-\```python
+```python
 prompt_id = quotient.prompts.list()[0].id
 prompt = quotient.prompts.get(prompt_id)
 
 print(prompt)
-\```
+```
 
-> **Tip**: The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).
+<Tip> The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).</Tip>
 
-\```python
+```python
 from openai import OpenAI
 from quotientai import QuotientAI
 
@@ -62,7 +59,7 @@ response = oai.chat.completions.create(
     messages=prompt.messages,
     model="gpt-4o-mini",
 )
-\```
+```
 
 ---
 
@@ -70,15 +67,14 @@ response = oai.chat.completions.create(
 
 Retrieve all available prompts using the `list()` method. Each prompt includes details like `id`, `name`, `system_prompt`, and `user_prompt`.
 
-\```python
+```python
 prompts = quotient.prompts.list()
 
 for prompt in prompts:
     print(prompt)
-\```
+```
 
-[Watch the List Prompts in Quotient SDK 📋 on YouTube](https://youtu.be/iDSdJ-a7ouc)
-
+<Tip>[Watch `List Prompts in Quotient SDK` on YouTube](https://youtu.be/iDSdJ-a7ouc)</Tip>
 ---
 
 ## Versioning Prompts
@@ -89,25 +85,23 @@ Each prompt starts at version 0 upon creation. Quotient manages prompt versions,
 
 To update a prompt’s details, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
 
-\```python
-# Update the user message of an existing prompt
+```python
 updated_prompt = quotient.prompts.update(
     prompt=prompt,
-    user_prompt="Appropriately answer customer questions: {{input}}."
+    user_prompt="Appropriately answer customer questions."
 )
 
-# Print the updated prompt details
 print(updated_prompt)
-\```
+```
 
 You can also simply run:
 
-\```python
-updated_user_prompt = "Appropriately answer customer questions: {{input}}. Be concise in your answers."
+```python
+updated_user_prompt = "Appropriately answer customer questions. Be concise in your answers."
 prompt.user_prompt = updated_user_prompt
-\```
+```
 
-[Watch the Update User Prompts 🤖 on YouTube](https://youtu.be/aWGyqV02sBc)
+<Tip>[Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/aWGyqV02sBc)</Tip>
 
 ---
 
@@ -115,13 +109,13 @@ prompt.user_prompt = updated_user_prompt
 
 Deleting a prompt removes all its associated versions. Use the `delete()` method with the `Prompt` object you wish to remove.
 
-\```python
+```python
 quotient.prompts.delete(prompt)
 
 # Confirm the deletion
 print("Prompt deleted successfully!")
-\```
+```
 
-[Watch the Delete Prompts in Quotient SDK 👋 on YouTube](https://youtu.be/FIBMZevWrDo)
+<Tip>[Watch `Delete Prompts in Quotient SDK 👋` on YouTube](https://youtu.be/FIBMZevWrDo)</Tip>
 
-> **Note**: Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co).
+<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co).</Note>
