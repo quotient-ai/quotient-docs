@@ -83,7 +83,7 @@ Each prompt starts at version 0 upon creation. Quotient manages prompt versions,
 
 ### Creating a New Prompt Version
 
-To update a prompt’s details, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
+To update a prompt’s details and have them recorded in Quotient, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
 
 ```python
 updated_prompt = quotient.prompts.update(
@@ -92,13 +92,6 @@ updated_prompt = quotient.prompts.update(
 )
 
 print(updated_prompt)
-```
-
-You can also simply run:
-
-```python
-updated_user_prompt = "Appropriately answer customer questions. Be concise in your answers."
-prompt.user_prompt = updated_user_prompt
 ```
 
 <Tip>[Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/aWGyqV02sBc)</Tip>
