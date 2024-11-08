@@ -42,9 +42,15 @@
       "url": "https://quotientai.co/blog-index"
     }
   ],
+  "tabs": [
+    {
+      "name": "SDK Reference",
+      "url": "sdk-reference"
+    }
+  ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Get started",
       "pages": [
         "introduction",
         {
@@ -68,6 +74,12 @@
             "sdk-reference/datasets"
           ]
         }
+      ]
+    },
+    {
+      "group": "Links",
+      "pages": [
+        "sdk-reference/links/sdk"
       ]
     }
   ],

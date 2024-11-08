@@ -2,22 +2,20 @@
 title: 'Prompts'
 ---
 
-Prompt engineering is the process of designing and refining inputs for large language models (LLMs) to guide them toward producing the desired output. A well-crafted prompt can shape the response's tone, structure, and content. In the context of QuotientAI, prompt engineering is central to creating and managing precise interactions with LLMs to solve specific problems or answer questions effectively.
+Prompt engineering is the practice of designing inputs to guide large language models (LLMs) to produce desired responses. Each prompt has two key components: a system prompt and a user prompt -- both integrated within a single `Prompt` object for management and retrieval.
 
-At its core, prompt engineering involves:
+- **System Prompt:** Provides background context or instructions to influence the model’s overall behavior.
+- **User Prompt:** The specific question or input meant for the model to address in its response.
 
-- **System Prompts**: Providing instructions or context that guides the model’s behavior.
-- **User Prompts**: Defining the specific question or input from the user that the model will address.
+Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
 
-By using QuotientAI’s SDK, you can interact with prompts directly in your application, enabling the creation, retrieval, updating, and deletion of prompts programmatically.
+---
 
 ## Creating Prompts
 
-The Quotient Python SDK allows you to manage and interact with prompts through a simple interface.
+To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
 
-To create a new prompt, use the `create()` method. This method allows you to specify a name, a system prompt for general model guidance, and a user prompt as the primary input.
-
-```python
+\```python
 from quotientai import QuotientAI
 
 # Initialize the QuotientAI SDK client
@@ -32,56 +30,68 @@ new_prompt = quotient.prompts.create(
 
 # Print the created prompt object to verify its details
 print(new_prompt)
-```
+\```
 
-<Note>The returned `Prompt` object also has a `messages` property that you can use as input to model provider libraries like OpenAI.</Note>
+<Note>Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
 
-## Listing Prompts
-
-To list all available prompts, use the `list()` method. Each prompt contains details like `id`, `name`, `system_prompt`, and `user_prompt`.
-
-```python
-from quotientai import QuotientAI
-
-# Initialize the QuotientAI SDK client
-quotient = QuotientAI()
-
-# Retrieve a list of all prompts
-prompts = quotient.prompts.list()
-
-# Iterate through the list and print each prompt
-for prompt in prompts:
-    print(prompt)
-```
-
-[Watch the List Prompts in Quotient SDK 📋 on YouTube](https://youtu.be/iDSdJ-a7ouc)
+---
 
 ## Retrieving a Specific Prompt
 
-If you need to retrieve details of a specific prompt by its ID (and optional version), use the `get()` method.
+To retrieve a prompt by its ID (and optionally by version), use the `get()` method.
 
-```python
-# Retrieve the ID of the first prompt in the list for demonstration
+\```python
 prompt_id = quotient.prompts.list()[0].id
-# This can be any prompt ID e.g., 
-prompt_id = "prompt-id"
-
-# Get the prompt by its ID
 prompt = quotient.prompts.get(prompt_id)
 
-# Print the prompt details
 print(prompt)
-```
+\```
 
-[Watch the Retrieve a Specific Prompt 🎯 on YouTube](https://youtu.be/aBY9hBDCuEw)
+<Tip>
+The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).
 
-This will return the prompt with the specified ID and its associated messages, which you can use to send to an LLM.
+\```python
+from openai import OpenAI
+from quotientai import QuotientAI
 
-## Updating an Existing Prompt
+oai = OpenAI()
+quotient = QuotientAI()
 
-You can update a prompt's name, system prompt, or user prompt with the `update()` method. Here’s an example of updating a prompt’s user message:
+prompt = quotient.prompts.get(prompt_id)
 
-```python
+response = oai.chat.completions.create(
+    messages=prompt.messages,
+    model="gpt-4o-mini",
+)
+\```
+</Tip>
+
+---
+
+## Listing Prompts
+
+Retrieve all available prompts using the `list()` method. Each prompt includes details like `id`, `name`, `system_prompt`, and `user_prompt`.
+
+\```python
+prompts = quotient.prompts.list()
+
+for prompt in prompts:
+    print(prompt)
+\```
+
+[Watch the List Prompts in Quotient SDK 📋 on YouTube](https://youtu.be/iDSdJ-a7ouc)
+
+---
+
+## Versioning Prompts
+
+Each prompt starts at version 0 upon creation. Quotient manages prompt versions, linking them by prompt name and unique ID.
+
+### Creating a New Prompt Version
+
+To update a prompt’s details, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
+
+\```python
 # Update the user message of an existing prompt
 updated_prompt = quotient.prompts.update(
     prompt=prompt,
@@ -90,27 +100,30 @@ updated_prompt = quotient.prompts.update(
 
 # Print the updated prompt details
 print(updated_prompt)
-```
+\```
 
 You can also simply run:
 
-```python
+\```python
 updated_user_prompt = "Appropriately answer customer questions: {{input}}. Be concise in your answers."
 prompt.user_prompt = updated_user_prompt
-```
+\```
 
 [Watch the Update User Prompts 🤖 on YouTube](https://youtu.be/aWGyqV02sBc)
 
+---
+
 ## Deleting a Prompt
 
-To delete a prompt, call the `delete()` method. Ensure that you pass the `Prompt` object you intend to delete.
+Deleting a prompt removes all its associated versions. Use the `delete()` method with the `Prompt` object you wish to remove.
 
-```python
-# Delete the specified prompt
+\```python
 quotient.prompts.delete(prompt)
 
 # Confirm the deletion
 print("Prompt deleted successfully!")
-```
+\```
 
 [Watch the Delete Prompts in Quotient SDK 👋 on YouTube](https://youtu.be/FIBMZevWrDo)
+
+<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co). </Note>
