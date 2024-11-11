@@ -9,8 +9,6 @@ Prompt engineering is the practice of designing inputs to guide large language m
 
 Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
 
----
-
 ## Creating Prompts
 
 To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
@@ -30,8 +28,6 @@ print(new_prompt)
 ```
 
 <Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
-
----
 
 ## Retrieving a Specific Prompt
 
@@ -63,8 +59,6 @@ response = oai.chat.completions.create(
 ```
 </Tip>
 
----
-
 ## Listing Prompts
 
 Retrieve all available prompts using the `list()` method. Each prompt includes details like `id`, `name`, `system_prompt`, and `user_prompt`.
@@ -77,7 +71,6 @@ for prompt in prompts:
 ```
 
 <Tip>[Watch `List Prompts in Quotient SDK` on YouTube](https://youtu.be/iDSdJ-a7ouc)</Tip>
----
 
 ## Versioning Prompts
 
@@ -97,8 +90,6 @@ print(updated_prompt)
 ```
 
 <Tip>[Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/aWGyqV02sBc)</Tip>
-
----
 
 ## Deleting a Prompt
 
