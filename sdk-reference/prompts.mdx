@@ -44,7 +44,8 @@ prompt = quotient.prompts.get(prompt_id)
 print(prompt)
 ```
 
-<Tip> The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).</Tip>
+<Tip>
+The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI).
 
 ```python
 from openai import OpenAI
@@ -60,6 +61,7 @@ response = oai.chat.completions.create(
     model="gpt-4o-mini",
 )
 ```
+</Tip>
 
 ---
 
