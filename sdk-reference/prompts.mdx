@@ -72,18 +72,6 @@ for prompt in prompts:
 
  <Tip>
   [Watch `List Prompts in Quotient SDK` on YouTube](https://youtu.be/iDSdJ-a7ouc)
-  <details>  
-    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-      <iframe
-        src="https://www.youtube.com/embed/iDSdJ-a7ouc"
-        title="List Prompts in Quotient SDK YouTube video player"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </div>
-  </details>
 </Tip>
 
 ## Versioning Prompts
@@ -95,29 +83,15 @@ Each prompt starts at version 0 upon creation. Quotient manages prompt versions,
 To update a prompt’s details and have them recorded in Quotient, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
 
 ```python
-updated_prompt = quotient.prompts.update(
-    prompt=prompt,
-    user_prompt="Appropriately answer customer questions."
-)
+prompt.user_prompt = "How can I assist you today? Please provide more details."
+
+updated_prompt = quotient.prompts.update(prompt=prompt)
 
 print(updated_prompt)
 ```
 
 <Tip>
 [Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/aWGyqV02sBc)
-
-<details>  
-  <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-    <iframe
-      src="https://www.youtube.com/embed/aWGyqV02sBc"
-      title="Update User Prompts in Quotient SDK 🤖 YouTube video player"
-      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-</details>
 </Tip>
 
 
@@ -134,19 +108,6 @@ print("Prompt deleted successfully!")
 
 <Tip>
 [Watch `Delete Prompts in Quotient SDK 👋` on YouTube](https://youtu.be/FIBMZevWrDo)
-
-<details>  
-  <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-    <iframe
-      src="https://www.youtube.com/embed/FIBMZevWrDo"
-      title="Delete Prompts in Quotient SDK 👋 YouTube video player"
-      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-</details>
 </Tip>
 
 <Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co)</Note>
