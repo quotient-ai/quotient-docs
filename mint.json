@@ -64,7 +64,7 @@
       ]
     },
     {
-      "group": "Developer resources",
+      "group": "For Developers",
       "icon": "code",
       "pages": [
         "devs/changelog"
