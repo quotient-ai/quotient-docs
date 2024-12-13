@@ -64,6 +64,14 @@
       ]
     },
     {
+      "group": "Developer resources",
+      "icon": "code",
+      "pages": [
+        {
+        "devs/changelog"
+      ]
+    },
+    {
       "group": "Python SDK",
       "pages": [
         "sdk-reference/get-started",
