@@ -2,3 +2,23 @@
 title: 'Changelog'
 description: "All notable changes to this project will be documented in this file."
 ---
+# Weekly Changelog (2024-12-20)
+
+#### 🚀 New Features
+- 🧑‍⚖️ **AutoJudge for Custom LLM Evaluation:** We've introduced `AutoJudge` to the `judges` library! Given a labeled dataset with feedback, and a natural language description of an evaluation task, `AutoJudge` creates custom, task-specific LLM judges. [Check out the README!](https://github.com/quotient-ai/judges?tab=readme-ov-file#use-autojudge-to-create-a-custom-llm-judge).
+
+- **Expanded Model Support in `judges`:** Added support for open-source models via LiteLLM, enabling evaluation with LLMs on third-party inference providers. View configuration options in the [LiteLLM integration guide](https://github.com/quotient-ai/judges#pick-a-model).
+
+- **Onboarding Flow**: A streamlined onboarding experience is now live, making it easier to get started and navigate the platform. Follow the suggested steps to generate, improve, and version your prompts with Quotient IQ.
+
+#### ✨ Improvements
+- **Increased Input Size Limits:** The input character limit for prompts has been increased from 8,000 to 40,000 characters (approximately 30,000 tokens) in PromptLab. 
+- **Error Messaging for Exceeded Context Window:** We added detailed error messages when prompt input exceeds the supported context window of a selected model, so you know how many tokens you're able to utilize for a model.
+
+#### 🐛 Bug Fixes
+- **Prompt Evaluation Persistence:** Fixed a bug where prompts were not saved correctly in **PromptLab**, resulting in missing versions.
+- **Python SDK Updates** Fixed a bug in `datasets.list()` that was preventing rows being displayed -- now you can use the `include_rows=True` param to view all dataset rows.
+
+#### 📣 Notes
+- Ensure your SDK is updated to the latest version (`pip install -U quotient-python`) to leverage the new features and fixes.
+- Working with LLM-as-a-Judge for domain-specific tasks? We'd love to collaborate on research & prompts to include in [`judges`](https://github.com/quotient-ai/judges)!
