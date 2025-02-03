@@ -3,7 +3,7 @@ title: 'Models'
 description: 'Available models on Quotient'
 ---
 
-For both [PromptLab](/promptlab/promptlab) and [Evaluations](/evaluations), Quotient provides access to the following set of models across inference providers by default:
+For both [PromptLab](/promptlab/promptlab) and [Evaluations](/sdk-reference/evaluations), Quotient provides access to the following set of models across inference providers by default:
 
 | Provider | Model Name |
 |----------|------------|
@@ -43,5 +43,21 @@ For both [PromptLab](/promptlab/promptlab) and [Evaluations](/evaluations), Quot
 | Databricks | databricks/databricks-mixtral-8x7b-instruct |
 | Together AI | together_ai/deepseek-ai/DeepSeek-R1 |
 | Together AI | together_ai/mistralai/Mistral-7B-Instruct-v0.1 |
+
+## Listing Models with the SDK
+
+If you want to programmatically get the set of available models, you can run:
+
+```python
+models = quotient.models.list()
+print(models)
+```
+
+Or get a specific model's info:
+
+```python
+model = quotient.models.get('gpt-4o-mini-2024-07-17')
+print(model)
+```
 
 <Note> Want to use a model not listed here? Message us at [contact@quotientai.co](mailto:contact@quotientai.co) or on our Discord!</Note>
