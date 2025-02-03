@@ -1,0 +1,111 @@
+---
+title: 'Evaluation Metrics'
+---
+
+# Metrics
+
+Metrics evaluate model outputs across dimensions including accuracy, quality, similarity, faithfulness, and hallucination detection. Each [Runs](/evaluations) can utilize multiple metrics to assess performance.
+
+<Tip>The available metrics on Quotient are not a silver bullet, but are available to help you get started with understanding model performance.</Tip>
+
+<Note>
+Quotient normalizes text before comparison by:
+
+- Converting to lowercase
+- Removing stop-words
+- Removing punctuation
+- Removing extra whitespace
+</Note>
+
+## Metric Categories
+
+### Accuracy Metrics
+- **Exact Match** (`exact_match`): Binary score for exact string matches
+- **Normalized Exact Match** (`normalized_exact_match`): Binary score for matches after normalization
+- **F1 Score** (`f1_score`): Word overlap between completion and ground truth (0-1)
+- **Jaccard Similarity** (`jaccard_similarity`): Proportion of shared unique words (0-1)
+
+### Semantic Similarity
+- **BERTScore**: BERT-based semantic similarity metrics (0-100)
+  - `BERTScore_precision`
+  - `BERTScore_recall`
+  - `BERTScore_F1`
+- **BERT Sentence Similarity** (`bert_sentence_similarity`): Semantic meaning comparison (-1 to 1)
+
+### Syntactic Similarity
+- **ROUGE**: N-gram overlap metrics (0-1)
+  - `rouge1`, `rouge2`: Unigram/bigram overlap
+  - `rougeL`: Longest common subsequence
+  - `rougeLsum`: Summary-level LCS
+- **SacreBLEU** (`sacrebleu`): Standardized n-gram precision (0-100)
+
+### Faithfulness & Hallucination
+- **Knowledge F1** (`knowledge_f1_score`): Context-completion vocabulary alignment (0-1)
+- **ROUGE for Context** (`rouge_for_context`): Context-completion overlap (0-1)
+- **SelfCheckGPT-NLI** (`self-check-gpt-nli`): Hallucination detection (0-1)
+- **SelfCheckGPT-NLI-Relevance** (`self-check-gpt-nli-relevance`): Context relevance (0-1)
+
+### Text Quality
+- **Completion Verbosity** (`completion_verbosity`): Word count
+- **Verbosity Ratio** (`verbosity_ratio`): Completion length relative to ground truth
+
+## Using Metrics
+
+### In Code
+```python
+run = quotient.evaluate(
+    prompt=prompt,
+    dataset=dataset,
+    model=model,
+    metrics=[
+        'bertscore',
+        'exact_match',
+        'verbosity_ratio'
+    ]
+)
+```
+
+### In CLI
+```bash
+quotient run evaluate.py --metrics bertscore exact_match verbosity_ratio
+```
+
+## Metric Details
+
+### BERTScore
+Uses BERT embeddings to compute semantic similarity. Provides precision, recall, and F1 variants.
+
+**Limitations**:
+- Struggles with rare/out-of-vocabulary words
+- May show length bias
+- Domain-specific noise
+
+### BERT Sentence Similarity
+Measures semantic meaning similarity using sentence embeddings.
+
+Values:
+- -1: Opposite meaning
+- 0: Unrelated
+- 1: Identical meaning
+
+### F1 Score
+Harmonic mean of precision and recall for word overlap:
+```
+precision = |intersection| / |completion|
+recall = |intersection| / |answer|
+F1 = 2 * (precision * recall) / (precision + recall)
+```
+
+### ROUGE
+Family of recall-focused n-gram overlap metrics. Each variant provides precision, recall, and F1 scores.
+
+**Types**:
+- `rouge1`, `rouge2`: N-gram overlap
+- `rougeL`: Longest common subsequence
+- `rougeLsum`: Summary-level scoring
+
+### SelfCheckGPT Metrics
+**NLI**: Measures completion-context consistency (0-1)
+**NLI-Relevance**: Measures context-answer alignment (0-1)
+
+For implementation details, see the [metrics SDK documentation](/sdk/metrics).
