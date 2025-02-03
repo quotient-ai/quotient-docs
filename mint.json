@@ -64,6 +64,13 @@
       ]
     },
     {
+      "group": "Cookbooks",
+      "icon": "cauldron",
+      "pages": [
+        "cookbooks/judges"
+      ]
+    },
+    {
       "group": "Developer Resources",
       "icon": "code",
       "pages": [
