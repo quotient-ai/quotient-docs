@@ -78,7 +78,10 @@
           "group": "Guides",
           "pages": [
             "sdk-reference/prompts",
-            "sdk-reference/datasets"
+            "sdk-reference/datasets",
+            "sdk-reference/models",
+            "sdk-reference/metrics",
+            "sdk-reference/evaluations"
           ]
         }
       ]
