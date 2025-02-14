@@ -45,11 +45,13 @@ Quotient normalizes text before comparison by:
 ### Text Quality
 - **Verbosity Ratio** (`verbosity_ratio`): Model output length relative to expected response
 
-### [Ragas](https://github.com/explodinggradients/ragas) Metrics
+### Ragas Metrics
 - **Answer Correctness** ('answer_correctness_ragas'): Consistency of model output compared to expected response (0-1)
 - **Answer Relevance** ('answer_relevance_ragas'): Relevance of the model output to the input/query (0-1)
 - **Context Recall** ('context_recall_ragas'): How much of the expected response is supported by the context (0-1)
 - **Faithfulness** ('faithfulness_ragas'): Hallucination detection (0-1)
+
+The metrics in this section are based on the [Ragas repository](https://github.com/explodinggradients/ragas).
 
 ## Using Metrics
 
