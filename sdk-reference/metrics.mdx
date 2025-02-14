@@ -4,7 +4,7 @@ title: 'Evaluation Metrics'
 
 # Metrics
 
-Metrics evaluate model outputs across dimensions including accuracy, quality, similarity, faithfulness, and hallucination detection. Each [Runs](/evaluations) can utilize multiple metrics to assess performance.
+Metrics evaluate model outputs across dimensions including accuracy, quality, similarity, faithfulness, and hallucination detection. Each [Run](/evaluations) can utilize multiple metrics to assess performance.
 
 <Tip>The available metrics on Quotient are not a silver bullet, but are available to help you get started with understanding model performance.</Tip>
 
@@ -20,34 +20,30 @@ Quotient normalizes text before comparison by:
 ## Metric Categories
 
 ### Accuracy Metrics
-- **Exact Match** (`exact_match`): Binary score for exact string matches
-- **Normalized Exact Match** (`normalized_exact_match`): Binary score for matches after normalization
-- **F1 Score** (`f1_score`): Word overlap between completion and ground truth (0-1)
+- **Exact Match** (`exactmatch`): Binary score for exact string matches
+- **Normalized Exact Match** (`normalized_exactmatch`): Binary score for matches after normalization
+- **F1 Score** (`f1score`): Word overlap between the model output and expected response (0-1)
 - **Jaccard Similarity** (`jaccard_similarity`): Proportion of shared unique words (0-1)
 
-### Semantic Similarity
-- **BERTScore**: BERT-based semantic similarity metrics (0-100)
-  - `BERTScore_precision`
-  - `BERTScore_recall`
-  - `BERTScore_F1`
-- **BERT Sentence Similarity** (`bert_sentence_similarity`): Semantic meaning comparison (-1 to 1)
-
 ### Syntactic Similarity
-- **ROUGE**: N-gram overlap metrics (0-1)
+- **ROUGE**: N-gram overlap metrics, often used for summarization tasks (0-1)
   - `rouge1`, `rouge2`: Unigram/bigram overlap
   - `rougeL`: Longest common subsequence
   - `rougeLsum`: Summary-level LCS
-- **SacreBLEU** (`sacrebleu`): Standardized n-gram precision (0-100)
+- **SacreBLEU** (`sacrebleu`): Standardized n-gram precision, often used for translation tasks (0-100)
+- **METEOR** (`meteor`): Advanced unigram overlap, often used for translation tasks (0-1)
+
+### Semantic Similarity
+- **BERTScore** (`bertscore`): BERT-based semantic similarity metrics on the word-level (0-1)
+- **Sentence Transformers Similarity** (`sentence_tranformers_similarity`): Semantic meaning comparison (-1 to 1)
 
 ### Faithfulness & Hallucination
-- **Knowledge F1** (`knowledge_f1_score`): Context-completion vocabulary alignment (0-1)
-- **ROUGE for Context** (`rouge_for_context`): Context-completion overlap (0-1)
-- **SelfCheckGPT-NLI** (`self-check-gpt-nli`): Hallucination detection (0-1)
-- **SelfCheckGPT-NLI-Relevance** (`self-check-gpt-nli-relevance`): Context relevance (0-1)
+- **Knowledge F1** (`knowledge_f1score`): Context-output vocabulary alignment (0-1)
+- **ROUGE for Context** (`rouge_for_context`): Context-output overlap (0-1)
+- **SelfCheckGPT-NLI** (`faithfulness_selfcheckgpt`): Hallucination detection (0-1)
 
 ### Text Quality
-- **Completion Verbosity** (`completion_verbosity`): Word count
-- **Verbosity Ratio** (`verbosity_ratio`): Completion length relative to ground truth
+- **Verbosity Ratio** (`verbosity_ratio`): Model output length relative to expected response
 
 ## Using Metrics
 
@@ -74,14 +70,14 @@ quotient list metrics
 ## Metric Details
 
 ### BERTScore
-Uses BERT embeddings to compute semantic similarity. Provides precision, recall, and F1 variants.
+Uses BERT embeddings to compute semantic similarity. Returns a dictionary of `precision`, `recall`, and `f1` variants.
 
 **Limitations**:
 - Struggles with rare/out-of-vocabulary words
 - May show length bias
 - Domain-specific noise
 
-### BERT Sentence Similarity
+### Sentence Transformer Similarity
 Measures semantic meaning similarity using sentence embeddings.
 
 Values:
@@ -90,15 +86,15 @@ Values:
 - 1: Identical meaning
 
 ### F1 Score
-Harmonic mean of precision and recall for word overlap:
+Harmonic mean of precision and recall for word overlap (common words between the model output and expected response):
 ```
-precision = |intersection| / |completion|
-recall = |intersection| / |answer|
+precision = |intersection| / |output|
+recall = |intersection| / |expected|
 F1 = 2 * (precision * recall) / (precision + recall)
 ```
 
 ### ROUGE
-Family of recall-focused n-gram overlap metrics. Each variant provides precision, recall, and F1 scores.
+Family of recall-focused n-gram overlap metrics. Each variant returns a dictionary of `precision`, `recall`, and `f1` scores.
 
 **Types**:
 - `rouge1`, `rouge2`: N-gram overlap
@@ -106,7 +102,6 @@ Family of recall-focused n-gram overlap metrics. Each variant provides precision
 - `rougeLsum`: Summary-level scoring
 
 ### SelfCheckGPT Metrics
-**NLI**: Measures completion-context consistency (0-1)
-**NLI-Relevance**: Measures context-answer alignment (0-1)
+**NLI**: Measures output-context consistency (0-1)
 
 For implementation details, see the [metrics SDK documentation](/sdk-reference/metrics).
