@@ -9,6 +9,9 @@ Prompt engineering is the practice of designing inputs to guide large language m
 
 Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
 
+## Prompt Templating
+Prompts can use `{{input}}` and `{{context}}` as templating variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
+
 ## Creating Prompts
 
 To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
