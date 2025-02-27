@@ -67,6 +67,7 @@
       "group": "Cookbooks",
       "icon": "cauldron",
       "pages": [
+        "cookbooks/evaluating-reasoning-models-tax-prep-using-quotient-sdk"
         "cookbooks/judges"
       ]
     },
