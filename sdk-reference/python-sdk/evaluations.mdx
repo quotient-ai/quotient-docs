@@ -4,7 +4,7 @@ title: 'Running Evaluations with Quotient'
 
 # Evaluations
 
-Evaluations in Quotient track model performance through `Run` objects. Each Run combines a [prompt](/sdk-reference/prompts), [dataset](/sdk-reference/datasets), [model](/sdk-reference/models), and [metrics](/sdk-reference/metrics) to produce quantitative results.
+Evaluations in Quotient track model performance through `Run` objects. Each Run combines a [prompt](/sdk-reference/python-sdk/prompts), [dataset](/sdk-reference/python-sdk/datasets), [model](/sdk-reference/python-sdk/models), and [metrics](/sdk-reference/python-sdk/metrics) to produce quantitative results.
 
 ## Runs & Results
 
@@ -57,7 +57,7 @@ run = quotient.evaluate(
 )
 ```
 
-<Note>Parameters vary by model. See [Models](/sdk-reference/models) for provider-specific options.</Note>
+<Note>Parameters vary by model. See [Models](/sdk-reference/python-sdk/models) for provider-specific options.</Note>
 
 ## Retrieving Runs
 
@@ -104,7 +104,7 @@ Runs execute asynchronously and may take time for large datasets. Monitor progre
 
 See also:
 
-- [Datasets Documentation](/sdk-reference/datasets)
-- [Metrics Documentation](/sdk-reference/metrics)
-- [Models Documentation](/sdk-reference/models)
+- [Datasets Documentation](/sdk-reference/python-sdk/datasets)
+- [Metrics Documentation](/sdk-reference/python-sdk/metrics)
+- [Models Documentation](/sdk-reference/python-sdk/models)
 

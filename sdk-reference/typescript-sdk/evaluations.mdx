@@ -1,0 +1,111 @@
+---
+title: 'Running Evaluations with Quotient'
+---
+
+# Evaluations
+
+Evaluations in Quotient track model performance through `Run` objects. Each Run combines a [prompt](/sdk-reference/typescript-sdk/prompts), [dataset](/sdk-reference/typescript-sdk/datasets), [model](/sdk-reference/typescript-sdk/models), and [metrics](/sdk-reference/typescript-sdk/metrics) to produce quantitative results.
+
+## Runs & Results
+
+A Run contains:
+
+```typescript
+class Run {
+    id: string                     # Unique identifier
+    prompt: string                 # Reference to prompt ID
+    dataset: string                # Reference to dataset ID
+    model: string                  # Reference to model ID
+    parameters: Record<string, any>            # Model configuration
+    metrics: string[]          # Metrics to compute
+    status: string                 # Current run status
+    results: RunResult[]    # Results per dataset row
+    created_at: Date        # Creation timestamp
+    finished_at: Date       # Completion timestamp
+}
+
+class RunResult {
+    id: string
+    input: string
+    
+}
+```
+
+The `status` field can be `not-started`, `running`, `completed` or `failed`.
+
+Each result within a Run is represented by:
+
+```typescript
+class RunResult {
+    id: string           # Result identifier
+    input: string        # Input text
+    output: string       # Model output
+    values: Record<string, any>      # Metric scores
+    context: string      # Optional context
+    expected: string     # Optional expected output
+    created_at: Date
+    created_by: string
+}
+```
+
+## Creating a Run
+
+To create a run, you can use the `quotient.evaluate()` method along:
+
+```typescript
+const run = await quotient.evaluate({
+    prompt: prompt,      // Prompt object
+    dataset: dataset,    // Dataset object
+    model: model,        // Model object
+    parameters: {
+        "temperature": 0.7,
+        "max_tokens": 100
+    },
+    metrics: ['bertscore', 'exactmatch']
+});
+```
+
+<Note>Parameters vary by model. See [Models](/sdk-reference/typescript-sdk/models) for provider-specific options.</Note>
+
+## Retrieving Runs
+
+Get a specific run:
+
+    ```typescript
+    const run = await quotient.runs.get(run_id)
+```
+
+List all runs:
+
+```typescript
+const runs = await quotient.runs.list()
+```
+
+## Run Summary
+
+Generate performance summaries using the `summarize()` method:
+
+```typescript
+const summary = await run.summarize({
+    best_n: 3,    // Top performing examples
+    worst_n: 3    // Lowest performing examples
+});
+```
+
+The summary includes:
+
+- Aggregate metrics (average, standard deviation)
+- Best / worst performing examples
+- Run metadata (model, parameters, timestamps)
+
+
+<Note>
+Runs execute asynchronously and may take time for large datasets.
+</Note>
+
+See also:
+
+- [Datasets Documentation](/sdk-reference/typescript-sdk/datasets)
+- [Metrics Documentation](/sdk-reference/typescript-sdk/metrics)
+- [Models Documentation](/sdk-reference/typescript-sdk/models)
+

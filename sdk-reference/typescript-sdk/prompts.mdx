@@ -1,0 +1,106 @@
+---
+title: 'Prompts'
+---
+
+Prompt engineering is the practice of designing inputs to guide large language models (LLMs) to produce desired responses. Each prompt has two key components: a system prompt and a user prompt -- both integrated within a single `Prompt` object for management and retrieval.
+
+- **System Prompt:** Provides background context or instructions to influence the model’s overall behavior.
+- **User Prompt:** The specific question or input meant for the model to address in its response.
+
+Using the Quotient SDK, you can manage `Prompt`s by creating, retrieving, updating, and deleting them programmatically within your application.
+
+## Prompt Templating
+Prompts can use `{{input}}` and `{{context}}` as templating variables to dynamically pass values during prompt execution. This allows for flexibility in testing different inputs.
+
+## Creating Prompts
+
+To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
+
+```typescript
+import { QuotientAI } from 'quotientai';
+
+const quotient = new QuotientAI();
+
+const new_prompt = await quotient.prompts.create({
+    name: "Customer Support Inquiry",
+    system_prompt: "You are a helpful assistant.",
+    user_prompt: "How can I assist you today?"
+});
+
+console.log(new_prompt);
+```
+
+<Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
+
+## Retrieving a Specific Prompt
+
+To retrieve a prompt by its ID (and optionally by version), use the `get()` method.
+
+```typescript
+const prompt_id = (await quotient.prompts.list())[0].id;
+const prompt = await quotient.prompts.get(prompt_id);
+
+console.log(prompt);
+```
+
+<Tip>
+The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI)
+  
+```typescript
+import { OpenAI } from 'openai';
+import { QuotientAI } from 'quotientai';
+
+const oai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
+const quotient = new QuotientAI();
+
+const prompt = await quotient.prompts.get(prompt_id);
+
+const response = await oai.chat.completions.create({
+    messages: prompt.messages,
+    model: "gpt-4o-mini",
+});
+
+console.log(response);
+```
+</Tip>
+
+## Listing Prompts
+
+Retrieve all available prompts using the `list()` method. Each prompt includes details like `id`, `name`, `system_prompt`, and `user_prompt`.
+
+```typescript
+    const prompts = await quotient.prompts.list();
+
+for (const prompt of prompts) {
+    console.log(prompt);
+}
+```
+
+## Versioning Prompts
+
+Each prompt starts at version 0 upon creation. Quotient manages prompt versions, linking them by prompt name and unique ID.
+
+### Creating a New Prompt Version
+
+To update a prompt’s details and have them recorded in Quotient, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
+
+```typescript
+prompt.user_prompt = "How can I assist you today? Please provide more details.";
+
+const updated_prompt = await quotient.prompts.update(prompt);
+
+console.log(updated_prompt);
+```
+
+
+## Deleting a Prompt
+
+Deleting a prompt removes all its associated versions. Use the `delete()` method with the `Prompt` object you wish to remove.
+
+```typescript
+await quotient.prompts.delete(prompt);
+
+console.log("Prompt deleted successfully!");
+```
+
+<Note> Prompts are soft-deleted -- if you'd like to permanently remove prompts, contact us at [support@quotientai.co](mailto:support@quotientai.co)</Note>

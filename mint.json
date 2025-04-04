@@ -81,6 +81,22 @@
     {
       "group": "Python SDK",
       "pages": [
+        "sdk-reference/python-sdk/get-started",
+        {
+          "group": "Guides",
+          "pages": [
+            "sdk-reference/python-sdk/prompts",
+            "sdk-reference/python-sdk/datasets",
+            "sdk-reference/python-sdk/models",
+            "sdk-reference/python-sdk/metrics",
+            "sdk-reference/python-sdk/evaluations"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Typescript SDK",
+      "pages": [
         "sdk-reference/get-started",
         {
           "group": "Guides",

@@ -48,29 +48,25 @@ Quotient normalizes text before comparison by:
 ## Using Metrics
 
 ### In Code
-```python
-run = quotient.evaluate(
-    prompt=prompt,
-    dataset=dataset,
-    model=model,
-    metrics=[
+```typescript
+const run = await quotient.evaluate({
+    prompt: prompt,
+    dataset: dataset,
+    model: model,
+    metrics: [
         'bertscore',
         'exact_match',
         'verbosity_ratio'
     ]
-)
+});
 ```
 
-### Viewing metrics in the CLI & SDK
+### Viewing metrics in the SDK
 
-```bash
-# CLI
-quotient list metrics
-```
-
-```python
-# sdk
-quotient.metrics.list()
+```typescript
+// list all metrics
+const metrics = await quotient.metrics.list();
+console.log(metrics);
 ```
 
 
@@ -111,4 +107,4 @@ Family of recall-focused n-gram overlap metrics. Each variant returns a dictiona
 ### SelfCheckGPT Metric
 - **NLI**: Measures output-context consistency (0-1)
 
-For implementation details, see the [metrics SDK documentation](/sdk-reference/metrics).
+For implementation details, see the [metrics SDK documentation](/sdk-reference/typescript-sdk/metrics).
