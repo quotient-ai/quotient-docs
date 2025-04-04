@@ -1,0 +1,11 @@
+{
+    "name": "quotient-docs",
+    "version": "1.0.0",
+    "description": "Quotient AI Documentation",
+    "scripts": {
+      "preview": "mintlify dev"
+    },
+    "devDependencies": {
+      "mintlify": "^3.0.0"
+    }
+  }

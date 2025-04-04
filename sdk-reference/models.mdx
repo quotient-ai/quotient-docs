@@ -3,7 +3,7 @@ title: 'Models'
 description: 'Available models on Quotient'
 ---
 
-For both [PromptLab](/promptlab/promptlab) and [Evaluations](/sdk-reference/typescript-sdk/evaluations), Quotient provides access to the following set of models across inference providers by default:
+For both [PromptLab](/promptlab/promptlab) and [Evaluations](/sdk-reference/evaluations), Quotient provides access to the following set of models across inference providers by default:
 
 | Provider | Model Name |
 |----------|------------|
@@ -48,16 +48,34 @@ For both [PromptLab](/promptlab/promptlab) and [Evaluations](/sdk-reference/type
 
 If you want to programmatically get the set of available models, you can run:
 
-```typescript
-const models = await quotient.models.list();
-console.log(models);
-```
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  models = quotient.models.list()
+  print(models)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const models = await quotient.models.list();
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 Or get a specific model's info:
 
-```typescript
-const model = await quotient.models.get('gpt-4o-mini-2024-07-18');
-console.log(model);
-```
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  model = quotient.models.get('gpt-4o-mini-2024-07-18')
+  print(model)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const model = await quotient.models.get('gpt-4o-mini-2024-07-18');
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Note> Want to use a model not listed here? Message us at [contact@quotientai.co](mailto:contact@quotientai.co) or on our Discord!</Note>

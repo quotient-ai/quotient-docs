@@ -79,33 +79,17 @@
       ]
     },
     {
-      "group": "Python SDK",
+      "group": "SDK Reference",
       "pages": [
-        "sdk-reference/python-sdk/get-started",
+        "sdk-reference/get-started",
         {
           "group": "Guides",
           "pages": [
-            "sdk-reference/python-sdk/prompts",
-            "sdk-reference/python-sdk/datasets",
-            "sdk-reference/python-sdk/models",
-            "sdk-reference/python-sdk/metrics",
-            "sdk-reference/python-sdk/evaluations"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Typescript SDK",
-      "pages": [
-        "sdk-reference/typescript-sdk/get-started",
-        {
-          "group": "Guides",
-          "pages": [
-            "sdk-reference/typescript-sdk/prompts",
-            "sdk-reference/typescript-sdk/datasets",
-            "sdk-reference/typescript-sdk/models",
-            "sdk-reference/typescript-sdk/metrics",
-            "sdk-reference/typescript-sdk/evaluations"
+            "sdk-reference/prompts",
+            "sdk-reference/datasets",
+            "sdk-reference/models",
+            "sdk-reference/metrics",
+            "sdk-reference/evaluations"
           ]
         }
       ]
@@ -113,7 +97,8 @@
     {
       "group": "Links",
       "pages": [
-        "sdk-reference/links/sdk"
+        "sdk-reference/links/python-sdk",
+        "sdk-reference/links/typescript-sdk"
       ]
     }
   ],

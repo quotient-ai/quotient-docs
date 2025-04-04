@@ -48,27 +48,56 @@ Quotient normalizes text before comparison by:
 ## Using Metrics
 
 ### In Code
-```typescript
-const run = await quotient.evaluate({
-    prompt: prompt,
-    dataset: dataset,
-    model: model,
-    metrics: [
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  run = quotient.evaluate(
+    prompt=prompt,
+    dataset=dataset,
+    model=model,
+    metrics=[
         'bertscore',
         'exact_match',
         'verbosity_ratio'
     ]
-});
+)
+```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const run = await quotient.evaluate({
+    prompt,
+    dataset,
+    model,
+    metrics: [
+    ]
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+### Viewing metrics in the CLI & SDK
+
+```bash
+# CLI
+quotient list metrics
 ```
 
-### Viewing metrics in the SDK
-
-```typescript
-// list all metrics
-const metrics = await quotient.metrics.list();
-console.log(metrics);
-```
-
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  # sdk
+  quotient.metrics.list()
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  // sdk
+  const metrics = await quotient.metrics.list();
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 ## Metric Details
 
@@ -107,4 +136,4 @@ Family of recall-focused n-gram overlap metrics. Each variant returns a dictiona
 ### SelfCheckGPT Metric
 - **NLI**: Measures output-context consistency (0-1)
 
-For implementation details, see the [metrics SDK documentation](/sdk-reference/typescript-sdk/metrics).
+For implementation details, see the [metrics SDK documentation](/sdk-reference/metrics).

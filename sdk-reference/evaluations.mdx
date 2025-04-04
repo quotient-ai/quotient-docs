@@ -1,0 +1,199 @@
+---
+title: 'Running Evaluations with Quotient'
+---
+
+# Evaluations
+
+Evaluations in Quotient track model performance through `Run` objects. Each Run combines a [prompt](/sdk-reference/prompts), [dataset](/sdk-reference/datasets), [model](/sdk-reference/models), and [metrics](/sdk-reference/metrics) to produce quantitative results.
+
+## Runs & Results
+
+A Run contains:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  class Run:
+    id: str                     # Unique identifier
+    prompt: str                 # Reference to prompt ID
+    dataset: str                # Reference to dataset ID
+    model: str                  # Reference to model ID
+    parameters: dict            # Model configuration
+    metrics: List[str]          # Metrics to compute
+    status: str                 # Current run status
+    results: List[RunResult]    # Results per dataset row
+    created_at: datetime        # Creation timestamp
+    finished_at: datetime       # Completion timestamp
+```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  class Run {
+    id: string;                     // Unique identifier
+    prompt: string;                 // Reference to prompt ID
+    dataset: string;                // Reference to dataset ID
+    model: string;                  // Reference to model ID
+    parameters: Record<string, any>; // Model configuration
+    metrics: string[];              // Metrics to compute
+    status: string;                 // Current run status
+    results: RunResult[];          // Results per dataset row
+    createdAt: Date;                // Creation timestamp
+    finishedAt: Date;               // Completion timestamp
+  }
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+The `status` field can be `not-started`, `running`, `completed` or `failed`.
+
+Each result within a Run is represented by:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  class RunResult:
+    id: str           # Result identifier
+    input: str        # Input text
+    output: str       # Model output
+    values: dict      # Metric scores
+    context: str      # Optional context
+    expected: str     # Optional expected output
+    created_at: datetime
+    created_by: str
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  class RunResult {
+    id: string;
+    input: string;
+    output: string;
+    values: Record<string, any>;
+    context: string;
+    expected: string;
+    createdAt: Date;
+    createdBy: string;
+  }
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+## Creating a Run
+
+To create a run, you can use the `quotient.evaluate()` method along:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+run = quotient.evaluate(
+    prompt=prompt,      # Prompt object
+    dataset=dataset,    # Dataset object
+    model=model,        # Model object
+    parameters={
+        "temperature": 0.7,
+        "max_tokens": 100
+    },
+    metrics=['bertscore', 'exactmatch']
+)
+```
+  </CodeBlock>
+
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const run = await quotient.evaluate({
+    prompt,
+    dataset,
+    model,
+    parameters: {
+      temperature: 0.7,
+      max_tokens: 100
+    },
+    metrics: ['bertscore', 'exactmatch']
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+<Note>Parameters vary by model. See [Models](/sdk-reference/models) for provider-specific options.</Note>
+
+## Retrieving Runs
+
+Get a specific run:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  run = quotient.runs.get(run_id)
+  ```
+  </CodeBlock>
+
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const run = await quotient.runs.get(runId);
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+List all runs:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  runs = quotient.runs.list()
+  ```
+  </CodeBlock>
+
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const runs = await quotient.runs.list();
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+## Run Summary
+
+Generate performance summaries using the `summarize()` method:
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  summary = run.summarize(
+      best_n=3,    # Top performing examples
+      worst_n=3    # Lowest performing examples
+  )
+  ```
+  </CodeBlock>
+
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const summary = await run.summarize({
+    best_n: 3,
+    worst_n: 3
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
+
+The summary includes:
+- Aggregate metrics (average, standard deviation)
+- Best / worst performing examples
+- Run metadata (model, parameters, timestamps)
+
+## CLI Usage
+
+You can run evaluations via the Quotient CLI, so long as your file has the phrase `evaluate` in it:
+
+```bash
+quotient run simple_evaluate.py
+```
+
+<Note>
+Runs execute asynchronously and may take time for large datasets. Monitor progress with the CLI or SDK.
+</Note>
+
+See also:
+
+- [Datasets Documentation](/sdk-reference/datasets)
+- [Metrics Documentation](/sdk-reference/metrics)
+- [Models Documentation](/sdk-reference/models)
+
