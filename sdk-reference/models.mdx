@@ -48,16 +48,34 @@ For both [PromptLab](/promptlab/promptlab) and [Evaluations](/sdk-reference/eval
 
 If you want to programmatically get the set of available models, you can run:
 
-```python
-models = quotient.models.list()
-print(models)
-```
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  models = quotient.models.list()
+  print(models)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const models = await quotient.models.list();
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 Or get a specific model's info:
 
-```python
-model = quotient.models.get('gpt-4o-mini-2024-07-18')
-print(model)
-```
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  model = quotient.models.get('gpt-4o-mini-2024-07-18')
+  print(model)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const model = await quotient.models.get('gpt-4o-mini-2024-07-18');
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Note> Want to use a model not listed here? Message us at [contact@quotientai.co](mailto:contact@quotientai.co) or on our Discord!</Note>

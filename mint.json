@@ -79,7 +79,7 @@
       ]
     },
     {
-      "group": "Python SDK",
+      "group": "SDK Reference",
       "pages": [
         "sdk-reference/get-started",
         {
@@ -97,7 +97,8 @@
     {
       "group": "Links",
       "pages": [
-        "sdk-reference/links/sdk"
+        "sdk-reference/links/python-sdk",
+        "sdk-reference/links/typescript-sdk"
       ]
     }
   ],

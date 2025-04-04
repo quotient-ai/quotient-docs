@@ -3,11 +3,19 @@ title: 'Get Started'
 ---
 
 <Steps>
-  <Step title="Install the Quotient Python SDK">
-
-    ```code
-    pip install quotientai
-    ```
+  <Step title="Install the Quotient SDK">
+    <CodeGroup>
+      <CodeBlock filename="Python">
+      ```python
+      pip install quotientai
+      ```
+      </CodeBlock>
+      <CodeBlock filename="TypeScript">
+      ```typescript
+      npm install quotientai
+      ```
+      </CodeBlock>
+    </CodeGroup>
   </Step>
   <Step title="Create an API Key">
     Next, create an API key to authenticate yourself. You can create an API key in your [settings](https://app.quotientai.co).
@@ -18,11 +26,12 @@ title: 'Get Started'
 
   </Step>
   <Step title="Create a Script">
-    Create a file named `prompting.py` with the following code:
+    Create a script with the following code:
 
     <CodeGroup>
-      ```python prompting.py
-      from quotientai import QuotientAI
+      <CodeBlock filename="Python">
+        ```python prompting.py
+        from quotientai import QuotientAI
 
       # initialize the quotient client
       quotient = QuotientAI()
@@ -34,15 +43,40 @@ title: 'Get Started'
         user_prompt="Your task is to assist customers by providing clear, concise, and helpful responses to their inquiries"
       )
 
-      print(prompt)
-      ```
+        print(prompt)
+        ```
+      </CodeBlock>
+      <CodeBlock filename="TypeScript">
+        ```typescript prompting.ts
+        import { QuotientAI } from 'quotientai';
+
+        const quotient = new QuotientAI();
+
+        const prompt = await quotient.prompts.create({
+          name: "my-first-prompt",
+          systemPrompt: "You are a helpful assistant.",
+          userPrompt: "Your task is to assist customers by providing clear, concise, and helpful responses to their inquiries"
+        });
+
+        console.log(prompt);
+        ```
+      </CodeBlock>
     </CodeGroup>
   </Step>
   <Step title="Run the Script">
     Using your API key, run the script to create your first prompt:
-    ```console
-    QUOTIENT_API_KEY=your-api-key python prompting.py
-    ```
+    <CodeGroup>
+      <CodeBlock filename="Python">
+        ```console
+        QUOTIENT_API_KEY=your-api-key python prompting.py
+        ```
+      </CodeBlock>
+      <CodeBlock filename="TypeScript">
+        ```console
+        QUOTIENT_API_KEY=your-api-key npx ts-node prompting.ts
+        ```
+      </CodeBlock>
+    </CodeGroup>
   </Step>
   <Step title="Open in PromptLab">
     You just created your first prompt! Now can go to the Quotient Web UI and open your prompt [PromptLab](https://app.quotientai.co/prompts).

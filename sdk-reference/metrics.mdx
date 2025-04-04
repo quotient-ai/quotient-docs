@@ -48,8 +48,11 @@ Quotient normalizes text before comparison by:
 ## Using Metrics
 
 ### In Code
-```python
-run = quotient.evaluate(
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  run = quotient.evaluate(
     prompt=prompt,
     dataset=dataset,
     model=model,
@@ -60,6 +63,19 @@ run = quotient.evaluate(
     ]
 )
 ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const run = await quotient.evaluate({
+    prompt,
+    dataset,
+    model,
+    metrics: [
+    ]
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 ### Viewing metrics in the CLI & SDK
 
@@ -68,11 +84,20 @@ run = quotient.evaluate(
 quotient list metrics
 ```
 
-```python
-# sdk
-quotient.metrics.list()
-```
-
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  # sdk
+  quotient.metrics.list()
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  // sdk
+  const metrics = await quotient.metrics.list();
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 ## Metric Details
 

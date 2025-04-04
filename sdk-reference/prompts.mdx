@@ -16,19 +16,36 @@ Prompts can use `{{input}}` and `{{context}}` as templating variables to dynamic
 
 To create a new prompt, use the `create()` method, specifying a unique name, a system prompt for model behavior, and a user prompt for user interaction.
 
-```python
-from quotientai import QuotientAI
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  from quotientai import QuotientAI
 
-quotient = QuotientAI()
+  quotient = QuotientAI()
 
-new_prompt = quotient.prompts.create(
-    name="Customer Support Inquiry",
-    system_prompt="You are a helpful assistant.",
-    user_prompt="How can I assist you today?"
-)
+      new_prompt = quotient.prompts.create(
+      name="Customer Support Inquiry",
+      system_prompt="You are a helpful assistant.",
+      user_prompt="How can I assist you today?"
+  )
+  
+  print(new_prompt)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  import { QuotientAI } from "quotientai";
 
-print(new_prompt)
-```
+  const quotient = new QuotientAI();
+
+  const newPrompt = await quotient.prompts.create({
+    name: "Customer Support Inquiry",
+    systemPrompt: "You are a helpful assistant.",
+    userPrompt: "How can I assist you today?"
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Note> Prompt names must be unique within your Quotient account. Attempting to create a prompt with an existing name will raise an error.</Note>
 
@@ -36,42 +53,90 @@ print(new_prompt)
 
 To retrieve a prompt by its ID (and optionally by version), use the `get()` method.
 
-```python
-prompt_id = quotient.prompts.list()[0].id
-prompt = quotient.prompts.get(prompt_id)
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  prompt_id = quotient.prompts.list()[0].id
+  prompt = quotient.prompts.get(prompt_id)
 
-print(prompt)
-```
+  print(prompt)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const promptId = quotient.prompts.list()[0].id;
+  const prompt = await quotient.prompts.get(promptId);
+
+  console.log(prompt);
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Tip>
 The returned `Prompt` object includes a `messages` property, useful for integration with model provider libraries (e.g., OpenAI)
+
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  from openai import OpenAI
+  from quotientai import QuotientAI
+
+  oai = OpenAI()
+  quotient = QuotientAI()
   
-```python
-from openai import OpenAI
-from quotientai import QuotientAI
+  prompt = quotient.prompts.get(prompt_id)
+  
+  response = oai.chat.completions.create(
+      messages=prompt.messages,
+      model="gpt-4o-mini",
+  )
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  import { OpenAI } from "openai";
+  import { QuotientAI } from "quotientai";
 
-oai = OpenAI()
-quotient = QuotientAI()
+  const oai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const quotient = new QuotientAI();
 
-prompt = quotient.prompts.get(prompt_id)
+  const prompt = await quotient.prompts.get(promptId);
 
-response = oai.chat.completions.create(
-    messages=prompt.messages,
-    model="gpt-4o-mini",
-)
-```
+  const response = await oai.chat.completions.create({
+    messages: prompt.messages,
+    model: "gpt-4o-mini",
+  });
+  ```
+  </CodeBlock>
+</CodeGroup>
+
 </Tip>
 
 ## Listing Prompts
 
 Retrieve all available prompts using the `list()` method. Each prompt includes details like `id`, `name`, `system_prompt`, and `user_prompt`.
 
-```python
-prompts = quotient.prompts.list()
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  prompts = quotient.prompts.list()
 
-for prompt in prompts:
-    print(prompt)
-```
+  for prompt in prompts:
+      print(prompt)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  const prompts = await quotient.prompts.list();
+
+  for (const prompt of prompts) {
+    console.log(prompt);
+  }
+  ```
+  </CodeBlock>
+</CodeGroup>
 
  <Tip>
   [Watch `List Prompts in Quotient SDK` on YouTube](https://youtu.be/iDSdJ-a7ouc)
@@ -85,29 +150,51 @@ Each prompt starts at version 0 upon creation. Quotient manages prompt versions,
 
 To update a prompt’s details and have them recorded in Quotient, use the `update()` method. If any attributes (like `name`, `system_prompt`, or `user_prompt`) change, the version is automatically incremented.
 
-```python
-prompt.user_prompt = "How can I assist you today? Please provide more details."
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  prompt.user_prompt = "How can I assist you today? Please provide more details."
 
-updated_prompt = quotient.prompts.update(prompt=prompt)
+  updated_prompt = quotient.prompts.update(prompt=prompt)
+  
+  print(updated_prompt)
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  prompt.userPrompt = "How can I assist you today? Please provide more details.";
+  const updatedPrompt = await quotient.prompts.update(prompt);
 
-print(updated_prompt)
-```
+  console.log(updatedPrompt);
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Tip>
 [Watch `Update User Prompts in Quotient SDK 🤖` on YouTube](https://youtu.be/cJCxoUfZPBk)
 </Tip>
 
-
 ## Deleting a Prompt
 
 Deleting a prompt removes all its associated versions. Use the `delete()` method with the `Prompt` object you wish to remove.
 
-```python
-quotient.prompts.delete(prompt)
+<CodeGroup>
+  <CodeBlock filename="Python">
+  ```python
+  quotient.prompts.delete(prompt)
 
-# Confirm the deletion
-print("Prompt deleted successfully!")
-```
+  # Confirm the deletion
+  print("Prompt deleted successfully!")
+  ```
+  </CodeBlock>
+  <CodeBlock filename="TypeScript">
+  ```typescript
+  await quotient.prompts.delete(prompt);
+
+  console.log("Prompt deleted successfully!");
+  ```
+  </CodeBlock>
+</CodeGroup>
 
 <Tip>
 [Watch `Delete Prompts in Quotient SDK 👋` on YouTube](https://youtu.be/FIBMZevWrDo)
