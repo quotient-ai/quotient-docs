@@ -23,12 +23,6 @@ class Run {
     created_at: Date        # Creation timestamp
     finished_at: Date       # Completion timestamp
 }
-
-class RunResult {
-    id: string
-    input: string
-    
-}
 ```
 
 The `status` field can be `not-started`, `running`, `completed` or `failed`.
@@ -36,7 +30,7 @@ The `status` field can be `not-started`, `running`, `completed` or `failed`.
 Each result within a Run is represented by:
 
 ```typescript
-class RunResult {
+interface RunResult {
     id: string           # Result identifier
     input: string        # Input text
     output: string       # Model output
