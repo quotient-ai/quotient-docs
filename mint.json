@@ -97,15 +97,15 @@
     {
       "group": "Typescript SDK",
       "pages": [
-        "sdk-reference/get-started",
+        "sdk-reference/typescript-sdk/get-started",
         {
           "group": "Guides",
           "pages": [
-            "sdk-reference/prompts",
-            "sdk-reference/datasets",
-            "sdk-reference/models",
-            "sdk-reference/metrics",
-            "sdk-reference/evaluations"
+            "sdk-reference/typescript-sdk/prompts",
+            "sdk-reference/typescript-sdk/datasets",
+            "sdk-reference/typescript-sdk/models",
+            "sdk-reference/typescript-sdk/metrics",
+            "sdk-reference/typescript-sdk/evaluations"
           ]
         }
       ]
