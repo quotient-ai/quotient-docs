@@ -52,8 +52,8 @@
     {
       "group": "Get started",
       "pages": [
-        "introduction",
-        "log-and-detect",
+        "main/introduction",
+        "main/log-and-detect"
       ]
     },
     {

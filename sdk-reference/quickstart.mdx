@@ -5,16 +5,13 @@ title: 'Quickstart'
 <Steps>
   <Step title="Install the Quotient SDK">
     <CodeGroup>
-      <CodeBlock filename="Python">
-      ```python
+      ```console pip
       pip install quotientai
       ```
-      </CodeBlock>
-      <CodeBlock filename="TypeScript">
-      ```typescript
+
+      ```console npm
       npm install quotientai
       ```
-      </CodeBlock>
     </CodeGroup>
   </Step>
   <Step title="Create an API Key">
@@ -29,7 +26,6 @@ title: 'Quickstart'
     Create a script to initialize the Quotient logger:
 
     <CodeGroup>
-      <CodeBlock filename="Python">
         ```python logging.py
         from quotientai import QuotientAI
 
@@ -54,8 +50,7 @@ title: 'Quickstart'
 
         print(response)
         ```
-      </CodeBlock>
-      <CodeBlock filename="TypeScript">
+
         ```typescript logging.ts
         import { QuotientAI } from 'quotientai';
 
@@ -77,22 +72,19 @@ title: 'Quickstart'
 
         console.log(response);
         ```
-      </CodeBlock>
+
     </CodeGroup>
   </Step>
   <Step title="Run the Script">
     Using your API key, run the script to create your first log:
     <CodeGroup>
-      <CodeBlock filename="Python">
-        ```console
+        ```console python
         QUOTIENT_API_KEY=your-api-key python logging.py
         ```
-      </CodeBlock>
-      <CodeBlock filename="TypeScript">
-        ```console
+
+        ```console npx
         QUOTIENT_API_KEY=your-api-key npx ts-node logging.ts
         ```
-      </CodeBlock>
     </CodeGroup>
   </Step>
   <Step title="View Your Logs">
