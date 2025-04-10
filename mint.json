@@ -53,26 +53,18 @@
       "group": "Get started",
       "pages": [
         "introduction",
-        {
-          "group": "PromptLab",
-          "icon": "flask",
-          "pages": [
-            "promptlab/promptlab",
-            "promptlab/iq"
-          ]
-        }
+        "log-and-detect",
       ]
     },
     {
       "group": "Cookbooks",
       "icon": "cauldron",
       "pages": [
-        "cookbooks/evaluating-reasoning-models-tax-prep-using-quotient-sdk",
         "cookbooks/judges"
       ]
     },
     {
-      "group": "Developer Resources",
+      "group": "Resources",
       "icon": "code",
       "pages": [
         "devs/changelog"
@@ -82,16 +74,8 @@
       "group": "SDK Reference",
       "pages": [
         "sdk-reference/get-started",
-        {
-          "group": "Guides",
-          "pages": [
-            "sdk-reference/prompts",
-            "sdk-reference/datasets",
-            "sdk-reference/models",
-            "sdk-reference/metrics",
-            "sdk-reference/evaluations"
-          ]
-        }
+        "sdk-reference/logs",
+        "sdk-reference/detections"
       ]
     },
     {
