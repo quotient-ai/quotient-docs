@@ -1,33 +1,52 @@
 ---
 title: Welcome to Quotient AI
-description: 'Introduction to Quotient AI'
 icon: "hand-wave"
 ---
 
-# 👋 Welcome to Quotient AI
-
-Quotient is an advanced AI development and evaluation platform. We combine our experience building evals for top AI products with state-of-the-art research to make it simple and fast to prototype, evaluate, and ship AI products without the unnecessary technical overhead.
-
-<Image src="../assets/general/quotient-app-landing-page.png" alt="Quotient AI Landing Page" />
+Quotient provides intelligent observability for AI apps by automatically detecting problems, identifying root causes, and providing visibility -- see what's broken, where it happens, and why.
 
 ## 🧠 Why Quotient AI?
 
-We take care of the unnecessary complexity out of AI development and evaluation, so developers can focus on what's exciting. Quotient's platform provides multiple tools that work together to achieve that goal:
+Quotient Detections enables you to automatically catch hallucinations and other reliability issues in your AI outputs as you log responses. You can:
 
-**PromptLab** is a prompt engineering environment for experimentation and refinement. Developers can version prompts, test across different models, and bootstrap evaluation datasets from their examples - turning test cases into comprehensive eval suites.
+- Track and measure the reliability of your LLM-powered applications
+- Identify which retrieved documents contributed to generated responses
+- Calculate hallucination rates across different environments
+- Flag responses that cannot be traced back to source documents
 
-**IQ** is an AI development copilot for writing, analyzing, and improving prompts through interactive sessions. It works like pair programming with an AI expert who knows LLM best practices.
+all with the Quotient SDK in Python or TypeScript.
 
-The **Quotient SDK** is a straightforward Python package that gives teams access to Quotient's full evaluation infrastructure. It enables thorough testing of models, prompts, configurations, and RAG systems before release. Developers can:
+## How does it work?
 
-- Run comprehensive eval suites with auto-generated evaluation code
-- Choose from ready-to-use evaluation metrics
-- Track prompt and dataset versions, and seamlessly incorporate prompts into their codebase
+### Seamless Integration
 
----
+With just a few lines of code, our lightweight SDK connects to your application and streams structured logs.
 
-## 🚀 The best is yet to come
+<Image src="../assets/sdk-logging.png" alt="SDK Logging Example" />
+
+import { Arrow } from './Arrow.mdx';
+
+<Arrow />
+
+<Image src="../assets/detections-screenshot.png" alt="Detections Page" />
+
+
+
+### Advanced Issue Detection
+
+Our algorithms analyze logs to detect hallucinations, inconsistencies, and other mission-critical issues.
+
+### Actionable Insights
+
+Get a clear dashboard with detailed diagnostics on what’s wrong, where it’s happening, and how to resolve it.
+
+
+### Want to get started?
+
+Check out our [Quickstart](/quickstart) page.
+
+We're actively developing new features and capabilities. Have ideas or specific needs? Reach out to our founders directly at **[contact@quotientai.co](mailto:contact@quotientai.co)**.
 
 Follow our [blog](https://www.quotientai.co/blog-index) for insights on AI development and evaluation.
 
-We're actively developing new features and capabilities. Have ideas or specific needs? Reach out to our founders directly at **[contact@quotientai.co](mailto:contact@quotientai.co)**.
+

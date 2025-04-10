@@ -73,7 +73,7 @@
     {
       "group": "SDK Reference",
       "pages": [
-        "sdk-reference/get-started",
+        "sdk-reference/quickstart",
         "sdk-reference/logs",
         "sdk-reference/detections"
       ]

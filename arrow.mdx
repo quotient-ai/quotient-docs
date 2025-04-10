@@ -1,0 +1,8 @@
+export const Arrow = ({ direction = 'right' }) => (
+  <span style={{ fontSize: '24px' }}>
+    {direction === 'right' ? '→' : 
+     direction === 'left' ? '←' : 
+     direction === 'up' ? '↑' : 
+     direction === 'down' ? '↓' : '→'}
+  </span>
+);
