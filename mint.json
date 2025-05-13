@@ -23,7 +23,11 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@quotientai.co"
+      "url": "mailto:contact@quotientai.co"
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/YeJzANpntv"
     }
   ],
   "topbarCtaButton": {
@@ -44,16 +48,35 @@
   ],
   "tabs": [
     {
-      "name": "SDK Reference",
-      "url": "sdk-reference"
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "navigation": [
     {
-      "group": "Get started",
+      "group": "Get Started",
       "pages": [
         "main/introduction",
+        "main/quickstart",
         "main/log-and-detect"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/logs"
+      ]
+    },
+    {
+      "group": "Logs",
+      "pages": [
+        "main/logs"
+      ]
+    },
+    {
+      "group": "Detections",
+      "pages": [
+        "main/detections"
       ]
     },
     {
@@ -64,18 +87,10 @@
       ]
     },
     {
-      "group": "Resources",
+      "group": "Changelog",
       "icon": "code",
       "pages": [
-        "devs/changelog"
-      ]
-    },
-    {
-      "group": "SDK Reference",
-      "pages": [
-        "sdk-reference/quickstart",
-        "sdk-reference/logs",
-        "sdk-reference/detections"
+        "devs/2025-05-13"
       ]
     },
     {
