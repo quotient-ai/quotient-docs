@@ -23,7 +23,11 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@quotientai.co"
+      "url": "mailto:contact@quotientai.co"
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/YeJzANpntv"
     }
   ],
   "topbarCtaButton": {
@@ -44,54 +48,49 @@
   ],
   "tabs": [
     {
-      "name": "SDK Reference",
-      "url": "sdk-reference"
+      "name": "API Reference",
+      "url": "api-reference"
     }
   ],
   "navigation": [
     {
-      "group": "Get started",
+      "group": "Get Started",
       "pages": [
-        "introduction",
-        {
-          "group": "PromptLab",
-          "icon": "flask",
-          "pages": [
-            "promptlab/promptlab",
-            "promptlab/iq"
-          ]
-        }
+        "main/introduction",
+        "main/quickstart",
+        "main/log-and-detect"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/logs"
+      ]
+    },
+    {
+      "group": "Logs",
+      "pages": [
+        "main/logs"
+      ]
+    },
+    {
+      "group": "Detections",
+      "pages": [
+        "main/detections"
       ]
     },
     {
       "group": "Cookbooks",
       "icon": "cauldron",
       "pages": [
-        "cookbooks/evaluating-reasoning-models-tax-prep-using-quotient-sdk",
         "cookbooks/judges"
       ]
     },
     {
-      "group": "Developer Resources",
+      "group": "Changelog",
       "icon": "code",
       "pages": [
-        "devs/changelog"
-      ]
-    },
-    {
-      "group": "SDK Reference",
-      "pages": [
-        "sdk-reference/get-started",
-        {
-          "group": "Guides",
-          "pages": [
-            "sdk-reference/prompts",
-            "sdk-reference/datasets",
-            "sdk-reference/models",
-            "sdk-reference/metrics",
-            "sdk-reference/evaluations"
-          ]
-        }
+        "devs/2025-05-13"
       ]
     },
     {
