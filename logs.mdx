@@ -1,6 +1,7 @@
 ---
 title: 'Logs'
 description: 'Learn how to log inputs and outputs to Quotient.'
+icon: "tree"
 ---
 
 You can use Quotient's SDK to log inputs and outputs from your retrieval or search-augmented AI applications.
@@ -72,7 +73,7 @@ Initialize the Quotient logger with configuration settings for your application:
 Log model interactions with context and metadata for analysis.
 
 <CodeGroup>
-    ```python
+    ```python logging.py
     log_id = logger.log(
         user_query="How do I cook a goose?",
         model_output="The capital of France is Paris",
@@ -80,7 +81,7 @@ Log model interactions with context and metadata for analysis.
     )
     ```
 
-    ```typescript
+    ```typescript logging.ts
     const logId = await logger.log({
         user_query: "How do I cook a goose?",
         model_output: "The capital of France is Paris",
@@ -126,11 +127,11 @@ Log model interactions with context and metadata for analysis.
 Retrieve logs sent to Quotient using the client.
 
 <CodeGroup>
-    ```python
+    ```python logging.py
     logs = quotient.logs.list()
     ```
 
-    ```typescript
+    ```typescript logging.ts
     const logs = await quotient.logs.list();
     ```
 </CodeGroup>
@@ -223,7 +224,7 @@ Retrieve logs sent to Quotient using the client.
 You can also use the asynchronous Python client to log data and retrieve logs.
 
 <CodeGroup>
-    ```python
+    ```python logging.py
     from quotientai import AsyncQuotientAI
 
     quotient = AsyncQuotientAI(api_key="your-quotient-api-key")

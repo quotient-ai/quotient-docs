@@ -43,7 +43,7 @@
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://quotientai.co/blog-index"
+      "url": "https://blog.quotientai.co"
     }
   ],
   "tabs": [
@@ -56,27 +56,15 @@
     {
       "group": "Get Started",
       "pages": [
-        "main/introduction",
-        "main/quickstart",
-        "main/log-and-detect"
+        "introduction",
+        "quickstart"
       ]
     },
     {
-      "group": "API Reference",
+      "group": "Log & Detect",
       "pages": [
-        "api-reference/logs"
-      ]
-    },
-    {
-      "group": "Logs",
-      "pages": [
-        "main/logs"
-      ]
-    },
-    {
-      "group": "Detections",
-      "pages": [
-        "main/detections"
+        "logs",
+        "detections"
       ]
     },
     {
@@ -90,7 +78,7 @@
       "group": "Changelog",
       "icon": "code",
       "pages": [
-        "devs/2025-05-13"
+        "devs/2025-05-15"
       ]
     },
     {
