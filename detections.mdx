@@ -1,6 +1,7 @@
 ---
 title: 'Detections'
 description: 'Learn how to use Quotient Detections to automatically detect hallucinations and other reliability issues in your AI outputs.'
+icon: "ghost"
 ---
 
 You can use Quotient's SDK to automatically detect hallucinations and other reliability issues in your AI outputs.
@@ -8,7 +9,7 @@ You can use Quotient's SDK to automatically detect hallucinations and other reli
 # Initialize the Logger with Detections
 
 <CodeGroup>
-    ```python
+    ```python logging.py
     from quotientai import QuotientAI
 
     quotient = QuotientAI(api_key="your-quotient-api-key")
@@ -23,7 +24,7 @@ You can use Quotient's SDK to automatically detect hallucinations and other reli
     )
     ```
 
-    ```typescript
+    ```typescript logging.ts
     import { QuotientAI } from "quotientai";
 
     const quotient = new QuotientAI({ apiKey: "your-quotient-api-key" });
@@ -36,9 +37,10 @@ You can use Quotient's SDK to automatically detect hallucinations and other reli
         hallucination_detection: true,
         hallucination_detection_sample_rate: 1.0,
     });
-<CodeGroup>
+    ```
+</CodeGroup>
 
-# Go to the Detections Dashboard
+# Detections Dashboard
 
 Go to the [Detections Dashboard](https://app.quotientai.co/detections) to see your logs and any detected hallucinations.
 
