@@ -40,6 +40,62 @@ You can use Quotient's SDK to automatically detect hallucinations and other reli
     ```
 </CodeGroup>
 
+# Send Logs with Detections Enabled
+
+<CodeGroup>
+    ```python logging.py
+    log_id = logger.log(
+        user_query="What is the capital of France?",
+        model_response="The path to greatness is through hard work and dedication.",
+        documents=[
+            "France is a country in Western Europe.",
+            "Paris is the capital of France.",
+        ],
+    )
+    ```
+    ```typescript logging.ts
+    const logId = await logger.log({
+        user_query: "What is the capital of France?",
+        model_response: "The capital of France is Paris.",
+        documents: ["France is a country in Western Europe.", "Paris is the capital of France."],
+    });
+    ```
+</CodeGroup>
+
+# Poll for Detections
+
+Synchronously poll for detection results using the client:
+
+<CodeGroup>
+    ```python logging.py
+    detection = logger.poll_for_detection(log_id=log_id)
+    ```
+
+    ```typescript logging.ts
+    const detection = await logger.pollForDetection(logId);
+    ```
+</CodeGroup>
+
+### Parameters:
+
+<ParamField path="log_id" type="string" required>
+    The log ID of the log you want to poll for detections.
+</ParamField>
+
+<ParamField path="timeout" type="int" default="300">
+    The maximum time to wait for a response in seconds.
+</ParamField>
+
+<ParamField path="poll_interval" type="float" default="2.0">
+    The interval between checks in seconds.
+</ParamField>
+
+### Returns:
+
+<ResponseField name="detection" type="object" required>
+    The detection results.
+</ResponseField>
+
 # Detections Dashboard
 
 Go to the [Detections Dashboard](https://app.quotientai.co/detections) to see your logs and any detected hallucinations.
