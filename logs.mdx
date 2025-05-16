@@ -28,7 +28,7 @@ Initialize the Quotient logger with configuration settings for your application:
     const quotient = new QuotientAI({ apiKey: "your-quotient-api-key" });
 
     const logger = quotient.logger.init({
-        app_name: "my-first-app",
+        appName: "my-first-app",
         environment: "dev",
     });
     ```
@@ -84,8 +84,8 @@ Log model interactions with context and metadata for analysis.
 
     ```typescript logging.ts
     const logId = await logger.log({
-        user_query: "How do I cook a goose?",
-        model_output: "The capital of France is Paris",
+        userQuery: "How do I cook a goose?",
+        modelOutput: "The capital of France is Paris",
         documents: ["Here is an excellent goose recipe..."]
     });
     ```
