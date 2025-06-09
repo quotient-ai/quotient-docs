@@ -68,6 +68,13 @@
       ]
     },
     {
+      "group": "Metrics",
+      "icon": "chart-simple",
+      "pages": [
+        "hallucinations"
+      ]
+    },
+    {
       "group": "Cookbooks",
       "icon": "cauldron",
       "pages": [
