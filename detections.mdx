@@ -1,7 +1,8 @@
 ---
 title: 'Detections'
-description: 'Learn how to use Quotient Detections to automatically detect hallucinations and other reliability issues in your AI outputs.'
+description: 'Learn how to use Quotient Detections to automatically capture hallucinations..'
 icon: "ghost"
+keywords: ['search', 'retrieval', 'rag', 'hallucinations', 'reliability']
 ---
 
 You can use Quotient's SDK to automatically detect hallucinations and other reliability issues in your AI outputs.
@@ -102,9 +103,40 @@ Go to the [Detections Dashboard](https://app.quotientai.co/detections) to see yo
 
 ![Detections Dashboard](../assets/detections-screenshot.png)
 
-# Analyze and Improve
 
-Use the Detections Dashboard to:
+# How do we define hallucinations?
 
-- See all of your logs and detections
-- Filter by app, environment, and timestamps.
+The **hallucination rate** measures how often a model generates information that cannot be found in its provided inputs, such as retrieved documents, user messages, or system prompts. 
+
+Quotient reports an **extrinsic hallucination rate**: we determine whether the model's output is externally unsupported by the context it was given.
+
+<Accordion title="What is an Extrinsic Hallucination?">
+  <Tip>
+    Extrinsic hallucinations occur when a model generates content that is not backed by any input. This is distinct from **intrinsic hallucinations**, where the model generates text that is self-contradictory or logically incoherent regardless of the input.
+
+    We focus on **extrinsic** hallucination detection, because this is what matters most in retrieval-augmented systems: **does the model stick to the facts it was given?**\
+    \
+    Refer to [How to Detect Hallucinations in Retrieval Augmented Systems: A Primer](https://blog.quotientai.co/how-to-detect-hallucinations-in-retrieval-augmented-systems-a-primer/) for an in-depth overview of hallucinations in augmented AI systems.
+  </Tip>
+</Accordion>
+
+# How do we detect hallucinations?
+
+1. **Break output into individual claims or sentences**
+2. **Compare each claim to available context**, including:
+    * `user_query` (what the user asked)
+    * `documents` (retrieved evidence)
+    * `message_history` (prior turns in the conversation)
+3. **Flag claims that lack support** in any of the above inputs as hallucinations
+
+If a sentence cannot be traced back to any context, it's counted as a hallucination.
+
+## Why is it important to monitor your AI system for hallucinations?
+
+Extrinsic hallucinations are the primary failure mode in augmented AI systems. Even when retrieval succeeds, generation can drift. This metric helps teams:
+
+- Catch hallucinations early in development
+- Monitor output quality post-deployment
+- Guide prompt iteration and model fine-tuning
+
+Well-grounded systems typically show \< 5% hallucination rate. If yours is higher, it's often a signal that either your data ingestion, retrieval pipeline, or prompting needs improvement.
