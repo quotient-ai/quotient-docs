@@ -23,7 +23,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:contact@quotientai.co"
+      "url": "mailto:support@quotientai.co"
     },
     {
       "name": "Discord",
@@ -68,17 +68,17 @@
       ]
     },
     {
-      "group": "Metrics",
-      "icon": "chart-simple",
+      "group": "Links",
       "pages": [
-        "hallucinations"
+        "sdk-reference/links/python-sdk",
+        "sdk-reference/links/typescript-sdk"
       ]
     },
     {
-      "group": "Cookbooks",
+      "group": "Open Source Projects",
       "icon": "cauldron",
       "pages": [
-        "cookbooks/judges"
+        "projects/judges"
       ]
     },
     {
@@ -86,13 +86,6 @@
       "icon": "code",
       "pages": [
         "devs/2025-05-15"
-      ]
-    },
-    {
-      "group": "Links",
-      "pages": [
-        "sdk-reference/links/python-sdk",
-        "sdk-reference/links/typescript-sdk"
       ]
     }
   ],
