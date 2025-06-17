@@ -156,7 +156,7 @@ Well-grounded systems typically show \< 5% hallucination rate. If yours is highe
 
 ## How do we define document relevance?
 
-**Document Relevance** measures how well your retrieval or search system finds context that’s actually useful for answering the user’s query. Specifically, it quantifies how relevant the retrieved documents (or chunks) are to what the user asked. 
+**Document Relevance** measures how well your retrieval or search system finds context that’s actually useful for answering the user’s query. Specifically, it quantifies how relevant the retrieved documents (or chunks) are to what the user asked.
 
 A document is considered **relevant** if it contains information that addresses at least one part of the query. If it does not address any part, it is marked as **irrelevant**.
 
@@ -179,4 +179,4 @@ The **Document Relevance** score is calculated as the fraction of documents that
 - Improve recall/precision of retrieved results
 - Monitor drift after retriever or data changes
 
-High-performing systems typically show \> 75% document relevance. Lower scores may signal ambiguous queries, retriever misfires, or noisy source data.
+High-performing systems typically show \> 75% document relevance. Lower scores may signal ambiguous user queries, incorrect retrieval, or noisy source data.
