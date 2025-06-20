@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Quotient AI",
+  "colors": {
+    "primary": "#B8B21A",
+    "light": "#CEC825",
+    "dark": "#262626"
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Log & Detect",
+            "pages": [
+              "logs",
+              "detections"
+            ]
+          },
+          {
+            "group": "Links",
+            "pages": [
+              "sdk-reference/links/python-sdk",
+              "sdk-reference/links/typescript-sdk"
+            ]
+          },
+          {
+            "group": "Open Source Projects",
+            "icon": "cauldron",
+            "pages": [
+              "projects/judges"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "icon": "code",
+            "pages": [
+              "devs/2025-05-15"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Community",
+          "href": "https://discord.gg/YeJzANpntv",
+          "icon": "discord"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://blog.quotientai.co",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://quotientai.co"
+  },
+  "background": {
+    "color": {
+      "light": "#F0EFE3",
+      "dark": "#262626"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@quotientai.co"
+      },
+      {
+        "label": "Discord",
+        "href": "https://discord.gg/YeJzANpntv"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Login",
+      "href": "https://app.quotientai.co"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/quotientai",
+      "linkedin": "https://www.linkedin.com/company/quotient-ai"
+    }
+  },
+  "contextual": {
+   "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude"
+   ]
+ }
+}
