@@ -58,7 +58,7 @@ Log model interactions with context and metadata for analysis.
     ```python logging.py
     log_id = quotient.log(
         user_query="How do I cook a goose?",
-        model_output="To cook a goose, first preheat your oven to 325°F...",
+        model_output="The capital of France is Paris",
         documents=["Here is an excellent goose recipe..."]
     )
     ```
@@ -66,7 +66,7 @@ Log model interactions with context and metadata for analysis.
     ```typescript logging.ts
     const logId = await quotient.log({
         userQuery: "How do I cook a goose?",
-        modelOutput: "To cook a goose, first preheat your oven to 325°F...",
+        modelOutput: "The capital of France is Paris",
         documents: ["Here is an excellent goose recipe..."]
     });
     ```
@@ -101,9 +101,7 @@ Log model interactions with context and metadata for analysis.
         "Answer the question in a concise manner. If you are not sure, say 'I don't know'."
     ]
     ```
-    **NOTE:** One of `documents`, `message_history`, or `instructions` is required when hallucination detection is enabled.
-* `detections` **(array)**: Override detection types for this specific log. If not provided, uses the detection types configured in the logger initialization.
-* `detection_sample_rate` **(float)**: Override detection sample rate for this specific log. If not provided, uses the sample rate configured in the logger initialization.
+    **NOTE:** One of `documents`, `message_history`, or `instructions` is required.
 * `tags` **(object)**: Additional tags to associate with each log entry. **Example:** `{"model": "gpt-4", "feature": "customer-support"}`
 
 ### Returns:
@@ -128,8 +126,7 @@ Retrieve logs sent to Quotient using the client.
     * `id` **(string)**: Unique identifier for the log entry.
     * `app_name` **(string)**: Name of the application that generated the log.
     * `environment` **(string)**: Environment where the log was generated (e.g., "dev", "prod").
-    * `detections` **(array)**: List of detection types that were configured for this log.
-    * `detection_sample_rate` **(float)**: Sample rate used for detections on this log.
+    * `hallucination_detection` **(boolean)**: Whether hallucination detection was enabled for this log.
     * `user_query` **(string)**: The original user query or prompt that was logged.
     * `model_output` **(string)**: The model's response that was logged.
     * `documents` **(array)**: List of documents used as context for the model. Can be strings or LogDocument objects.
@@ -140,6 +137,7 @@ Retrieve logs sent to Quotient using the client.
     * `status` **(string)**: Current status of the log entry.
     * `updated_at` **(datetime)**: Timestamp when the log was last updated.
     * `has_hallucination` **(boolean)**: Whether the model output was detected to contain hallucinations.
+    * `hallucination_detection_sample_rate` **(float)**: Sample rate used for hallucination detection.
     * `evaluations` **(array)**: List of evaluation results for the log entry.
 
 # Asynchronous Python client
@@ -162,7 +160,7 @@ You can also use the asynchronous Python client to log data and retrieve logs.
     
     log_id = await quotient.log(
         user_query="How do I cook a goose?",
-        model_output="To cook a goose, first preheat your oven to 325°F...",
+        model_output="The capital of France is Paris",
         documents=["Here is an excellent goose recipe..."]
     )
 
