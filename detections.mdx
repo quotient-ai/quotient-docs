@@ -106,6 +106,7 @@ const detection = await quotient.pollForDetections(logId);
     * `created_at` **(datetime)**: Timestamp when the log was created.
     * `status` **(string)**: Current status of the log entry.
     * `has_hallucination` **(boolean)**: Whether the model output was detected to contain hallucinations.
+    * `doc_relevancy_average` **(float)**: Average relevancy score for the documents provided.
     * `updated_at` **(datetime)**: Timestamp when the log was last updated.
     * `evaluations` **(array)**: List of evaluation results for the log entry.
 
