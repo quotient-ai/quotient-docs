@@ -1,0 +1,185 @@
+---
+title: "Quotient MCP"
+description: "MCP server for evaluating tool calls and AI agent interactions"
+icon: "server"
+---
+
+# Quotient MCP
+
+An MCP server for evaluating tool calls and AI agent interactions. Analyzes and scores tool usage correctness in Agent contexts.
+
+## Remote Server
+
+Quotient MCP is available as a remote Streamable HTTP server:
+
+```
+https://mcp.quotientai.co/mcp/
+```
+
+## evaluate_tool_call
+
+Evaluates whether an AI agent correctly used available tools in a conversation context.
+
+**Parameters:**
+- `available_tools`: Array of tool definitions with schemas
+- `message_history`: Array of conversation messages
+
+**Returns:**
+- `score`: `"correct"`, `"incorrect_tool"`, `"incorrect_parameter_names"`, or `"incorrect_parameter_values"`
+- `reason`: Detailed explanation list
+
+### Example Usage
+
+**Input:**
+```json
+{
+  "available_tools": [
+    {
+      "name": "google-play-developer",
+      "description": "Get apps by a developer on Google Play",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "devId": {"type": "string", "description": "Developer ID"},
+          "num": {"type": "number", "default": 60, "description": "Number of results"},
+          "lang": {"type": "string", "default": "en", "description": "Language code"},
+          "country": {"type": "string", "default": "us", "description": "Country code"}
+        },
+        "required": ["devId"]
+      }
+    }
+  ],
+  "message_history": [
+    {
+      "role": "user", 
+      "content": "Get apps by developer 'com.example.dev' with 50 results in English for US market"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll fetch the apps for that developer.",
+      "tool_calls": [
+        {
+          "function": {
+            "name": "google-play-developer",
+            "arguments": {
+              "devId": "com.example.dev",
+              "num": 50,
+              "lang": "en",
+              "country": "us"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+**Output:**
+```json
+{
+  "score": "correct",
+  "reason": []
+}
+```
+
+### Underlying Model
+
+The evaluation is powered by the [Limbic Tool Use Evaluator](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K), a fine-tuned Qwen2.5-0.5B model specifically designed for MCP function call evaluation.
+
+## Integration Examples
+
+### Cursor IDE
+
+Add to your project's `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "quotient-mcp-server": {
+      "url": "https://mcp.quotientai.co"
+    }
+  }
+}
+```
+
+Add evaluation rule in `.cursor/rules/evaluate-tool-call.mdc`:
+
+```markdown
+---
+alwaysApply: true
+---
+# Evaluate Tool Calls Rule
+
+## Critical Rule
+
+- Always use the `evaluate_tool_call` function after any agent tool call to evaluate proper usage of the tool
+- Use this function to validate that tools are being called correctly with proper parameters
+- Apply this evaluation when assessing agent performance or troubleshooting tool usage issues
+
+## When to Apply
+
+- After Any Tool Call
+- When reviewing agent conversations that involve tool calls
+- When validating that an AI agent correctly used available tools
+- When checking if tool parameters were set correctly
+- When assessing overall agent tool calling performance
+
+## Example Usage
+
+<example>
+When evaluating if an agent correctly used tools, always call:
+evaluate_tool_call(available_tools, message_history)
+
+This ensures proper validation of tool usage patterns and parameter correctness.
+</example>
+```
+
+### Claude Code
+
+Add the MCP server to your project:
+
+```bash
+claude mcp add --transport http https://mcp.quotientai.co/mcp/
+```
+
+
+Add to your project instructions:
+
+```markdown
+# Project Instructions
+
+## Tool Usage Requirements
+
+- Always use `mcp__http-server__evaluate_tool_calls` after every tool call to evaluate the correctness of tool usage
+```
+
+### OpenAI Agents SDK
+
+```python
+from agents.mcp import MCPServerStreamableHttp
+
+# Add custom prompt prefix for tool use evaluation
+TOOL_USE_EVAL_PROMPT_PREFIX = """
+After using any tool, you should use the tool_use_evaluator from quotient_mcp to evaluate the effectiveness and accuracy of the tool usage.
+"""
+
+# Initialize MCP server connection
+quotient_mcp = MCPServerStreamableHttp({
+    "url": "https://mcp.quotientai.co/mcp/",
+    "name": "Quotient MCP Server"
+})
+
+# Use in your agent configuration
+agents = [
+    Agent(
+        name="customer_service",
+        instructions=TOOL_USE_EVAL_PROMPT_PREFIX + RECOMMENDED_PROMPT_PREFIX + instructions,
+        external_connections=[quotient_mcp]
+    )
+]
+```
+
+## Open Source
+
+Quotient MCP is open sourced at [https://github.com/quotient-ai/quotient-mcp](https://github.com/quotient-ai/quotient-mcp). 

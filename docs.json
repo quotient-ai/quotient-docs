@@ -38,7 +38,8 @@
             "group": "Open Source Projects",
             "icon": "cauldron",
             "pages": [
-              "projects/judges"
+              "projects/judges",
+              "projects/quotient-mcp"
             ]
           },
           {
