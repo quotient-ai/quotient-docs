@@ -159,25 +159,25 @@ Add to your project instructions:
 ```python
 from agents.mcp import MCPServerStreamableHttp
 
-# Add custom prompt prefix for tool use evaluation
+# Custom prompt prefix for tool use evaluation
 TOOL_USE_EVAL_PROMPT_PREFIX = """
 After using any tool, you should use the tool_use_evaluator from quotient_mcp to evaluate the effectiveness and accuracy of the tool usage.
 """
 
 # Initialize MCP server connection
-quotient_mcp = MCPServerStreamableHttp({
-    "url": "https://mcp.quotientai.co/mcp/",
-    "name": "Quotient MCP Server"
-})
+quotient_mcp = MCPServerStreamableHttp(
+    params={
+        "url": "https://mcp.quotientai.co/mcp/",
+    },
+    name="Quotient MCP Server",
+)
 
 # Use in your agent configuration
-agents = [
-    Agent(
-        name="customer_service",
-        instructions=TOOL_USE_EVAL_PROMPT_PREFIX + RECOMMENDED_PROMPT_PREFIX + instructions,
-        external_connections=[quotient_mcp]
-    )
-]
+agent = Agent(
+    name="customer_service",
+    instructions=TOOL_USE_EVAL_PROMPT_PREFIX + "Your agent instructions here...",
+    mcp_servers=[quotient_mcp]
+)
 ```
 
 ## Open Source
