@@ -14,6 +14,10 @@ The flow is:
 
 You can run the example with:
 
+```
+pip install quotientai openai openinference-instrumentation-openai-agents
+```
+
 ```bash
 python -m examples.financial_research_agent.main
 ```
