@@ -17,14 +17,28 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart"
+              "quickstart",
+              "sdk-reference/links/cookbooks"
             ]
           },
           {
-            "group": "Log & Detect",
+            "group": "Data",
             "pages": [
-              "logs",
-              "detections"
+              "data-collection/logs",
+              "data-collection/traces"
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": [
+              "tools/detections",
+              "tools/reports"
+            ]
+          },
+          {
+            "group": "Steering",
+            "pages": [
+              "steering/quotient-mcp"
             ]
           },
           {
@@ -38,7 +52,7 @@
             "group": "Open Source Projects",
             "icon": "cauldron",
             "pages": [
-              "projects/judges"
+              "projects/judges"            
             ]
           },
           {

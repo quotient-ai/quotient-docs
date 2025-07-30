@@ -3,7 +3,9 @@ title: "Introduction"
 icon: "hand-wave"
 ---
 
-Quotient is an intelligent monitoring platform for retrieval-augmented and search-augmented AI applications and agents. It automatically detects problems with hallucinations, context attribution, and context usage. It identifies root causes, and provides visibility -- see what's broken, where it happens, and why.
+Quotient is an intelligent monitoring platform for retrieval-augmented and search-augmented AI applications and agents. 
+
+Our system, Limbic, captures and processes agent behavior, helps you understand it, and automatically improves your agents for you.
 
 <CardGroup cols={1}>
   <Card title="Quickstart" icon="play" href="quickstart">
@@ -23,18 +25,30 @@ Quotient is an intelligent monitoring platform for retrieval-augmented and searc
 
 ## 🧠 Why Quotient AI?
 
-Quotient Detections enables you to automatically catch hallucinations and other reliability issues in your AI outputs as you log user queries, model responses, and documents. You can:
+Quotient enables you to automatically detect and improve reliability issues in your AI applications and agents.
 
-- Track and measure the reliability of your LLM-powered applications
-- Identify which retrieved documents contributed to generated responses
-- Calculate hallucination rates across different environments
-- Flag responses that cannot be traced back to source documents
+- Track and measure the reliability of your LLM-powered applications and agents
+- Identify which retrieved context contributes to generated responses
+- Calculate hallucination rates across different environments and models
+- Flag responses that cannot be traced back to source context
+- Automatically fix hallucinations and other reliability issues
 
 all with the Quotient SDK in Python or TypeScript in a few lines of code.
 
+
 ![SDK Logging Example](../assets/sdk-logging.png)
 
-## Get in Touch
+## 🧬 How does it work?
+
+We provide an SDK that enables you to send us logs & traces, and we use that data to automatically produce reports (overall usage and reliability metrics) and detections (e.g. hallucinations, context attribution, context usage, tool usage) to keep you in the loop so you know how people are using your applications and agents.
+
+We also provide an [MCP server](/steering/quotient-mcp) that can be used to steer agent behavior in real-time and in production using our own models. 
+
+Our first model, [`limbic-tool-use-0.5B-32K`](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K) is trained to assess inaccuracies with tool use in AI agents.
+
+We're continuing to develop Limbic to automatically steer your agents for you given your instructions and historical context captured through logs and traces.
+
+# 📩 Get in Touch
 
 If you are interested in a self-hosted instance of Quotient, reach out to us by emailing [contact@quotientai.co](mailto:contact@quotientai.co).
 
