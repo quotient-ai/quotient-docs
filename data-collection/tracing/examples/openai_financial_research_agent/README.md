@@ -19,7 +19,7 @@ pip install quotientai openai openinference-instrumentation-openai-agents
 ```
 
 ```bash
-python -m examples.financial_research_agent.main
+python -m openai_financial_research_agent.main
 ```
 
 and enter a query like:
