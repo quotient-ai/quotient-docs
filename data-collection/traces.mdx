@@ -56,6 +56,11 @@ You can find examples below for how we integrate for different frameworks.
 pip install quotientai agno duckduckgo-search openinference-instrumentation-agno
 ```
 
+```
+export OPENAI_API_KEY=your-api-key
+export QUOTIENT_API_KEY=your-api-key
+```
+
 ```python quotient_trace_agno.py
 # setup the quotient tracer
 from openinference.instrumentation.agno import AgnoInstrumentor
@@ -91,7 +96,12 @@ if __name__ == "__main__":
 #### OpenAI Agents SDK
 
 ```
-pip install quotientai openai openinference-instrumentation-openai-agents
+pip install quotientai openai-agents openinference-instrumentation-openai-agents
+```
+
+```
+export OPENAI_API_KEY=your-api-key
+export QUOTIENT_API_KEY=your-api-key
 ```
 
 ```python quotient_trace_openai_agents.py
@@ -130,6 +140,11 @@ if __name__ == "__main__":
 
 ```
 pip install quotientai langgraph openinference-instrumentation-langchain
+```
+
+```
+export ANTHROPIC_API_KEY=your-api-key
+export QUOTIENT_API_KEY=your-api-key
 ```
 
 ```python quotient_trace_langgraph.py
@@ -173,6 +188,11 @@ if __name__ == "__main__":
 
 ```
 pip install quotientai smolagents openinference-instrumentation-smolagents
+```
+
+```
+export OPENAI_API_KEY=your-api-key
+export QUOTIENT_API_KEY=your-api-key
 ```
 
 ```python quotient_trace_smolagents.py
