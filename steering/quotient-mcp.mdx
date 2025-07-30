@@ -1,22 +1,16 @@
 ---
 title: "Quotient MCP"
-description: "MCP server for evaluating tool calls and AI agent interactions"
+description: "MCP server for steering agent behavior"
 icon: "server"
 ---
 
-# Quotient MCP
+The Quotient MCP server is our synchronous API for steering agent behavior in real-time and in production using models we develop.
 
-An MCP server for evaluating tool calls and AI agent interactions. Analyzes and scores tool usage correctness in Agent contexts.
+Quotient MCP is available as a remote Streamable HTTP server at [https://mcp.quotientai.co/mcp/](https://mcp.quotientai.co/mcp/)
 
-## Remote Server
+# Tools
 
-Quotient MCP is available as a remote Streamable HTTP server:
-
-```
-https://mcp.quotientai.co/mcp/
-```
-
-## evaluate_tool_call
+## `evaluate_tool_call`
 
 Evaluates whether an AI agent correctly used available tools in a conversation context.
 
@@ -85,13 +79,13 @@ Evaluates whether an AI agent correctly used available tools in a conversation c
 
 ### Underlying Model
 
-The evaluation is powered by the [Limbic Tool Use Evaluator](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K), a fine-tuned Qwen2.5-0.5B model specifically designed for MCP function call evaluation.
+The evaluation is powered by the [Limbic Tool Use Evaluator](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K), a fine-tuned Qwen 2.5 0.5B model specifically designed for MCP function call evaluation.
 
 ## Integration Examples
 
 ### Cursor IDE
 
-Add to your project's `.cursor/mcp.json`:
+You can use the Quotient MCP server in Cursor IDE by adding the following to your `.cursor/mcp.json`:
 
 ```json
 {
@@ -103,7 +97,7 @@ Add to your project's `.cursor/mcp.json`:
 }
 ```
 
-Add evaluation rule in `.cursor/rules/evaluate-tool-call.mdc`:
+Then, add an evaluation rule in `.cursor/rules/evaluate-tool-call.mdc` to always apply the `evaluate_tool_call` function after any agent tool call.
 
 ```markdown
 ---
@@ -137,14 +131,13 @@ This ensures proper validation of tool usage patterns and parameter correctness.
 
 ### Claude Code
 
-Add the MCP server to your project:
+You can use the Quotient MCP server in Claude Code by adding the following to your project:
 
 ```bash
 claude mcp add --transport http https://mcp.quotientai.co/mcp/
 ```
 
-
-Add to your project instructions:
+Then, add to your project instructions to always use the `evaluate_tool_call` function after any agent tool call.
 
 ```markdown
 # Project Instructions
@@ -156,15 +149,17 @@ Add to your project instructions:
 
 ### OpenAI Agents SDK
 
+You can use the Quotient MCP server in various agent SDKs such as the OpenAI Agents SDK by adding the following to your agent configuration:
+
 ```python
 from agents.mcp import MCPServerStreamableHttp
 
-# Custom prompt prefix for tool use evaluation
+# custom prompt prefix for tool use evaluation
 TOOL_USE_EVAL_PROMPT_PREFIX = """
 After using any tool, you should use the tool_use_evaluator from quotient_mcp to evaluate the effectiveness and accuracy of the tool usage.
 """
 
-# Initialize MCP server connection
+# initialize MCP server connection
 quotient_mcp = MCPServerStreamableHttp(
     params={
         "url": "https://mcp.quotientai.co/mcp/",
@@ -172,7 +167,7 @@ quotient_mcp = MCPServerStreamableHttp(
     name="Quotient MCP Server",
 )
 
-# Use in your agent configuration
+# use in your agent configuration
 agent = Agent(
     name="customer_service",
     instructions=TOOL_USE_EVAL_PROMPT_PREFIX + "Your agent instructions here...",
