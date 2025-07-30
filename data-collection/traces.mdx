@@ -10,6 +10,13 @@ Traces are a way to capture the full context of an agent's interaction with a us
 
 Quotient captures traces to provide you with information for debugging and understanding the behavior of your agent, and also to help you automatically understand how people are using your agent with [Quotient Reports](../tools/reports).
 
+## Traces and Spans
+Traces represent a single end-to-end interaction with an agent. Traces are made up of Spans, which represent a unit of work within the overall interaction. We integrate with [OpenInference](https://github.com/Arize-ai/openinference) for OpenTelemetry instrumentation, to automatically capture traces for different LLM providers and agent frameworks. 
+
+We use the [OpenInference semantic conventions](https://arize-ai.github.io/openinference/spec/semantic_conventions.html) -- standardized naming across frameworks -- for the trace data, and also have our own [semantic conventions specifically for vector databases](#vector-database-semantic-conventions).
+
+Follow the example below to see how you can get started.
+
 # Initialize the Tracer
 
 Initialize the Quotient tracer with configuration settings for your application:
@@ -38,10 +45,6 @@ quotient.tracer.init(
 # Send Traces
 
 We provide a decorator to trace agent interactions. The decorator will automatically capture the agent's input, output, tool calls, and any relevant context.
-
-We integrate with [OpenInference](https://github.com/Arize-ai/openinference) for OpenTelemetry instrumentation, to automatically capture traces for different LLM providers and agent frameworks. 
-
-We use the OpenInference semantic conventions for the trace data, and also have our own [semantic conventions specifically for vector databases](#vector-database-semantic-conventions).
 
 You can find examples below for how we integrate for different frameworks.
 
