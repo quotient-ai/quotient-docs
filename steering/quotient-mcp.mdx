@@ -130,6 +130,69 @@ This ensures proper validation of tool usage patterns and parameter correctness.
 </example>
 ```
 
+### Amp
+
+You can use the Quotient MCP server in [Amp](https://ampcode.com/manual#getting-started) through both CLI and editor extension configurations.
+
+Configure the server in your editor extension settings or CLI configuration:
+
+```json
+{
+  "amp.mcpServers": {
+    "quotient-mcp": {
+      "url": "https://mcp.quotientai.co/mcp/"
+    }
+  }
+}
+```
+
+#### CLI Configuration
+
+The CLI configuration file location varies by operating system:
+
+- **Windows:** `%APPDATA%\amp\settings.json`
+- **macOS:** `~/.config/amp/settings.json`
+- **Linux:** `~/.config/amp/settings.json`
+
+Add the MCP server configuration to your platform-specific settings file.
+
+#### Editor Extension Configuration
+
+For editor extensions that support Amp, add the configuration to your editor settings (e.g., `.vscode/settings.json`). All settings use the `amp.` prefix.
+
+Then, add evaluation rules in your project directory as `AGENT.md`:
+
+```markdown
+# Evaluate Tool Calls Rule
+
+## Critical Rule
+
+- Always use the `evaluate_tool_call` function after any agent tool call to evaluate proper usage of the tool
+- Use this function to validate that tools are being called correctly with proper parameters
+- Apply this evaluation when assessing agent performance or troubleshooting tool usage issues
+
+## When to Apply
+
+- After Any Tool Call
+- When reviewing agent conversations that involve tool calls
+- When validating that an AI agent correctly used available tools
+- When checking if tool parameters were set correctly
+- When assessing overall agent tool calling performance
+
+## Example Usage
+
+<example>
+When evaluating if an agent correctly used tools, always call:
+evaluate_tool_call(available_tools, message_history)
+
+This ensures proper validation of tool usage patterns and parameter correctness.
+</example>
+
+<example type="invalid">
+Reviewing agent tool usage without using evaluate_tool_call function to validate the behavior.
+</example>
+```
+
 ### Claude Code
 
 You can use the Quotient MCP server in Claude Code by adding the following to your project:
