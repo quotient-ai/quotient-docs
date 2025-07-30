@@ -17,7 +17,8 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart"
+              "quickstart",
+              "sdk-reference/links/cookbooks"
             ]
           },
           {
@@ -51,7 +52,7 @@
             "group": "Open Source Projects",
             "icon": "cauldron",
             "pages": [
-              "projects/judges"
+              "projects/judges"            
             ]
           },
           {

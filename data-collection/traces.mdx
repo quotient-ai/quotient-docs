@@ -8,7 +8,7 @@ keywords: ['tracing', 'agent', 'llm']
 # Why Traces?
 Traces are a way to capture the full context of an agent's interaction with a user. They are a powerful tool for debugging and understanding the behavior of your agent.
 
-Quotient captures traces to provide you with information for debugging and understanding the behavior of your agent, and also to help you automatically understand how people are using your agent with [Quotient Reports](FILLMEINE).
+Quotient captures traces to provide you with information for debugging and understanding the behavior of your agent, and also to help you automatically understand how people are using your agent with [Quotient Reports](../tools/reports).
 
 # Initialize the Tracer
 
@@ -41,7 +41,7 @@ We provide a decorator to trace agent interactions. The decorator will automatic
 
 We integrate with [OpenInference](https://github.com/Arize-ai/openinference) for OpenTelemetry instrumentation, to automatically capture traces for different LLM providers and agent frameworks. 
 
-We use the OpenInference semantic conventions for the trace data, and also have our own [semantic conventions specifically for vector databases](FILLMEIN).
+We use the OpenInference semantic conventions for the trace data, and also have our own [semantic conventions specifically for vector databases](#vector-database-semantic-conventions).
 
 You can find examples below for how we integrate for different frameworks.
 
