@@ -1,5 +1,7 @@
 # Financial Research Agent Example
 
+**NOTE:** This example is pulled and adapted from the OpenAI Agents SDK Examples [here](https://github.com/openai/openai-agents-python/tree/main/examples/financial_research_agent).
+
 This example shows how you might compose a richer financial research agent using the Agents SDK. The pattern is similar to the `research_bot` example, but with more specialized sub‑agents and a verification step.
 
 The flow is:
