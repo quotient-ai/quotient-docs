@@ -52,8 +52,10 @@ You can find examples below for how we integrate for different frameworks.
 
 #### Agno
 
+To start tracing Agno agents, you need the following minimum dependencies:
+
 ```
-pip install quotientai agno duckduckgo-search openinference-instrumentation-agno
+pip install "quotientai>=0.4.6" "agno>=1.5.2" "openinference-instrumentation-agno==0.1.10"
 ```
 
 ```
@@ -95,8 +97,10 @@ if __name__ == "__main__":
 
 #### OpenAI Agents SDK
 
+To start tracing OpenAI Agents, you need the following minimum dependencies:
+
 ```
-pip install quotientai openai-agents openinference-instrumentation-openai-agents
+pip install "quotientai>=0.4.6" "openai-agents>=0.1.0" "openinference-instrumentation-openai-agents==1.1.1"
 ```
 
 ```
@@ -138,8 +142,10 @@ if __name__ == "__main__":
 
 #### LangGraph
 
+To start tracing LangGraph agents, you need the following minimum dependencies:
+
 ```
-pip install quotientai langgraph openinference-instrumentation-langchain
+pip install "quotientai>=0.4.6" "langgraph>=0.1.6" "openinference-instrumentation-langchain==0.1.1"
 ```
 
 ```
@@ -186,8 +192,10 @@ if __name__ == "__main__":
 
 #### Smolagents
 
+To start tracing Smolagents agents, you need the following minimum dependencies:
+
 ```
-pip install quotientai smolagents openinference-instrumentation-smolagents
+pip install "quotientai>=0.4.6" "smolagents>=1.15.0" "openinference-instrumentation-smolagents==0.1.14"
 ```
 
 ```
@@ -253,6 +261,17 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+#### Other Frameworks
+
+For tracing other frameworks using OpenInference, please refer to the [OpenInference Instrumentation](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation) repository on GitHub, and use the appropriate instrumentor for your framework.
+
+<Warning>Remember to add the appropriate instrumentor for your framework to the `instruments` list when initializing the Quotient tracer, and check the minimum required dependencies for your frameworks instrumentation library.</Warning>
+
+#### Tracing without OpenInference
+
+If you are not using OpenInference, you can still trace your agents using other instrumentation libraries, however, note that you maybe not be able to leverage features we build on top of traces such as [Detections](../tools/detections), [Reports](../tools/reports), and [Steering](../steering/quotient-mcp).
+
 
 # View Traces
 
