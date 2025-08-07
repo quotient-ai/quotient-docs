@@ -405,3 +405,35 @@ All instrumentors gracefully handle missing dependencies:
 - If a vector database library is not installed, the instrumentor will log a warning and skip instrumentation
 - If instrumentation fails, the original functionality is preserved
 - Errors during operation tracing are logged but don't affect the underlying operation
+
+
+## Get Traces Programmatically
+
+You can use the Quotient Python SDK to get traces programmatically.
+
+```python
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+traces =quotient.traces.list(
+    app_name="my-app",
+    environment="production",
+    time_range="1d",
+)
+
+print(traces)
+# Traces(data=[...], count=10)
+
+# you can also download the traces as a JSONL file
+traces.to_jsonl("my-traces.jsonl")
+```
+
+Alternatively, you can get a trace by its ID:
+
+```python
+trace = quotient.traces.get(trace_id="123")
+print(trace)
+# Trace(id="123", ...)
+```
+
