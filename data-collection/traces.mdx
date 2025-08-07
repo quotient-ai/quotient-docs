@@ -419,7 +419,7 @@ quotient = QuotientAI()
 traces = quotient.traces.list(
     app_name="my-app",
     environment="production",
-    time_range="1d",
+    time_range="5m",
 )
 
 print(traces)
@@ -428,6 +428,13 @@ print(traces)
 # you can also download the traces as a JSONL file
 traces.to_jsonl("my-traces.jsonl")
 ```
+
+**Parameters:**
+
+* `app_name` **(string)**: Name of your application.
+* `environment` **(string)**: Environment where your application is running (e.g., "dev", "staging", "prod").
+* `time_range` **(string)**: Time range to get traces for. Valid options: "1m", "2m", "5m", "1h", "2h", "5h", "1d", "7d", "30d", "90d", "180d", "365d" for minutes, hours, and days respectively.
+
 
 Alternatively, you can get a trace by its ID:
 
