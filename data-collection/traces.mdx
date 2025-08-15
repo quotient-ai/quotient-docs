@@ -409,37 +409,13 @@ All instrumentors gracefully handle missing dependencies:
 
 ## Get Traces Programmatically
 
-You can use the Quotient Python SDK to get traces programmatically.
+You can use the Quotient Python SDK to get traces programmatically. Currently we only support getting a single trace via it's ID. 
 
 ```python
 from quotientai import QuotientAI
 
 quotient = QuotientAI()
 
-traces = quotient.traces.list(
-    app_name="my-first-app",
-    # specify your list of environments
-    environments=["dev"],
-    time_range="5m",
-)
-
-print(traces)
-# Traces(data=[...], count=10)
-
-# you can also download the traces as a JSONL file
-traces.to_jsonl("my-traces.jsonl")
-```
-
-**Parameters:**
-
-* `app_name` **(string)**: Name of your application.
-* `environment` **(string)**: Environment where your application is running (e.g., "dev", "staging", "prod").
-* `time_range` **(string)**: Time range to get traces for. Valid options: "1m", "2m", "5m", "1h", "2h", "5h", "1d", "7d", "30d", "90d", "180d", "365d" for minutes, hours, and days respectively.
-
-
-Alternatively, you can get a trace by its ID:
-
-```python
 trace = quotient.traces.get(trace_id="123")
 print(trace)
 # Trace(id="123", ...)
