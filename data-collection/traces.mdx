@@ -83,6 +83,10 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 
 @quotient.trace('agno-agent-ddgs-search')
 def run_agno():
+    """
+    This is your main function. You can add @quotient.trace() to whatever the equivalent main entrypoint
+    is in your application.
+    """
     agent = Agent(
         model=OpenAIChat(id="gpt-4o-mini"), 
         tools=[DuckDuckGoTools()],
@@ -127,6 +131,10 @@ from agents import Agent, Runner
 
 @quotient.trace('haiku-agent')
 async def main():
+    """
+    This is your main function. You can add @quotient.trace() to whatever the equivalent main entrypoint
+    is in your application.
+    """
     agent = Agent(
         name="haiku-assistant",
         instructions="You only respond in haikus.",
@@ -175,6 +183,10 @@ def get_weather(city: str) -> str:
 
 @quotient.trace('langgraph-weather-agent')
 def main():
+    """
+    This is your main function. You can add @quotient.trace() to whatever the equivalent main entrypoint
+    is in your application.
+    """
     agent = create_react_agent(
         model="anthropic:claude-3-7-sonnet-latest",  
         tools=[get_weather],  
@@ -250,6 +262,10 @@ def search_wikipedia(query: str) -> str:
 
 @quotient.trace('smolagents-wikipedia-agent')
 def main():
+    """
+    This is your main function. You can add @quotient.trace() to whatever the equivalent main entrypoint
+    is in your application.
+    """
     model = LiteLLMModel(model_id="gpt-4o")
 
     agent = ToolCallingAgent(
@@ -298,6 +314,10 @@ quotient.tracer.init(
 
 @quotient.trace('smolagents-wikipedia-agent')
 def main():
+    """
+    This is your main function. You can add @quotient.trace() to whatever the equivalent main entrypoint
+    is in your application.
+    """
     # start a custom span
     with start_span('custom-span'):
         # do something
