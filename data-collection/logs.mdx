@@ -30,7 +30,7 @@ Initialize the Quotient logger with configuration settings for your application:
 
     quotient = QuotientAI(api_key="your-quotient-api-key")
 
-    logger = quotient.logger.init(
+    quotient.logger.init(
         app_name="my-first-app",
         environment="dev",
         detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
@@ -43,7 +43,7 @@ Initialize the Quotient logger with configuration settings for your application:
 
     const quotient = new QuotientAI({ apiKey: "your-quotient-api-key" });
 
-    const logger = quotient.logger.init({
+    quotient.logger.init({
         appName: "my-first-app",
         environment: "dev",
         detections: [DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
