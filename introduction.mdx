@@ -3,9 +3,20 @@ title: "Introduction"
 icon: "hand-wave"
 ---
 
-Quotient is an intelligent monitoring platform for retrieval-augmented and search-augmented AI applications and agents. 
+Quotient is a monitoring and control platform for retrieval-augmented and agentic AI systems. It is designed for developers who need clear visibility into how their systems behave, along with tools to measure reliability and improve performance over time.
 
-Our system, Limbic, captures and processes agent behavior, helps you understand it, and automatically improves your agents for you.
+## Why Quotient AI
+
+Building reliable AI systems is challenging because failures look the same from the outside. A wrong answer could be caused by poor retrieval, hallucination, or orchestration errors. Without instrumentation, it is impossible to know where the problem lies.
+
+Quotient gives you:
+
+* Separation of retrieval errors vs. generation errors.
+* Quantitative metrics such as hallucination rate and document relevance.
+* Reports that surface clusters of failures and track drift over time.
+* Real-time evaluation of agent tool use through the Model Context Protocol (MCP).
+
+This turns debugging from trial-and-error into a measurable, repeatable process.
 
 <CardGroup cols={1}>
   <Card title="Quickstart" icon="play" href="quickstart">
@@ -23,33 +34,46 @@ Our system, Limbic, captures and processes agent behavior, helps you understand 
 </Card> */}
 </CardGroup>
 
-## 🧠 Why Quotient AI?
+## Core Capabilities
 
-Quotient enables you to automatically detect and improve reliability issues in your AI applications and agents.
+**Logging and Tracing**
+Log queries, responses, and retrieved context. Use traces to capture multi-step workflows.
 
-- Track and measure the reliability of your LLM-powered applications and agents
-- Identify which retrieved context contributes to generated responses
-- Calculate hallucination rates across different environments and models
-- Flag responses that cannot be traced back to source context
-- Automatically fix hallucinations and other reliability issues
+**Detections**
+Automatically score outputs for hallucinations, document relevance, and tool correctness.
 
-all with the Quotient SDK in Python or TypeScript in a few lines of code.
+**Reports**
+Aggregate detections into daily reports that highlight clusters of reliability issues and trends over time.
 
+**Real-time Control (MCP)**
+Connect agents through MCP to detect and correct tool use errors as they happen.
 
-![SDK Logging Example](../assets/sdk-logging.png)
-
-## 🧬 How does it work?
+## How It Works
 
 We provide an SDK that enables you to send us logs & traces, and we use that data to automatically produce reports (overall usage and reliability metrics) and detections (e.g. hallucinations, context attribution, context usage, tool usage) to keep you in the loop so you know how people are using your applications and agents.
 
-We also provide an [MCP server](/steering/quotient-mcp) that can be used to steer agent behavior in real-time and in production using our own models. 
+We also provide an [MCP server](/steering/quotient-mcp) that can be used to steer agent behavior in real-time and in production using our own models.
 
 Our first model, [`limbic-tool-use-0.5B-32K`](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K) is trained to assess inaccuracies with tool use in AI agents.
 
 We're continuing to develop Limbic to automatically steer your agents for you given your instructions and historical context captured through logs and traces.
 
-# 📩 Get in Touch
+![SDK Logging Example](../assets/sdk-logging.png)
+
+### Next Steps
+
+<CardGroup>
+  <Card title="Quickstart" icon="cog" href="/quickstart">
+    Guide to log your first queries with Quotient.
+  </Card>
+  <Card title="Core Concepts" icon="rocket" href="/core-concepts">
+    Understand logs, traces, detections, and reports in depth.
+  </Card>
+</CardGroup>
+
+## 📩 Get in Touch
 
 If you are interested in a self-hosted instance of Quotient, reach out to us by emailing [contact@quotientai.co](mailto:contact@quotientai.co).
 
 To engage with the Quotient community, join our [Discord](https://discord.gg/YeJzANpntv). Follow our [blog](https://www.quotientai.co/blog-index) for insights on AI development and evaluation.
+
