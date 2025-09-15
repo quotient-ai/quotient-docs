@@ -278,6 +278,8 @@ if __name__ == "__main__":
     main()
 ```
 
+
+
 #### Other Frameworks
 
 For tracing other frameworks using OpenInference, please refer to the [OpenInference Instrumentation](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation) repository on GitHub, and use the appropriate instrumentor for your framework.
@@ -287,6 +289,86 @@ For tracing other frameworks using OpenInference, please refer to the [OpenInfer
 #### Tracing without OpenInference
 
 If you are not using OpenInference, you can still trace your agents using other instrumentation libraries, however, note that you maybe not be able to leverage features we build on top of traces such as [Detections](../tools/detections), [Reports](../tools/reports), and [Steering](../steering/quotient-mcp).
+
+
+## Example: Tracing an OpenAI Agent in a Streaming API application
+
+For agents that are wrapped in a backend API framework (e.g. FastAPI), async + streaming responses are handled differently than in a standalone agent application in that tokens are streamed via an async Python generator. When this is the case, you need to use the `use_span` context manager to ensure that all operations within the context are part of the same trace.
+
+Below you can find an example of how to do this with an OpenAI Agent in a FastAPI streaming application.
+
+```console
+pip install "quotientai>=0.4.10" "openai-agents>=0.1.0" "openinference-instrumentation-openai-agents==1.1.1" "fastapi>=0.115.6" "uvicorn>=0.34.0"
+```
+
+```python
+import asyncio
+import json
+
+from agents import Agent, Runner
+from openai.types.responses import ResponseTextDeltaEvent
+
+from openinference.instrumentation.openai_agents import OpenAIAgentsInstrumentor
+from opentelemetry.trace import get_tracer, use_span
+from quotientai import QuotientAI
+
+from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+
+import uvicorn
+
+# Initialize Quotient AI with OpenAI Agents instrumentation
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="joker-agent",
+    environment="dev",
+    instruments=[OpenAIAgentsInstrumentor()]
+)
+
+agent = Agent(
+    name="Joker",
+    instructions="You are a helpful assistant.",
+)
+
+app = FastAPI()
+
+@app.post("/generate-jokes")
+async def my_endpoint():
+    # 1️⃣ start the root span
+    root_span = quotient.tracer.start_span('joker-agent')
+
+    # 2️⃣ make the span current for all operations within the context
+    stream_ctx = use_span(root_span, end_on_exit=False)
+
+    async def my_generator():
+        # 3️⃣ capture all the returned events within the context
+        with stream_ctx:
+            # Your AI agent logic here, in this case we are using an OpenAI Agent
+            # This could be calling OpenAI, LangChain, or any other AI service
+            my_stream = Runner.run_streamed(agent, input="Please tell me 5 jokes.")
+            async for event in my_stream.stream_events():
+                if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
+                   yield f"data: {json.dumps({'content': event.data.delta})}\n\n"
+        
+        # 4️⃣ end the span and flush the trace after the context is exited
+        root_span.end()
+        quotient.force_flush()
+
+    return StreamingResponse(
+        my_generator(),
+        media_type="text/plain"
+    )
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+### Key Components Explained:
+
+1. **Root Span**: `quotient.tracer.start_span()` creates the main span that will contain all child operations
+2. **Context Management**: `use_span(root_span, end_on_exit=False)` makes the span current for all operations within the context
+3. **Streaming**: The generator function handles the streaming response while maintaining trace context
+4. **Cleanup**: `root_span.end()` and `quotient.force_flush()` ensure traces are properly closed and sent
 
 
 # View Traces
