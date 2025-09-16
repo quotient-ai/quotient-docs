@@ -1,0 +1,58 @@
+---
+
+title: 'Retrieve Logs'
+description: 'Learn how to list and inspect logs stored in Quotient.'
+icon: "-"
+---
+
+
+You can retrieve logs programmatically to inspect what has been recorded. This is useful for debugging, offline analysis, or integrating Quotient logs into your own monitoring systems.
+
+## Example
+
+<CodeGroup>
+
+```python list_logs.py
+logs = quotient.logs.list()
+print("Total logs:", len(logs))
+for log in logs:
+    print(log["id"], log["user_query"])
+```
+
+```typescript list_logs.ts
+const logs = await quotient.logs.list();
+console.log("Total logs:", logs.length);
+logs.forEach(log => {
+  console.log(log.id, log.userQuery);
+});
+```
+
+</CodeGroup>
+
+## Returned Fields
+
+Each log object may contain:
+
+* **`id`** *(string)*: Unique identifier for the log.
+* **`app_name`** *(string)*: Application that created the log.
+* **`environment`** *(string)*: Environment of origin (`dev`, `staging`, `prod`).
+* **`user_query`** *(string)*: The query that was logged.
+* **`model_output`** *(string)*: The model’s response.
+* **`documents`** *(array)*: Documents used as evidence.
+* **`message_history`** *(array)*: Conversation turns.
+* **`instructions`** *(array)*: Instruction list provided.
+* **`tags`** *(object)*: Metadata tags.
+* **`created_at`** *(datetime)*: Timestamp of log creation.
+* **`updated_at`** *(datetime)*: Timestamp of last update.
+* **`has_hallucination`** *(boolean)*: Whether a hallucination was detected.
+* **`evaluations`** *(array)*: Results of applied detections.
+
+## Best Practices
+
+* Use filters (when available) to limit log retrieval by environment, tag, or time range.
+* Avoid fetching entire log history into memory; paginate when analyzing large volumes.
+* Store `log_id` in your own systems for traceability back to the Quotient dashboard.
+
+---
+
+Next: \[Async Loggin

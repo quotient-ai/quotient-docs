@@ -29,6 +29,21 @@
             ]
           },
           {
+            "group": "Core Functionalities",
+            "pages": [
+              {
+                "group": "Logs",
+                "icon": "tree",
+                "pages": [
+                  "core-functionalities/logs/overview",
+                  "core-functionalities/logs/initialize-logger",
+                  "core-functionalities/logs/send-logs",
+                  "core-functionalities/logs/retrieve-logs"
+                ]
+              }
+            ]
+          },
+          {
             "group": "Tools",
             "pages": [
               "tools/detections",
