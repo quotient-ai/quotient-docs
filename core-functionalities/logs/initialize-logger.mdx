@@ -1,0 +1,54 @@
+---
+title: 'Initializing the Logger'
+description: 'Configure the Quotient logger for your application.'
+icon: "-"
+---
+
+Before you can send logs, you need to initialize the Quotient logger. Initialization tells Quotient **which app and environment** the logs belong to, and which **detections** to run.
+
+## Basic Initialization
+
+<CodeGroup>
+
+```python logging.py
+from quotientai import QuotientAI, DetectionType
+
+quotient = QuotientAI(api_key="your-quotient-api-key")
+
+quotient.logger.init(
+    app_name="my-first-app",
+    environment="dev",
+    detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+    detection_sample_rate=1.0,
+)
+```
+
+```typescript logging.ts
+import { QuotientAI, DetectionType } from "@quotientai/sdk";
+
+const quotient = new QuotientAI({ apiKey: "your-quotient-api-key" });
+
+quotient.logger.init({
+  appName: "my-first-app",
+  environment: "dev",
+  detections: [DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+  detectionSampleRate: 1.0,
+});
+```
+
+</CodeGroup>
+
+### Parameters:
+
+* `app_name` **(string)**: Name of your application. Core parameter used to identify the source of logs in the Quotient dashboard.
+* `environment` **(string)**: Environment where your application is running (e.g., "dev", "staging", "prod"). Core parameter used to help segregate logs by deployment environment.
+* `tags` **(object)**: Key-value pairs for categorizing and filtering logs. Useful for slicing analytics by dimensions like customer, feature, model version, etc. **Example:** `{"model": "gpt-4", "feature": "customer-support"}`
+* `sample_rate` **(float)**: Value that determines what percent of logs to persist. Valid range of 0.0 to 1.0. Defaults to 1.0.
+* `detections` **(array)**: List of detection types to run. Available options:
+  - `DetectionType.HALLUCINATION` - Detects potential hallucinations in model outputs
+  - `DetectionType.DOCUMENT_RELEVANCY` - Evaluates how relevant retrieved documents are to the user query
+* `detection_sample_rate` **(float)**: Value that determines what percent of logs to run detections on. Valid range of 0.0 to 1.0. Defaults to 0.0.
+
+---
+
+Next: [Sending Logs](./sending)
