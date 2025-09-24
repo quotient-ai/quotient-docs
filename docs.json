@@ -54,6 +54,7 @@
             "pages": [
               {
                 "group": "Agent Frameworks",
+                "icon": "plug",
                 "pages": [
                   "integrations/agent-frameworks/overview",
                   "integrations/agent-frameworks/agno",
@@ -64,6 +65,7 @@
               },
               {
                 "group": "Vector Database Instrumentation",
+                "icon": "database",
                 "pages": [
                   "integrations/vector-databases/overview",
                   "integrations/vector-databases/chroma",
