@@ -50,6 +50,13 @@
             ]
           },
           {
+            "group": "Tools",
+            "pages": [
+              "tools/detections",
+              "tools/reports"
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               {
@@ -64,7 +71,7 @@
                 ]
               },
               {
-                "group": "Vector Database Instrumentation",
+                "group": "Vector Databases",
                 "icon": "database",
                 "pages": [
                   "integrations/vector-databases/overview",
@@ -73,13 +80,6 @@
                   "integrations/vector-databases/qdrant"
                 ]
               }
-            ]
-          },
-          {
-            "group": "Tools",
-            "pages": [
-              "tools/detections",
-              "tools/reports"
             ]
           },
           {
