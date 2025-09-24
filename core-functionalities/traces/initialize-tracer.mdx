@@ -1,0 +1,39 @@
+---
+title: 'Initialize the Tracer'
+description: 'Configure Quotient tracing with your app, environment, and detectors.'
+icon: "-"
+---
+
+Before you can capture spans you must initialize the tracer. Initialization registers metadata about your application, environment, and any optional detections you want to run on traces.
+
+## Basic Initialization
+
+```python initialize_tracer.py
+from quotientai import QuotientAI, DetectionType
+
+quotient = QuotientAI(api_key="your-quotient-api-key")
+
+quotient.tracer.init(
+    app_name="my-first-app",
+    environment="dev",
+    detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+)
+```
+
+### Parameters
+
+* `app_name` *(string)*: Human-friendly name displayed in the Quotient UI.
+* `environment` *(string)*: Deployment environment (`dev`, `staging`, `prod`, etc.).
+* `detections` *(array)*: Optional list of detections to run on traces. Currently supports `HALLUCINATION` and `DOCUMENT_RELEVANCY`.
+* `instruments` *(array)*: Instrumentors that automatically attach to supported frameworks. See [framework integrations](../../integrations/agent-frameworks/overview).
+* `tags` *(object, optional)*: Default metadata attached to every trace.
+
+### Tips
+
+* Initialize the tracer once at application startup—subsequent calls reuse the same configuration.
+* Combine tracer initialization with logger initialization so logs and traces share names and environments.
+* Pass instrumentors during initialization to automatically capture spans from supported frameworks.
+
+---
+
+Next: [Record Traces](./record-traces)

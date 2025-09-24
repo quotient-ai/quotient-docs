@@ -1,0 +1,60 @@
+---
+title: 'OpenAI Agents SDK'
+description: 'Trace OpenAI Agents with Quotient and OpenInference.'
+icon: "sparkles"
+---
+
+## Prerequisites
+
+Install dependencies:
+
+```bash
+pip install "quotientai>=0.4.6" "openai-agents>=0.1.0" "openinference-instrumentation-openai-agents==1.1.1"
+```
+
+Set environment variables:
+
+```bash
+export OPENAI_API_KEY=your-openai-api-key
+export QUOTIENT_API_KEY=your-quotient-api-key
+```
+
+## Sample Integration
+
+```python quotient_trace_openai_agents.py
+from openinference.instrumentation.openai_agents import OpenAIAgentsInstrumentor
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="openai-agents-search-app",
+    environment="dev",
+    instruments=[OpenAIAgentsInstrumentor()],
+)
+
+import asyncio
+from agents import Agent, Runner
+
+@quotient.trace('haiku-agent')
+async def main() -> None:
+    agent = Agent(
+        name="haiku-assistant",
+        instructions="You only respond in haikus.",
+    )
+
+    result = await Runner.run(agent, "Tell me about recursion in programming.")
+    print(result.final_output)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Notes
+
+* The instrumentor emits spans for tool calls, actions, and final responses so you can replay the agent’s reasoning.
+* Use `asyncio.run` (as shown) or integrate directly into your existing event loop.
+
+---
+
+Next: [LangGraph](./langgraph)

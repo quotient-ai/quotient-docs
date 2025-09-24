@@ -1,0 +1,66 @@
+---
+title: 'Record Traces'
+description: 'Capture agent interactions with decorators or OpenInference instrumentors.'
+icon: "-"
+---
+
+After initialization you can start capturing traces. Quotient provides two primary approaches:
+
+1. **`@quotient.trace` decorator** – wrap your entrypoint or key functions to record spans.
+2. **OpenInference instrumentors** – automatically instrument supported frameworks and providers.
+
+## Decorate an Entrypoint
+
+```python traced_agent.py
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+@quotient.trace('support-agent')
+def run_agent(question: str) -> str:
+    """Main entrypoint for your agent."""
+    # call tools, models, etc.
+    return "Answer goes here"
+
+run_agent("How do I reset my password?")
+```
+
+The decorator creates a root span for the function and tracks child spans for tool calls when instrumentation is available.
+
+## Use OpenInference Instrumentation
+
+Quotient integrates with [OpenInference](https://github.com/Arize-ai/openinference) so you can reuse the same telemetry across frameworks. Attach the appropriate instrumentor when initializing the tracer:
+
+```python with_instrumentor.py
+from openinference.instrumentation.langchain import LangChainInstrumentor
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+quotient.tracer.init(
+    app_name="langgraph-weather-app",
+    environment="dev",
+    instruments=[LangChainInstrumentor()],
+)
+```
+
+Instrumentors add spans for prompts, tool invocations, retriever calls, and more—no code changes required in the rest of your app.
+
+### Supported Frameworks
+
+We provide step-by-step guides for popular agent frameworks:
+
+* [Agno](../../integrations/agent-frameworks/agno)
+* [OpenAI Agents SDK](../../integrations/agent-frameworks/openai-agents-sdk)
+* [LangGraph](../../integrations/agent-frameworks/langgraph)
+* [Smolagents](../../integrations/agent-frameworks/smolagents)
+
+Looking for another framework? See [OpenInference instrumentation](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation) for additional options.
+
+## Tracing Without OpenInference
+
+You can still use the decorator without OpenInference instrumentors. You will capture the function-level span and any custom spans you emit manually. Note that certain Quotient features (detections, tooling insights) rely on the richer span data provided by instrumentors.
+
+---
+
+Next: [Custom Spans](./custom-spans)

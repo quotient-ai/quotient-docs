@@ -1,0 +1,39 @@
+---
+title: 'Overview'
+description: 'Understand how Quotient traces capture end-to-end agent interactions.'
+icon: "chart-network"
+---
+
+Traces capture the **full execution path** of an agent or workflow: the input, every tool call or model invocation, intermediate artifacts, and the final response. They provide the context you need to debug complex systems and to power Quotient features such as [Reports](../../tools/reports) and [Detections](../../tools/detections).
+
+## Traces vs. Logs
+
+* `Traces` show the complete journey of a request through your stack and are composed of nested spans.
+* `Logs` focus on discrete interactions—ideal for measuring responses and running detections.
+
+Use both together to diagnose issues quickly: traces reveal *how* you got somewhere, while logs highlight *what* the model produced.
+
+## Trace Anatomy
+
+Traces are built from **spans**. Each span represents a meaningful unit of work (model call, tool invocation, retrieval step, etc.). Quotient follows the [OpenInference semantic conventions](https://arize-ai.github.io/openinference/spec/semantic_conventions.html) so span names and attributes are consistent across frameworks and providers.
+
+A typical trace contains:
+
+* A root span that represents the overall request.
+* Child spans for agent reasoning steps, tool calls, or vector database operations.
+* Attributes and events describing inputs, outputs, and metrics captured during execution.
+
+## Where Traces Appear
+
+Navigate to the **Traces** tab in the [Quotient UI](https://app.quotientai.co/traces) to explore recorded interactions. Filter by `app_name`, `environment`, time range, and tags to spot regressions or drill into a single user journey.
+
+## Getting Started
+
+1. [Initialize the tracer](./initialize-tracer) with your app details and optional detections.
+2. [Record traces](./record-traces) using the decorator or OpenInference integrations.
+3. Extend traces with [custom spans](./custom-spans) and [vector database instrumentation](./vector-database-semantic-conventions).
+4. [Retrieve traces programmatically](./retrieve-traces) for automation or post-processing.
+
+---
+
+Next: [Initialize the Tracer](./initialize-tracer)

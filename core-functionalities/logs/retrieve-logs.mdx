@@ -1,14 +1,12 @@
 ---
-
 title: 'Retrieve Logs'
-description: 'Learn how to list and inspect logs stored in Quotient.'
+description: 'List and inspect the logs you have stored in Quotient.'
 icon: "-"
 ---
 
+Use the SDKs to programmatically retrieve logs for debugging, evaluation, or custom analytics pipelines.
 
-You can retrieve logs programmatically to inspect what has been recorded. This is useful for debugging, offline analysis, or integrating Quotient logs into your own monitoring systems.
-
-## Example
+## List Logs
 
 <CodeGroup>
 
@@ -16,10 +14,10 @@ You can retrieve logs programmatically to inspect what has been recorded. This i
 logs = quotient.logs.list()
 print("Total logs:", len(logs))
 for log in logs:
-    print(log["id"], log["user_query"])
+    print(log["id"], log.get("user_query"))
 ```
 
-```typescript list_logs.ts
+```typescript listLogs.ts
 const logs = await quotient.logs.list();
 console.log("Total logs:", logs.length);
 logs.forEach(log => {
@@ -29,30 +27,29 @@ logs.forEach(log => {
 
 </CodeGroup>
 
-## Returned Fields
+## Common Fields
 
-Each log object may contain:
+Each returned `Log` object may contain:
 
-* **`id`** *(string)*: Unique identifier for the log.
-* **`app_name`** *(string)*: Application that created the log.
-* **`environment`** *(string)*: Environment of origin (`dev`, `staging`, `prod`).
-* **`user_query`** *(string)*: The query that was logged.
-* **`model_output`** *(string)*: The model’s response.
-* **`documents`** *(array)*: Documents used as evidence.
-* **`message_history`** *(array)*: Conversation turns.
-* **`instructions`** *(array)*: Instruction list provided.
-* **`tags`** *(object)*: Metadata tags.
-* **`created_at`** *(datetime)*: Timestamp of log creation.
-* **`updated_at`** *(datetime)*: Timestamp of last update.
-* **`has_hallucination`** *(boolean)*: Whether a hallucination was detected.
-* **`evaluations`** *(array)*: Results of applied detections.
+* `id` *(string)*: Unique identifier for the log.
+* `app_name` *(string)*: Application that generated the interaction.
+* `environment` *(string)*: Deployment environment (`dev`, `staging`, `prod`).
+* `user_query` *(string)*: The prompt that initiated the interaction.
+* `model_output` *(string)*: Response recorded for the interaction.
+* `documents` *(array)*: Evidence passed in with the log.
+* `message_history` *(array)*: Conversation turns, if provided.
+* `instructions` *(array)*: Instruction set supplied to the model.
+* `tags` *(object)*: Metadata such as feature, customer, or model version.
+* `created_at` / `updated_at` *(datetime)*: Timestamps for auditability.
+* `has_hallucination` *(boolean)*: Whether hallucination detection flagged the response.
+* `evaluations` *(array)*: Detailed detection results.
 
-## Best Practices
+## Usage Tips
 
-* Use filters (when available) to limit log retrieval by environment, tag, or time range.
-* Avoid fetching entire log history into memory; paginate when analyzing large volumes.
-* Store `log_id` in your own systems for traceability back to the Quotient dashboard.
+* Narrow queries with filters (if available) to keep responses manageable.
+* Paginate long-running exports rather than loading the entire history at once.
+* Persist the returned `log_id` in your own telemetry to cross-reference issues in the Quotient UI.
 
 ---
 
-Next: \[Async Loggin
+Next: [Async Logging](./async-client)

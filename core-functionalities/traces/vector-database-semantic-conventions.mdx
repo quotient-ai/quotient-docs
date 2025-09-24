@@ -1,0 +1,93 @@
+---
+title: 'Vector Database Instrumentation'
+description: 'Semantic conventions and instrumentation for vector database spans.'
+icon: "-"
+---
+
+Quotient extends the OpenInference semantic conventions with attributes tailored to vector database operations. Instrumentors for Chroma, Pinecone, and Qdrant automatically populate these attributes when you add them during tracer initialization.
+
+## Quick Start
+
+```python vector_db_tracing.py
+from quotientai import QuotientAI, ChromaInstrumentor, PineconeInstrumentor, QdrantInstrumentor
+
+quotient = QuotientAI()
+
+quotient.tracer.init(
+    app_name="retrieval-app",
+    environment="production",
+    instruments=[
+        ChromaInstrumentor(),
+        PineconeInstrumentor(),
+        QdrantInstrumentor(),
+    ],
+)
+```
+
+## Common Attributes
+
+| Attribute | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `db.system.name` | string | Vector database system name | `"chroma"`, `"pinecone"`, `"qdrant"` |
+| `db.operation` | string | Operation executed | `"query"`, `"add"`, `"upsert"`, `"delete"` |
+| `db.collection.name` | string | Collection or index name | `"user_profiles"` |
+| `db.operation.status` | string | Operation status | `"completed"`, `"error"` |
+| `db.ids_count` | int | Number of IDs processed | `150` |
+| `db.vector_count` | int | Number of vectors processed | `320` |
+| `db.n_results` | int | Results returned | `15` |
+| `db.query.retrieved_documents` | string | JSON string of retrieved documents | `[{"id": "doc1", "score": 0.95}]` |
+
+## Database-Specific Attributes
+
+### Chroma
+
+* `db.documents_count`: Number of documents processed.
+* `db.metadatas_count`: Number of metadata entries.
+* `db.filter`: Applied filters (JSON string).
+* `db.where_document`: Document filter conditions.
+
+### Pinecone
+
+* `db.index.name`: Index name.
+* `db.index.dimension`: Index dimension.
+* `db.create_index.metric`: Distance metric used.
+* `db.create_index.spec`: Index specifications.
+* `db.query.namespace`: Query namespace.
+* `db.delete_all`: Whether all records are deleted.
+* `db.update.id`: ID being updated.
+* `db.update.metadata`: Metadata being updated.
+
+### Qdrant
+
+* `db.collection.dimension`: Collection dimension.
+* `db.limit`: Query limit.
+* `db.offset`: Query offset.
+* `db.filter`: Applied filters (JSON string).
+* `db.operation.id`: Operation ID for async operations.
+
+## Document Format
+
+The `db.query.retrieved_documents` attribute contains a JSON string with entries shaped like:
+
+```json
+[
+  {
+    "document.id": "doc123",
+    "document.score": 0.95,
+    "document.content": "document text content",
+    "document.metadata": "{\"source\": \"web\", \"category\": \"tech\"}"
+  }
+]
+```
+
+## Error Handling
+
+Instrumentors are defensive:
+
+* If the underlying client library is missing, the instrumentor logs a warning and skips instrumentation.
+* Failures while tracing default to no-op so your database call still succeeds.
+* Errors during span creation are captured in the logs for later debugging.
+
+---
+
+Next: [Retrieve Traces](./retrieve-traces)

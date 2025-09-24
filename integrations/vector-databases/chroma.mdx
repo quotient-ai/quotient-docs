@@ -1,0 +1,44 @@
+---
+title: 'Chroma'
+description: 'Trace Chroma operations with Quotient.'
+icon: "db"
+---
+
+## Prerequisites
+
+Install dependencies:
+
+```bash
+pip install "quotientai>=0.4.6" "chromadb" "openinference-instrumentation-chromadb>=0.1.6"
+```
+
+## Sample Integration
+
+```python trace_chroma.py
+from chromadb import Client
+from openinference.instrumentation.chromadb import ChromaInstrumentor
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="chroma-retrieval",
+    environment="dev",
+    instruments=[ChromaInstrumentor()],
+)
+
+client = Client()
+collection = client.get_or_create_collection(name="support")
+collection.add(ids=["doc-1"], documents=["Reset your password via settings."])
+results = collection.query(query_texts=["How do I reset my password?"], n_results=2)
+print(results)
+```
+
+### Notes
+
+* Spans include collection metadata, filter usage, and counts of vectors/documents processed.
+* See the [semantic conventions](../../core-functionalities/traces/vector-database-semantic-conventions) for attribute details.
+
+---
+
+Next: [Pinecone](./pinecone)

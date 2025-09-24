@@ -1,0 +1,52 @@
+---
+title: 'Async Logging'
+description: 'Use the asynchronous Python client to log and retrieve records.'
+icon: "-"
+---
+
+The Quotient Python SDK ships with an asynchronous client for applications that already run an event loop. The API mirrors the synchronous surface but returns coroutines instead of concrete values.
+
+## Example Workflow
+
+<CodeGroup>
+
+```python async_logging.py
+import asyncio
+
+from quotientai import AsyncQuotientAI, DetectionType
+
+async def main() -> None:
+    quotient = AsyncQuotientAI(api_key="your-quotient-api-key")
+
+    quotient.logger.init(
+        app_name="async-support-bot",
+        environment="dev",
+        detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+        detection_sample_rate=1.0,
+    )
+
+    log_id = await quotient.log(
+        user_query="How do I cook a goose?",
+        model_output="The capital of France is Paris.",
+        documents=["Here is an excellent goose recipe..."],
+    )
+
+    logs = await quotient.logs.list()
+    print("Created log:", log_id)
+    print("Fetched", len(logs), "logs")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+</CodeGroup>
+
+## Notes
+
+* Initialization remains synchronous; call it once during startup before issuing async logging calls.
+* The async client shares authentication and configuration options with the synchronous client.
+* When using frameworks such as FastAPI or LangChain that already use asyncio, prefer `AsyncQuotientAI` to avoid blocking the event loop.
+
+---
+
+Back: [Retrieve Logs](./retrieve-logs)

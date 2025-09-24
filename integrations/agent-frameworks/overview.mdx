@@ -1,0 +1,25 @@
+---
+title: 'Overview'
+description: 'Instrument agent frameworks with Quotient tracing through OpenInference.'
+icon: "network"
+---
+
+Quotient integrates with popular agent and orchestration frameworks through the OpenInference instrumentation ecosystem. Each integration follows the same pattern:
+
+1. Install the Quotient SDK and the relevant OpenInference instrumentor.
+2. Export your `QUOTIENT_API_KEY` (and the provider API keys your agent requires).
+3. Initialize the tracer with the instrumentor.
+4. Decorate your main entrypoint with `@quotient.trace` (recommended) and run your agent as usual.
+
+Use the guides below for framework-specific setup and sample code:
+
+* [Agno](./agno)
+* [OpenAI Agents SDK](./openai-agents-sdk)
+* [LangGraph](./langgraph)
+* [Smolagents](./smolagents)
+
+Looking for a different framework? Browse the [OpenInference instrumentation repository](https://github.com/Arize-ai/openinference/tree/main/python/instrumentation) and add the matching instrumentor to the `instruments` list when initializing the tracer.
+
+---
+
+Next: [Agno](./agno)

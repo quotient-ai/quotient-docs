@@ -4,7 +4,7 @@ description: 'Log interactions with queries, model outputs, and supporting conte
 icon: "-"
 ---
 
-Once the logger is initialized, you can start sending logs to Quotient. Each log represents a **single interaction** between a user and your model. Logs should include the query, the model’s output, and the evidence used (documents, history, or instructions).
+Once the logger is initialized, you can start sending logs to Quotient. Each log represents a **single interaction** between a user and your model. Include the query, the model’s output, and the evidence you relied on (documents, history, or instructions).
 
 Providing evidence is critical when using hallucination or document relevance detection. At least one of `documents`, `message_history`, or `instructions` is required.
 
@@ -86,8 +86,8 @@ console.log("Log created with ID:", logId);
 
 * Keep evidence minimal but sufficient for attribution (avoid dumping full corpora).
 * Standardize tag keys (`model`, `retriever`, `customer`) for consistent filtering.
-* Include `log_id` in your own system’s telemetry to cross-reference with Quotient reports.
+* Include the returned `log_id` in your own telemetry to cross-reference with Quotient reports.
 
 ---
 
-Next: [Retrieving Logs](./retrieving)
+Next: [Retrieve Logs](./retrieve-logs)

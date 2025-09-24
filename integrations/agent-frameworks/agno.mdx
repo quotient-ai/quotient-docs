@@ -1,0 +1,61 @@
+---
+title: 'Agno'
+description: 'Instrument Agno agents with Quotient tracing.'
+icon: "bot"
+---
+
+## Prerequisites
+
+Install the Quotient SDK, Agno, and the OpenInference instrumentor:
+
+```bash
+pip install "quotientai>=0.4.6" "agno>=1.5.2" "openinference-instrumentation-agno==0.1.10"
+```
+
+Set the required API keys:
+
+```bash
+export OPENAI_API_KEY=your-openai-api-key
+export QUOTIENT_API_KEY=your-quotient-api-key
+```
+
+## Sample Integration
+
+```python quotient_trace_agno.py
+from openinference.instrumentation.agno import AgnoInstrumentor
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="agno-search-app",
+    environment="dev",
+    instruments=[AgnoInstrumentor()],
+)
+
+from agno.agent import Agent
+from agno.models.openai import OpenAIChat
+from agno.tools.duckduckgo import DuckDuckGoTools
+
+@quotient.trace('agno-agent-ddgs-search')
+def run_agno() -> None:
+    agent = Agent(
+        model=OpenAIChat(id="gpt-4o-mini"),
+        tools=[DuckDuckGoTools()],
+        markdown=True,
+    )
+
+    agent.print_response("What is currently trending in AI?")
+
+if __name__ == "__main__":
+    run_agno()
+```
+
+### Notes
+
+* The instrumentor automatically captures spans for Agno planning steps, tool calls, and model invocations.
+* Decorate whichever function represents the main request lifecycle in your app.
+
+---
+
+Next: [OpenAI Agents SDK](./openai-agents-sdk)

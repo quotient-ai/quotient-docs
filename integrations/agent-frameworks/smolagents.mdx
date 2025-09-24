@@ -1,0 +1,71 @@
+---
+title: 'Smolagents'
+description: 'Capture Smolagents executions with Quotient tracing.'
+icon: "plug"
+---
+
+## Prerequisites
+
+Install dependencies:
+
+```bash
+pip install "quotientai>=0.4.6" "smolagents>=1.15.0" "openinference-instrumentation-smolagents==0.1.14"
+```
+
+Set environment variables:
+
+```bash
+export OPENAI_API_KEY=your-openai-api-key
+export QUOTIENT_API_KEY=your-quotient-api-key
+```
+
+## Sample Integration
+
+```python quotient_trace_smolagents.py
+import requests
+from openinference.instrumentation.smolagents import SmolagentsInstrumentor
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="smolagents-weather-app",
+    environment="dev",
+    instruments=[SmolagentsInstrumentor()],
+)
+
+from smolagents import ToolCallingAgent, LiteLLMModel, tool
+
+@tool
+def search_wikipedia(query: str) -> str:
+    """Fetch a summary of a Wikipedia page."""
+    url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{query}"
+    response = requests.get(url)
+    response.raise_for_status()
+    data = response.json()
+    title = data["title"]
+    extract = data["extract"]
+    return f"Summary for {title}: {extract}"
+
+@quotient.trace('smolagents-wikipedia-agent')
+def main() -> None:
+    model = LiteLLMModel(model_id="gpt-4o")
+
+    agent = ToolCallingAgent(
+        tools=[search_wikipedia],
+        model=model,
+    )
+    agent.run("What happened in the 2024 US election?")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Notes
+
+* The instrumentor traces tool invocation latency and model calls so you can spot bottlenecks.
+* Wrap additional helper functions with `start_span` if you need more granular insight.
+
+---
+
+Back: [Agent Framework Integrations](./overview)

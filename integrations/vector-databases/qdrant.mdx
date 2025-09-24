@@ -1,0 +1,50 @@
+---
+title: 'Qdrant'
+description: 'Trace Qdrant collections with Quotient.'
+icon: "db-search"
+---
+
+## Prerequisites
+
+Install dependencies:
+
+```bash
+pip install "quotientai>=0.4.6" "qdrant-client" "openinference-instrumentation-qdrant>=0.1.6"
+```
+
+## Sample Integration
+
+```python trace_qdrant.py
+from openinference.instrumentation.qdrant import QdrantInstrumentor
+from qdrant_client import QdrantClient
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="qdrant-retrieval",
+    environment="dev",
+    instruments=[QdrantInstrumentor()],
+)
+
+client = QdrantClient(host="localhost", port=6333)
+client.create_collection(collection_name="support", vector_size=3, distance="Cosine")
+client.upsert(collection_name="support", points=[
+    {
+        "id": 1,
+        "vector": [0.1, 0.2, 0.3],
+        "payload": {"title": "Reset password"},
+    }
+])
+response = client.search(collection_name="support", query_vector=[0.2, 0.1, 0.3], limit=2)
+print(response)
+```
+
+### Notes
+
+* Spans surface collection dimensions, filters, and limits so you can diagnose retrieval performance.
+* Instrumentation degrades gracefully—if the Qdrant client is missing, the instrumentor simply logs a warning.
+
+---
+
+Back: [Vector Database Integrations](./overview)

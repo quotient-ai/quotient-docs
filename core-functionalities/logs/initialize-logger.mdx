@@ -1,10 +1,10 @@
 ---
-title: 'Initializing the Logger'
-description: 'Configure the Quotient logger for your application.'
+title: 'Initialize the Logger'
+description: 'Configure the Quotient logger once to describe your app, environment, and detections.'
 icon: "-"
 ---
 
-Before you can send logs, you need to initialize the Quotient logger. Initialization tells Quotient **which app and environment** the logs belong to, and which **detections** to run.
+Before sending any records you must initialize the logger. Initialization tells Quotient **which app generated the data**, **which environment it came from**, and **which detections to run**.
 
 ## Basic Initialization
 
@@ -24,7 +24,7 @@ quotient.logger.init(
 ```
 
 ```typescript logging.ts
-import { QuotientAI, DetectionType } from "@quotientai/sdk";
+import { QuotientAI, DetectionType } from "quotientai";
 
 const quotient = new QuotientAI({ apiKey: "your-quotient-api-key" });
 
@@ -38,17 +38,21 @@ quotient.logger.init({
 
 </CodeGroup>
 
-### Parameters:
+### Key Parameters
 
-* `app_name` **(string)**: Name of your application. Core parameter used to identify the source of logs in the Quotient dashboard.
-* `environment` **(string)**: Environment where your application is running (e.g., "dev", "staging", "prod"). Core parameter used to help segregate logs by deployment environment.
-* `tags` **(object)**: Key-value pairs for categorizing and filtering logs. Useful for slicing analytics by dimensions like customer, feature, model version, etc. **Example:** `{"model": "gpt-4", "feature": "customer-support"}`
-* `sample_rate` **(float)**: Value that determines what percent of logs to persist. Valid range of 0.0 to 1.0. Defaults to 1.0.
-* `detections` **(array)**: List of detection types to run. Available options:
-  - `DetectionType.HALLUCINATION` - Detects potential hallucinations in model outputs
-  - `DetectionType.DOCUMENT_RELEVANCY` - Evaluates how relevant retrieved documents are to the user query
-* `detection_sample_rate` **(float)**: Value that determines what percent of logs to run detections on. Valid range of 0.0 to 1.0. Defaults to 0.0.
+* `app_name` *(string)*: Logical application name. Used as the primary grouping dimension in the dashboard.
+* `environment` *(string)*: Where the app is running (`dev`, `staging`, `prod`, etc.). Drives environment filters.
+* `tags` *(object, optional)*: Default metadata applied to every log (e.g., `{ "team": "growth" }`).
+* `sample_rate` *(float)*: Percentage of logs to persist. `1.0` captures everything, lower values sample.
+* `detections` *(array)*: Which automated checks to run, such as `HALLUCINATION` or `DOCUMENT_RELEVANCY`.
+* `detection_sample_rate` *(float)*: Sampling rate for detections specifically. Defaults to `0.0` (disabled).
+
+### Tips
+
+* Call `logger.init` once during application startup; repeated calls reuse the same configuration.
+* Use configuration files or environment variables to keep app name and environment consistent across deploys.
+* Provide `tags` for metadata you want on *every* log (e.g., team, product surface).
 
 ---
 
-Next: [Sending Logs](./sending)
+Next: [Send Logs](./send-logs)

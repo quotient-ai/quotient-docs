@@ -1,0 +1,50 @@
+---
+title: 'Pinecone'
+description: 'Capture Pinecone index operations in Quotient traces.'
+icon: "db-check"
+---
+
+## Prerequisites
+
+Install dependencies:
+
+```bash
+pip install "quotientai>=0.4.6" "pinecone-client" "openinference-instrumentation-pinecone>=0.1.6"
+```
+
+Set credentials:
+
+```bash
+export PINECONE_API_KEY=your-pinecone-api-key
+export QUOTIENT_API_KEY=your-quotient-api-key
+```
+
+## Sample Integration
+
+```python trace_pinecone.py
+from openinference.instrumentation.pinecone import PineconeInstrumentor
+from pinecone import Pinecone
+
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+quotient.tracer.init(
+    app_name="pinecone-retrieval",
+    environment="dev",
+    instruments=[PineconeInstrumentor()],
+)
+
+pc = Pinecone()
+index = pc.Index("support-index")
+response = index.query(vector=[0.1, 0.3, 0.2], top_k=5)
+print(response)
+```
+
+### Notes
+
+* Spans include namespace, index configuration, counts of IDs processed, and query results.
+* Errors during instrumentation are logged but never block your Pinecone operations.
+
+---
+
+Next: [Qdrant](./qdrant)
