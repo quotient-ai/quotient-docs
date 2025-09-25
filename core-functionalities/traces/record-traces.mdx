@@ -14,7 +14,12 @@ After initialization you can start capturing traces. Quotient provides two prima
 ```python traced_agent.py
 from quotientai import QuotientAI
 
-quotient = QuotientAI()
+quotient = QuotientAI(api_key="your-quotient-api-key")
+
+quotient.tracer.init(
+    app_name="my-app",
+    environment="dev",
+)
 
 @quotient.trace('support-agent')
 def run_agent(question: str) -> str:
@@ -35,7 +40,7 @@ Quotient integrates with [OpenInference](https://github.com/Arize-ai/openinferen
 from openinference.instrumentation.langchain import LangChainInstrumentor
 from quotientai import QuotientAI
 
-quotient = QuotientAI()
+quotient = QuotientAI(api_key="your-quotient-api-key")
 
 quotient.tracer.init(
     app_name="langgraph-weather-app",

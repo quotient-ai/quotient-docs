@@ -4,7 +4,7 @@ description: 'Log interactions with queries, model outputs, and supporting conte
 icon: "bolt"
 ---
 
-Once the logger is initialized, you can start sending logs to Quotient. Each log represents a **single interaction** between a user and your model. Include the query, the model’s output, and the evidence you relied on (documents, history, or instructions).
+Once the logger is initialized, you can start sending logs to Quotient. Each log represents a **single interaction** between a user and your model. Include the query, the model's output, and the evidence you relied on (documents, history, or instructions).
 
 Providing evidence is critical when using hallucination or document relevance detection. At least one of `documents`, `message_history`, or `instructions` is required.
 
@@ -13,6 +13,7 @@ Providing evidence is critical when using hallucination or document relevance de
 <CodeGroup>
 
 ```python logging.py
+# Assumes quotient client is already initialized (see Initialize the Logger)
 log_id = quotient.log(
     user_query="How do I cook a goose?",
     model_output="The capital of France is Paris",
@@ -36,6 +37,7 @@ print("Log created with ID:", log_id)
 ```
 
 ```typescript logging.ts
+// Assumes quotient client is already initialized (see Initialize the Logger)
 const logId = await quotient.log({
   userQuery: "How do I cook a goose?",
   modelOutput: "The capital of France is Paris",

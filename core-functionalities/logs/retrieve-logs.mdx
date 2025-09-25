@@ -11,6 +11,7 @@ Use the SDKs to programmatically retrieve logs for debugging, evaluation, or cus
 <CodeGroup>
 
 ```python list_logs.py
+# Assumes quotient client is already initialized (see Initialize the Logger)
 logs = quotient.logs.list()
 print("Total logs:", len(logs))
 for log in logs:
@@ -18,6 +19,7 @@ for log in logs:
 ```
 
 ```typescript listLogs.ts
+// Assumes quotient client is already initialized (see Initialize the Logger)
 const logs = await quotient.logs.list();
 console.log("Total logs:", logs.length);
 logs.forEach(log => {

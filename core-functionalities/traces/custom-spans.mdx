@@ -14,7 +14,7 @@ from opentelemetry.trace import get_current_span
 from quotientai import QuotientAI
 from quotientai.tracing import start_span
 
-quotient = QuotientAI()
+quotient = QuotientAI(api_key="your-quotient-api-key")
 
 quotient.tracer.init(
     app_name="my-app",

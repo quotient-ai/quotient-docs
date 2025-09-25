@@ -9,6 +9,21 @@ Before you can capture spans you must initialize the tracer. Initialization regi
 ## Basic Initialization
 
 ```python initialize_tracer.py
+from quotientai import QuotientAI
+
+quotient = QuotientAI(api_key="your-quotient-api-key")
+
+quotient.tracer.init(
+    app_name="my-first-app",
+    environment="dev",
+)
+```
+
+## Advanced: Adding Detections to Traces
+
+For more advanced use cases, you can enable detections on your traces to automatically analyze spans for issues like hallucinations or document relevancy:
+
+```python advanced_tracer.py
 from quotientai import QuotientAI, DetectionType
 
 quotient = QuotientAI(api_key="your-quotient-api-key")
@@ -19,6 +34,7 @@ quotient.tracer.init(
     detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
 )
 ```
+The `detections` parameter accepts an array of detection types that will be automatically run on trace data when available.
 
 ### Parameters
 
