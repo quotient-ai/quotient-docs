@@ -1,0 +1,99 @@
+---
+title: 'Overview'
+description: 'Understand how logs power Quotient detections, reports, and analytics.'
+icon: "eye"
+---
+
+Logs are the most fundamental unit in Quotient. Logs are a way to capture specific data points from your AI applications and agents.
+Every log captures a **single model interaction**, typically a user query, the model response, and the evidence used to produce that response. Detections, Reports, and monitoring all build on top of these records.
+
+Logs differ from traces:
+- `Logs` focus on discrete events or exchanges and are perfect for reliability analysis.
+- `Traces` capture multi-step workflows and execution paths across tools and agents.
+
+## Log Schema
+
+Most Quotient logs follow a predictable structure:
+
+```json
+{
+  "user_query": "What is the capital of France?",
+  "model_output": "The capital of France is Paris.",
+  "documents": ["Here is an excellent goose recipe..."]
+}
+```
+
+Key fields you will frequently send:
+
+* `user_query`: the prompt or question issued to the model.
+* `model_output`: the raw model response.
+* `documents`: evidence retrieved to answer the query. Can mix strings and `{ page_content, metadata }` objects.
+* `tags`: custom metadata to help slice analytics (feature flag, customer tier, model version, etc.).
+
+## When to Log
+
+* **Development** – capture every interaction for rapid iteration and benchmarking.
+* **Production** – sample strategically to balance coverage with cost while keeping detections active.
+* **Evaluations** – log curated test sets to compare models, retrievers, or prompts over time.
+
+## End-to-End Example
+
+<CodeGroup>
+
+```python logging.py
+from quotientai import QuotientAI, DetectionType
+
+quotient = QuotientAI()
+quotient.logger.init(
+    app_name="support-bot",
+    environment="dev",
+    detections=[DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+    detection_sample_rate=1.0,
+)
+
+log = quotient.log(
+    user_query="What is the warranty policy?",
+    model_output="All items have a 5-year warranty.",
+    documents=["Policy: electronics have a 1-year warranty..."],
+    tags={"model": "gpt-4o", "feature": "support"},
+)
+
+print(log["detections"])
+# {"hallucination": True, "document_relevancy": 0.0}
+```
+
+```typescript logging.ts
+import { QuotientAI, DetectionType } from "quotientai";
+
+const quotient = new QuotientAI();
+quotient.logger.init({
+  appName: "support-bot",
+  environment: "dev",
+  detections: [DetectionType.HALLUCINATION, DetectionType.DOCUMENT_RELEVANCY],
+  detectionSampleRate: 1.0,
+});
+
+const log = await quotient.log({
+  userQuery: "What is the warranty policy?",
+  modelOutput: "All items have a 5-year warranty.",
+  documents: ["Policy: electronics have a 1-year warranty..."],
+  tags: { model: "gpt-4o", feature: "support" },
+});
+
+console.log(log.detections);
+// { hallucination: true, document_relevancy: 0.0 }
+```
+
+</CodeGroup>
+
+## Best Practices
+
+* Use distinct `environment` values (`dev`, `staging`, `prod`) to keep dashboards segmented.
+* Keep `detection_sample_rate=1.0` in early development; adjust in production to control spend.
+* Attach consistent `tags` to power comparisons across prompts, models, or customer segments.
+* Redact or hash PII before logging to maintain compliance.
+* Rotate API keys per environment and store them securely (dotenv, secret manager, etc.).
+
+---
+
+Next: [Initialize the Logger](./initialize-logger)

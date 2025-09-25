@@ -1,0 +1,57 @@
+---
+title: 'Retrieve Logs'
+description: 'List and inspect the logs you have stored in Quotient.'
+icon: "clipboard"
+---
+
+Use the SDKs to programmatically retrieve logs for debugging, evaluation, or custom analytics pipelines.
+
+## List Logs
+
+<CodeGroup>
+
+```python list_logs.py
+# Assumes quotient client is already initialized (see Initialize the Logger)
+logs = quotient.logs.list()
+print("Total logs:", len(logs))
+for log in logs:
+    print(log["id"], log.get("user_query"))
+```
+
+```typescript listLogs.ts
+// Assumes quotient client is already initialized (see Initialize the Logger)
+const logs = await quotient.logs.list();
+console.log("Total logs:", logs.length);
+logs.forEach(log => {
+  console.log(log.id, log.userQuery);
+});
+```
+
+</CodeGroup>
+
+## Common Fields
+
+Each returned `Log` object may contain:
+
+* `id` *(string)*: Unique identifier for the log.
+* `app_name` *(string)*: Application that generated the interaction.
+* `environment` *(string)*: Deployment environment (`dev`, `staging`, `prod`).
+* `user_query` *(string)*: The prompt that initiated the interaction.
+* `model_output` *(string)*: Response recorded for the interaction.
+* `documents` *(array)*: Evidence passed in with the log.
+* `message_history` *(array)*: Conversation turns, if provided.
+* `instructions` *(array)*: Instruction set supplied to the model.
+* `tags` *(object)*: Metadata such as feature, customer, or model version.
+* `created_at` / `updated_at` *(datetime)*: Timestamps for auditability.
+* `has_hallucination` *(boolean)*: Whether hallucination detection flagged the response.
+* `evaluations` *(array)*: Detailed detection results.
+
+## Usage Tips
+
+* Narrow queries with filters (if available) to keep responses manageable.
+* Paginate long-running exports rather than loading the entire history at once.
+* Persist the returned `log_id` in your own telemetry to cross-reference issues in the Quotient UI.
+
+---
+
+Next: [Async Logging](./async-client)

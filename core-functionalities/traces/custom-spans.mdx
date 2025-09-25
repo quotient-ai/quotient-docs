@@ -1,0 +1,45 @@
+---
+title: 'Custom Spans'
+description: 'Add additional context to traces with manual spans and attributes.'
+icon: "hand-wave"
+---
+
+You can enrich traces with custom spans to document important steps that are unique to your application. Use `quotient.tracing.start_span` as a context manager or access the active span via OpenTelemetry utilities.
+
+## Create a Manual Span
+
+```python custom_span.py
+from opentelemetry.trace import get_current_span
+
+from quotientai import QuotientAI
+from quotientai.tracing import start_span
+
+quotient = QuotientAI(api_key="your-quotient-api-key")
+
+quotient.tracer.init(
+    app_name="my-app",
+    environment="dev",
+)
+
+@quotient.trace('support-agent')
+def main() -> None:
+    with start_span('reranker'):
+        span = get_current_span()
+        span.set_attribute('reranker.latency_ms', 105)
+        span.set_attribute('reranker.model', 'cross-encoder-large')
+
+        # run your custom logic here
+
+if __name__ == "__main__":
+    main()
+```
+
+## Best Practices
+
+* Give spans descriptive names that identify the step or component (e.g., `reranker`, `sql-query`).
+* Set attributes for metrics, inputs, or decisions you care about—anything that helps debug later.
+* Keep spans narrow in scope so they clearly mark a single unit of work.
+
+---
+
+Next: [Vector Database Instrumentation](./vector-database-semantic-conventions)

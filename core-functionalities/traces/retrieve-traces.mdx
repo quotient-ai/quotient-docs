@@ -1,0 +1,28 @@
+---
+title: 'Retrieve Traces'
+description: 'Fetch trace data programmatically using the Quotient SDK.'
+icon: "book"
+---
+
+Use the SDK to fetch trace details for automation, regression analysis, or exporting into external systems. Currently the API retrieves individual traces by ID.
+
+## Fetch a Trace
+
+```python get_trace.py
+from quotientai import QuotientAI
+
+quotient = QuotientAI()
+
+trace = quotient.traces.get(trace_id="123")
+print(trace)
+```
+
+### Notes
+
+* The response includes the trace metadata and spans captured during the interaction.
+* Combine with webhooks or your own telemetry to store trace IDs for later retrieval.
+* Watch the Quotient changelog for bulk trace export support.
+
+---
+
+Back: [Vector Database Instrumentation](./vector-database-semantic-conventions)

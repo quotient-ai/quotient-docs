@@ -22,10 +22,31 @@
             ]
           },
           {
-            "group": "Data",
+            "group": "Core Functionalities",
             "pages": [
-              "data-collection/logs",
-              "data-collection/traces"
+              {
+                "group": "Logs",
+                "icon": "tree",
+                "pages": [
+                  "core-functionalities/logs/overview",
+                  "core-functionalities/logs/initialize-logger",
+                  "core-functionalities/logs/send-logs",
+                  "core-functionalities/logs/retrieve-logs",
+                  "core-functionalities/logs/async-client"
+                ]
+              },
+              {
+                "group": "Traces",
+                "icon": "chart-network",
+                "pages": [
+                  "core-functionalities/traces/overview",
+                  "core-functionalities/traces/initialize-tracer",
+                  "core-functionalities/traces/record-traces",
+                  "core-functionalities/traces/custom-spans",
+                  "core-functionalities/traces/vector-database-semantic-conventions",
+                  "core-functionalities/traces/retrieve-traces"
+                ]
+              }
             ]
           },
           {
@@ -33,6 +54,32 @@
             "pages": [
               "tools/detections",
               "tools/reports"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              {
+                "group": "Agent Frameworks",
+                "icon": "plug",
+                "pages": [
+                  "integrations/agent-frameworks/overview",
+                  "integrations/agent-frameworks/agno",
+                  "integrations/agent-frameworks/openai-agents-sdk",
+                  "integrations/agent-frameworks/langgraph",
+                  "integrations/agent-frameworks/smolagents"
+                ]
+              },
+              {
+                "group": "Vector Databases",
+                "icon": "database",
+                "pages": [
+                  "integrations/vector-databases/overview",
+                  "integrations/vector-databases/chroma",
+                  "integrations/vector-databases/pinecone",
+                  "integrations/vector-databases/qdrant"
+                ]
+              }
             ]
           },
           {
@@ -52,7 +99,7 @@
             "group": "Open Source Projects",
             "icon": "cauldron",
             "pages": [
-              "projects/judges"            
+              "projects/judges"
             ]
           },
           {
@@ -115,11 +162,11 @@
     }
   },
   "contextual": {
-   "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude"
-   ]
- }
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
+  }
 }
