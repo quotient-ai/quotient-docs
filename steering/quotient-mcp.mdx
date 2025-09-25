@@ -21,6 +21,7 @@ Evaluates whether an AI agent correctly used available tools in a conversation c
 **Parameters:**
 - `available_tools`: Array of tool definitions with schemas
 - `message_history`: Array of conversation messages
+- `model_size`: One of "3B" or "7B"
 
 **Returns:**
 - `score`: `"correct"`, `"incorrect_tool"`, `"incorrect_parameter_names"`, or `"incorrect_parameter_values"`
@@ -69,7 +70,8 @@ Evaluates whether an AI agent correctly used available tools in a conversation c
         }
       ]
     }
-  ]
+  ],
+  "model_size": "7B"
 }
 ```
 
@@ -83,7 +85,7 @@ Evaluates whether an AI agent correctly used available tools in a conversation c
 
 ### Underlying Model
 
-The evaluation is powered by the [Limbic Tool Use Evaluator](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K), a fine-tuned Qwen 2.5 0.5B model specifically designed for MCP function call evaluation.
+The evaluation is powered by the Limbic Tool Use Evaluators, fine-tuned Qwen 2.5 models specifically designed for MCP function call evaluation. There are 3B and 7B versions of this model. You may also use the open-sourced [0.5B model](https://huggingface.co/quotientai/limbic-tool-use-0.5B-32K) if you prefer to run this locally.
 
 ## Integration Examples
 
