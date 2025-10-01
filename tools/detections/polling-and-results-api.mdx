@@ -1,0 +1,61 @@
+---
+title: "Polling & Results API"
+description: "Retrieve detection outcomes through the Quotient SDK."
+icon: "clock"
+---
+
+# Poll for detections via the SDK
+
+Use the polling helpers when you want to block until detections finish so you can act on the results immediately (e.g., inside an evaluation harness or CI job).
+
+<CodeGroup>
+
+```python logging.py
+detection = quotient.poll_for_detection(log_id=log_id)
+```
+
+```typescript logging.ts
+const detection = await quotient.pollForDetections(logId);
+```
+
+</CodeGroup>
+
+# Parameters
+
+- `log_id` **(string)**: Identifier of the log you want to poll for detections.
+- `timeout` **(int)**: Maximum time to wait for a response in seconds. Defaults to `300`.
+- `poll_interval` **(float)**: Interval between checks in seconds. Defaults to `2.0`.
+
+## Return value
+
+`poll_for_detection` returns a `Log` object with these notable fields:
+
+- `id` **(string)**: Unique identifier for the log.
+- `app_name` **(string)**: Application that generated the log.
+- `environment` **(string)**: Deployment environment (e.g., `dev`, `prod`).
+- `detections` **(array)**: Detection types configured for this log.
+- `detection_sample_rate` **(float)**: Sample rate applied for detections on this log.
+- `user_query` **(string)**: Logged user input.
+- `model_output` **(string)**: Logged model output.
+- `documents` **(array)**: Context documents used for the detection run.
+- `message_history` **(array)**: Prior messages following the OpenAI format.
+- `instructions` **(array)**: Instructions provided to the model.
+- `tags` **(object)**: Metadata associated with the log entry.
+- `created_at` **(datetime)**: Timestamp when the log was created.
+- `status` **(string)**: Current status of the log entry.
+- `has_hallucination` **(boolean)**: Whether hallucinations were detected.
+- `doc_relevancy_average` **(float)**: Average document relevancy score.
+- `updated_at` **(datetime)**: Timestamp when the log was last updated.
+- `evaluations` **(array)**: Evaluation results attached to the log.
+
+## Example workflow
+
+1. Log an interaction with detections enabled.
+2. Call the polling helper and wait for the promise/function to resolve.
+3. Inspect the returned `Log` payload for `has_hallucination` or `doc_relevancy_average` before deciding whether to alert, retry, or proceed.
+
+<Tip>
+  In long-running jobs, increase `timeout` or handle the timeout exception so you can fall back to asynchronous processing instead of failing the entire workflow.
+</Tip>
+
+Back to the [Detections overview](./overview).

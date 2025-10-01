@@ -52,8 +52,25 @@
           {
             "group": "Tools",
             "pages": [
-              "tools/detections",
-              "tools/reports"
+              {
+                "group": "Detections",
+                "icon": "ghost",
+                "pages": [
+                  "tools/detections/overview",
+                  "tools/detections/hallucination-detection",
+                  "tools/detections/document-relevance",
+                  "tools/detections/polling-and-results-api"
+                ]
+              },
+              {
+                "group": "Reports",
+                "icon": "clipboard",
+                "pages": [
+                  "tools/reports/overview",
+                  "tools/reports/integration",
+                  "tools/reports/when-to-use"
+                ]
+              }
             ]
           },
           {

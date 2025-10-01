@@ -1,0 +1,34 @@
+---
+title: "Integration"
+description: "Learn how reports are generated from your logs, traces, and detections."
+icon: "handshake"
+---
+
+# How to Integrate Reports
+
+Reports are automatically generated based on the logs and traces you send to Quotient. They become available once 100+ [detections](/tools/detections) have been generated within a 30-day window.
+
+## Prerequisites
+
+- **Consistent logging**: Send structured logs with `user_query`, `model_output`, and evidence so detections can run.
+- **Detections enabled**: Hallucination and document relevance detections provide the quality signals that power report scoring.
+- **Tag hygiene**: Attach tags such as `model`, `customer`, or `feature` to slice reports by meaningful segments.
+
+## Data pipeline at a glance
+
+1. Your application emits logs and traces through the Quotient SDKs.
+2. Detections execute asynchronously on each record.
+3. Reports aggregate detections and metadata into daily clusters with trend charts.
+4. You review the dashboard (or export via API) to plan remediation.
+
+## Best practices
+
+- Keep `detection_sample_rate` high enough to capture statistically significant coverage for each segment you care about.
+- Align tags with your roadmap—if you track `model_version` or `retriever`, you can measure the impact of each launch.
+- Review reports alongside [Logs](/core-functionalities/logs/overview) and [Traces](/core-functionalities/traces/overview) to trace issues from cluster to underlying interaction.
+
+<Tip>
+  If your traffic is bursty, consider uploading a curated evaluation set to quickly hit the 100-detection threshold and unlock reports before production volume ramps.
+</Tip>
+
+Back to the [Reports overview](./overview) or continue to [When to Use Reports](./when-to-use).
