@@ -1,0 +1,44 @@
+---
+title: "Document Relevance"
+description: "Measure whether retrieved documents actually support user queries."
+icon: "bug"
+---
+
+# What is document relevance?
+
+**Document relevance** measures how well your retrieval or search system finds context that is genuinely useful for answering the user's query. A document is considered **relevant** if it contains information that addresses at least one part of the query. Otherwise, it is marked **irrelevant**.
+
+The document relevance score is calculated as the fraction of documents that are relevant to the query.
+
+# How Quotient scores relevance
+
+1. Compare each document (or chunk) against the full `user_query`.
+2. Determine whether the document contains information relevant to any part of the query:
+   - If it does, mark it `relevant`.
+   - If it does not, mark it `irrelevant`.
+3. Compute `relevant_documents / total_documents` to derive the overall score.
+
+## What influences the score
+
+- **Chunk granularity:** smaller chunks make it easier to mark only the useful passages as relevant.
+- **Query clarity:** ambiguous prompts can lower relevancy; capture clarifying follow-ups in `message_history`.
+- **Retriever filters:** tag each log with retriever configuration so you can compare performance across setups.
+
+## Why track document relevance?
+
+Document relevance is a core metric for evaluating retrieval-augmented systems. Even if the AI generates well, weak retrieval can degrade the final answer. Monitoring this metric helps teams:
+
+- Assess whether retrieval surfaces useful context.
+- Debug cases where generation fails despite solid prompting.
+- Improve recall and precision of retrievers.
+- Watch for drift after retriever or data changes.
+
+<Tip>
+  A sudden dip in relevancy is often the earliest warning that embeddings, indexing, or filters changed. Alert on sustained drops before they cascade into hallucinations.
+</Tip>
+
+<Tip>
+  High-performing systems typically show \> 75% document relevance. Lower scores may signal ambiguous user queries, incorrect retrieval, or noisy source data.
+</Tip>
+
+Next: [Polling & Results API](./polling-and-results-api).
