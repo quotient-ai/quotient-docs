@@ -74,9 +74,9 @@ console.log("Log created with ID:", logId);
     { "page_content": "Document with metadata", "metadata": { "source": "kb.pdf" } }
   ]
   ```
-* **`message_history`** *(array)*: Previous messages following OpenAI format `{ role, content }`. Required if used for hallucination detection.
-* **`instructions`** *(array)*: Instruction strings given to the model. Used in hallucination detection.
-* **`tags`** *(object)*: Custom metadata to attach to the log. Example: `{ "model": "gpt-4", "customer": "enterprise-A" }`.
+* **`message_history`** *(array, optional)*: Previous messages following OpenAI format `{ role, content }`. Required if used for hallucination detection.
+* **`instructions`** *(array, optional)*: Instruction strings given to the model. Used in hallucination detection.
+* **`tags`** *(object, optional)*: Custom metadata to attach to the log. Example: `{ "model": "gpt-4", "customer": "enterprise-A" }`.
 
 ## Notes
 
