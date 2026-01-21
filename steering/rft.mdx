@@ -5,7 +5,7 @@ icon: "graduation-cap"
 keywords: ["rft", "fine-tuning", "training", "custom model", "reinforcement learning"]
 ---
 
-Reinforcement Fine-Tuning (RFT) allows you to train custom models tailored to your specific application using data from your production logs. By leveraging reinforcement learning techniques, RFT creates models that better understand your use case and improve performance on your specific tasks.
+Reinforcement Fine-Tuning (RFT) allows you to train custom models tailored to your specific application using data from your production traces. By leveraging reinforcement learning techniques, RFT creates models that better understand your use case and improve performance on your specific tasks.
 
 # Why Use RFT?
 
@@ -14,18 +14,18 @@ RFT is designed for teams who want to:
 - **Improve accuracy**: Train models that perform better on your specific domain and use cases
 - **Reduce costs**: Use smaller, fine-tuned models that outperform larger general-purpose models
 - **Customize behavior**: Create models that follow your application's patterns and requirements
-- **Leverage your data**: Turn your production logs into training data automatically
+- **Leverage your data**: Turn your production traces into training data automatically
 
 # Prerequisites
 
 Before starting an RFT training job, ensure you have:
 
 1. **An active Quotient account** with RFT access enabled
-2. **Logged data** from your application using the Quotient SDK
-3. **Sufficient logs** in your chosen app and environment (we recommend at least 1,000 logged interactions)
+2. **Trace data** from your application using the Quotient SDK
+3. **Sufficient traces** in your chosen app and environment (we recommend at least 1,000 traced interactions)
 
 <Tip>
-The more high-quality logged data you have, the better your fine-tuned model will perform. Focus on logging interactions that represent your ideal model behavior.
+The more high-quality trace data you have, the better your fine-tuned model will perform. Focus on tracing interactions that represent your ideal model behavior.
 </Tip>
 
 # Creating a Training Job
@@ -36,7 +36,7 @@ The more high-quality logged data you have, the better your fine-tuned model wil
   </Step>
 
   <Step title="Select Your App">
-    Choose the application you want to train a model for from the **App** dropdown. This determines which logged data will be used for training.
+    Choose the application you want to train a model for from the **App** dropdown. This determines which trace data will be used for training.
   </Step>
 
   <Step title="Select Environment">
@@ -65,22 +65,22 @@ Once you start a training job, it progresses through several stages:
 
 ## 1. Data Extraction
 
-The system extracts relevant training data from your logs. During this phase:
+The system extracts relevant training data from your traces. During this phase:
 
-- Your logged interactions are analyzed and formatted for training
+- Your traced interactions are analyzed and formatted for training
 - The system identifies high-quality examples that will improve model performance
 - A baseline performance metric is calculated
 
 **Status indicators:**
 - `Pending Extraction` - Preparing to extract data
-- `Extracting Data` - Actively processing your logs
+- `Extracting Data` - Actively processing your traces
 
 ## 2. Training
 
 After data extraction, the actual model training begins:
 
 - The base model is fine-tuned using reinforcement learning techniques
-- The model learns from your logged interactions to better match your use case
+- The model learns from your traced interactions to better match your use case
 - Progress is tracked and displayed as a percentage
 
 **Status indicator:** `Training in Progress`
@@ -206,7 +206,7 @@ Click **View** on any run to see detailed information and metrics.
 
 <CardGroup cols={2}>
   <Card title="Quality Over Quantity" icon="star">
-    Focus on logging high-quality interactions that represent ideal model behavior rather than logging everything.
+    Focus on tracing high-quality interactions that represent ideal model behavior rather than tracing everything.
   </Card>
   <Card title="Use Production Data" icon="database">
     Train on production environment data when possible, as it best represents real-world usage patterns.
@@ -222,13 +222,13 @@ Click **View** on any run to see detailed information and metrics.
 # Troubleshooting
 
 <Accordion title="Training failed during data extraction">
-This usually indicates insufficient or incompatible logged data. Ensure you have:
+This usually indicates insufficient or incompatible trace data. Ensure you have:
 
-- At least 1,000 logged interactions for the selected app and environment
-- Properly formatted logs with user queries and model outputs
-- Consistent data quality across your logs
+- At least 1,000 traced interactions for the selected app and environment
+- Properly formatted traces with user queries and model outputs
+- Consistent data quality across your traces
 
-Try logging more data and starting a new training run.
+Try collecting more traces and starting a new training run.
 </Accordion>
 
 <Accordion title="Training failed during model training">
@@ -244,9 +244,9 @@ Contact support if the issue persists.
 <Accordion title="Low improvement after training">
 If your model shows minimal improvement:
 
-- Review the quality and relevance of your logged data
-- Ensure your logs contain diverse examples of desired behavior
-- Consider logging more interactions before retraining
+- Review the quality and relevance of your trace data
+- Ensure your traces contain diverse examples of desired behavior
+- Consider collecting more traces before retraining
 - Try a different base model that may be better suited to your use case
 </Accordion>
 
@@ -255,7 +255,7 @@ If your fine-tuned model doesn't match expectations:
 
 - Verify you're using the correct inference endpoint
 - Review your training data for any patterns that might cause unexpected behavior
-- Test with prompts similar to your logged interactions
+- Test with prompts similar to your traced interactions
 - Consider additional training with more targeted examples
 </Accordion>
 
