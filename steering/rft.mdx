@@ -1,0 +1,263 @@
+---
+title: "Reinforcement Fine-Tuning (RFT)"
+description: "Train custom models on your specific use case using reinforcement learning"
+icon: "graduation-cap"
+keywords: ["rft", "fine-tuning", "training", "custom model", "reinforcement learning"]
+---
+
+Reinforcement Fine-Tuning (RFT) allows you to train custom models tailored to your specific application using data from your production logs. By leveraging reinforcement learning techniques, RFT creates models that better understand your use case and improve performance on your specific tasks.
+
+# Why Use RFT?
+
+RFT is designed for teams who want to:
+
+- **Improve accuracy**: Train models that perform better on your specific domain and use cases
+- **Reduce costs**: Use smaller, fine-tuned models that outperform larger general-purpose models
+- **Customize behavior**: Create models that follow your application's patterns and requirements
+- **Leverage your data**: Turn your production logs into training data automatically
+
+# Prerequisites
+
+Before starting an RFT training job, ensure you have:
+
+1. **An active Quotient account** with RFT access enabled
+2. **Logged data** from your application using the Quotient SDK
+3. **Sufficient logs** in your chosen app and environment (we recommend at least 1,000 logged interactions)
+
+<Tip>
+The more high-quality logged data you have, the better your fine-tuned model will perform. Focus on logging interactions that represent your ideal model behavior.
+</Tip>
+
+# Creating a Training Job
+
+<Steps>
+  <Step title="Navigate to RFT">
+    Go to the **Steering** section in the sidebar and click on **RFT** to access the training interface.
+  </Step>
+
+  <Step title="Select Your App">
+    Choose the application you want to train a model for from the **App** dropdown. This determines which logged data will be used for training.
+  </Step>
+
+  <Step title="Select Environment">
+    Select the environment (e.g., `production`, `staging`, `dev`) from which to extract training data. We recommend using production data for the best results.
+  </Step>
+
+  <Step title="Choose a Base Model">
+    Select the foundation model to fine-tune. Available options include:
+
+    - **Qwen 3 14B** - A powerful open-source model ideal for complex reasoning tasks
+    - **OpenAI o4-mini** - A fast, efficient model from OpenAI
+
+    <Tip>
+    Choose a base model that aligns with your latency and accuracy requirements. Smaller models are faster but may sacrifice some capability.
+    </Tip>
+  </Step>
+
+  <Step title="Start Training">
+    Click **Start Training** to begin the fine-tuning process. You'll be redirected to the training run view where you can monitor progress.
+  </Step>
+</Steps>
+
+# Training Workflow
+
+Once you start a training job, it progresses through several stages:
+
+## 1. Data Extraction
+
+The system extracts relevant training data from your logs. During this phase:
+
+- Your logged interactions are analyzed and formatted for training
+- The system identifies high-quality examples that will improve model performance
+- A baseline performance metric is calculated
+
+**Status indicators:**
+- `Pending Extraction` - Preparing to extract data
+- `Extracting Data` - Actively processing your logs
+
+## 2. Training
+
+After data extraction, the actual model training begins:
+
+- The base model is fine-tuned using reinforcement learning techniques
+- The model learns from your logged interactions to better match your use case
+- Progress is tracked and displayed as a percentage
+
+**Status indicator:** `Training in Progress`
+
+## 3. Completion
+
+When training finishes:
+
+- Final performance metrics are calculated
+- Your fine-tuned model is deployed and ready to use
+- An inference endpoint is generated for API access
+
+**Status indicator:** `Training Complete`
+
+# Monitoring Your Training
+
+## Progress Tracking
+
+The training interface provides real-time updates on your job:
+
+- **Progress bar**: Shows completion percentage (0-100%)
+- **Status badge**: Displays current training stage
+- **Auto-refresh**: Updates automatically every few seconds while training
+
+## Training Metrics
+
+For supported model types, you can view detailed training metrics:
+
+- **Training reward**: Shows how the model's performance improves over training steps
+- **Step progress**: Displays the current training step out of total steps
+- **Performance graph**: Visualizes reward progression throughout training
+
+<Accordion title="Understanding the Training Graph">
+The training graph shows how your model improves over time. A healthy training run typically shows:
+
+- **Upward trend**: Reward increases as training progresses
+- **Stabilization**: Metrics level off as the model converges
+- **Consistent improvement**: Steady gains without major fluctuations
+
+If you see erratic behavior or decreasing rewards, your training data may need improvement.
+</Accordion>
+
+# Using Your Fine-Tuned Model
+
+Once training is complete, you can use your custom model via the Quotient API.
+
+## Get Your Model Endpoint
+
+After training completes, your model's inference endpoint is displayed on the training run page. Copy this endpoint to use in your application.
+
+## Make Inference Calls
+
+Use the Quotient SDK to call your fine-tuned model:
+
+<CodeGroup>
+```python inference.py
+from quotientai import Quotient
+
+client = Quotient(api_key="YOUR_API_KEY")
+
+response = client.chat.completions.create(
+    model="YOUR_MODEL_ENDPOINT",
+    messages=[
+        {"role": "user", "content": "Your prompt here"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+```typescript inference.ts
+import { Quotient } from 'quotientai';
+
+const client = new Quotient({ apiKey: "YOUR_API_KEY" });
+
+const response = await client.chat.completions.create({
+    model: "YOUR_MODEL_ENDPOINT",
+    messages: [
+        { role: "user", content: "Your prompt here" }
+    ]
+});
+
+console.log(response.choices[0].message.content);
+```
+</CodeGroup>
+
+<Tip>
+Replace `YOUR_MODEL_ENDPOINT` with the inference endpoint shown on your completed training run page.
+</Tip>
+
+# Performance Comparison
+
+After training completes, the interface displays:
+
+- **Before Training**: Baseline performance on your test data
+- **After Training**: Performance of your fine-tuned model
+- **Improvement**: The percentage improvement achieved through fine-tuning
+
+Use these metrics to validate that your fine-tuned model meets your requirements before deploying to production.
+
+# Training Run History
+
+All your training runs are saved and accessible from the main RFT page. The training run table shows:
+
+| Column | Description |
+|--------|-------------|
+| App Name | The application the model was trained for |
+| Environment | The environment used for training data |
+| Base Model | The foundation model that was fine-tuned |
+| Status | Current status of the training job |
+| Started At | When the training job was created |
+| Completed | When training finished (if applicable) |
+| Improvement | Performance improvement percentage |
+
+Click **View** on any run to see detailed information and metrics.
+
+# Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Quality Over Quantity" icon="star">
+    Focus on logging high-quality interactions that represent ideal model behavior rather than logging everything.
+  </Card>
+  <Card title="Use Production Data" icon="database">
+    Train on production environment data when possible, as it best represents real-world usage patterns.
+  </Card>
+  <Card title="Monitor Progress" icon="chart-line">
+    Keep an eye on training metrics to ensure your model is learning effectively.
+  </Card>
+  <Card title="Test Before Deploy" icon="flask">
+    Compare before/after performance metrics and test your model thoroughly before production use.
+  </Card>
+</CardGroup>
+
+# Troubleshooting
+
+<Accordion title="Training failed during data extraction">
+This usually indicates insufficient or incompatible logged data. Ensure you have:
+
+- At least 1,000 logged interactions for the selected app and environment
+- Properly formatted logs with user queries and model outputs
+- Consistent data quality across your logs
+
+Try logging more data and starting a new training run.
+</Accordion>
+
+<Accordion title="Training failed during model training">
+If training fails after data extraction:
+
+- Check if the error message provides specific guidance
+- Ensure your data doesn't contain problematic content
+- Try again with a different base model
+
+Contact support if the issue persists.
+</Accordion>
+
+<Accordion title="Low improvement after training">
+If your model shows minimal improvement:
+
+- Review the quality and relevance of your logged data
+- Ensure your logs contain diverse examples of desired behavior
+- Consider logging more interactions before retraining
+- Try a different base model that may be better suited to your use case
+</Accordion>
+
+<Accordion title="Model not behaving as expected">
+If your fine-tuned model doesn't match expectations:
+
+- Verify you're using the correct inference endpoint
+- Review your training data for any patterns that might cause unexpected behavior
+- Test with prompts similar to your logged interactions
+- Consider additional training with more targeted examples
+</Accordion>
+
+# Getting Help
+
+If you encounter issues or have questions about RFT:
+
+- Join our [Discord community](https://discord.gg/YeJzANpntv) for peer support
+- Contact [support@quotientai.co](mailto:support@quotientai.co) for technical assistance
+- Check the [changelog](/devs/2025-05-15) for the latest updates and features
