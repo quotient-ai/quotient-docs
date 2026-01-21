@@ -125,7 +125,7 @@ If you see erratic behavior or decreasing rewards, your training data may need i
 
 # Using Your Fine-Tuned Model
 
-Once training is complete, you can use your custom model via the Quotient API.
+Once training is complete, you can use your custom model via the inference endpoint provided.
 
 ## Get Your Model Endpoint
 
@@ -133,42 +133,47 @@ After training completes, your model's inference endpoint is displayed on the tr
 
 ## Make Inference Calls
 
-Use the Quotient SDK to call your fine-tuned model:
+Your fine-tuned model is compatible with the OpenAI API format. You can use either the standard OpenAI client or the OpenAI Agents SDK.
 
-<CodeGroup>
-```python inference.py
-from quotientai import Quotient
+### OpenAI Client
 
-client = Quotient(api_key="YOUR_API_KEY")
+Use the OpenAI Python client with your custom model endpoint:
+
+```python openai_client.py
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="YOUR_MODEL_ENDPOINT/v1",
+    api_key="YOUR_API_KEY"
+)
 
 response = client.chat.completions.create(
-    model="YOUR_MODEL_ENDPOINT",
-    messages=[
-        {"role": "user", "content": "Your prompt here"}
-    ]
+    model="your-model-name",
+    messages=[{"role": "user", "content": "Hello!"}]
 )
 
 print(response.choices[0].message.content)
 ```
 
-```typescript inference.ts
-import { Quotient } from 'quotientai';
+### OpenAI Agents SDK
 
-const client = new Quotient({ apiKey: "YOUR_API_KEY" });
+You can also use the OpenAI Agents SDK for more advanced agent workflows:
 
-const response = await client.chat.completions.create({
-    model: "YOUR_MODEL_ENDPOINT",
-    messages: [
-        { role: "user", content: "Your prompt here" }
-    ]
-});
+```python openai_agents.py
+from agents import Agent
 
-console.log(response.choices[0].message.content);
+agent = Agent(
+    model="your-model-name",
+    base_url="YOUR_MODEL_ENDPOINT/v1",
+    api_key="YOUR_API_KEY"
+)
+
+result = agent.run("Your task here")
+print(result)
 ```
-</CodeGroup>
 
 <Tip>
-Replace `YOUR_MODEL_ENDPOINT` with the inference endpoint shown on your completed training run page.
+Replace `YOUR_MODEL_ENDPOINT` with the inference endpoint shown on your completed training run page, and `YOUR_API_KEY` with your Quotient API key.
 </Tip>
 
 # Performance Comparison
