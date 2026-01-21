@@ -25,7 +25,7 @@ Before starting an RFT training job, ensure you have:
 3. **Sufficient traces** in your chosen app and environment (we recommend at least 1,000 traced interactions)
 
 <Tip>
-The more high-quality trace data you have, the better your fine-tuned model will perform. Focus on tracing interactions that represent your ideal model behavior.
+RFT uses all traces sent to Quotient for the selected app and environment. Our system automatically filters and augments your traces to create high-quality training data that best represents your desired use case.
 </Tip>
 
 # Creating a Training Job
@@ -65,10 +65,10 @@ Once you start a training job, it progresses through several stages:
 
 ## 1. Data Extraction
 
-The system extracts relevant training data from your traces. During this phase:
+The system extracts and prepares training data from your traces. During this phase:
 
-- Your traced interactions are analyzed and formatted for training
-- The system identifies high-quality examples that will improve model performance
+- All traces for the selected app and environment are collected
+- Our system filters and augments your traces to create high-quality training examples
 - A baseline performance metric is calculated
 
 **Status indicators:**
@@ -205,8 +205,8 @@ Click **View** on any run to see detailed information and metrics.
 # Best Practices
 
 <CardGroup cols={2}>
-  <Card title="Quality Over Quantity" icon="star">
-    Focus on tracing high-quality interactions that represent ideal model behavior rather than tracing everything.
+  <Card title="More Data, Better Results" icon="star">
+    Send all your traces to Quotient. Our system automatically filters and augments your data to create high-quality training examples.
   </Card>
   <Card title="Use Production Data" icon="database">
     Train on production environment data when possible, as it best represents real-world usage patterns.
@@ -222,11 +222,10 @@ Click **View** on any run to see detailed information and metrics.
 # Troubleshooting
 
 <Accordion title="Training failed during data extraction">
-This usually indicates insufficient or incompatible trace data. Ensure you have:
+This usually indicates insufficient trace data. Ensure you have:
 
-- At least 1,000 traced interactions for the selected app and environment
-- Properly formatted traces with user queries and model outputs
-- Consistent data quality across your traces
+- At least 1,000 traces for the selected app and environment
+- Traces that include user queries and model outputs
 
 Try collecting more traces and starting a new training run.
 </Accordion>
@@ -244,8 +243,7 @@ Contact support if the issue persists.
 <Accordion title="Low improvement after training">
 If your model shows minimal improvement:
 
-- Review the quality and relevance of your trace data
-- Ensure your traces contain diverse examples of desired behavior
+- Ensure your traces contain diverse examples of your desired use case
 - Consider collecting more traces before retraining
 - Try a different base model that may be better suited to your use case
 </Accordion>
