@@ -22,7 +22,7 @@ Before starting an RFT training job, ensure you have:
 
 1. **An active Quotient account** with RFT access enabled
 2. **Trace data** from your application using the Quotient SDK
-3. **Sufficient traces** in your chosen app and environment (we recommend at least 1,000 traced interactions)
+3. **Sufficient traces** in your chosen app and environment (minimum of 50 traces required)
 
 <Tip>
 RFT uses all traces sent to Quotient for the selected app and environment. Our system automatically filters and augments your traces to create high-quality training data that best represents your desired use case.
@@ -224,7 +224,7 @@ Click **View** on any run to see detailed information and metrics.
 <Accordion title="Training failed during data extraction">
 This usually indicates insufficient trace data. Ensure you have:
 
-- At least 1,000 traces for the selected app and environment
+- At least 50 traces for the selected app and environment
 - Traces that include user queries and model outputs
 
 Try collecting more traces and starting a new training run.
