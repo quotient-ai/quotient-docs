@@ -102,6 +102,7 @@
           {
             "group": "Steering",
             "pages": [
+              "steering/rft",
               "steering/quotient-mcp"
             ]
           },
